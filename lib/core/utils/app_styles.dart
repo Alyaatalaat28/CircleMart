@@ -67,11 +67,11 @@ static double getResponsiveFontSize(BuildContext context,{required double fontSi
 static double getScaleFactor(BuildContext context){
   double width=MediaQuery.sizeOf(context).width;
   if(width<SizeConfig.tablet){
-    return width/550;
+    return width/300;
   }else if(width<SizeConfig.desktop){
-    return width/1000;
+    return width/500;
   }else{
-    return width/1920;
+    return width/700;
   }
 }
 }
