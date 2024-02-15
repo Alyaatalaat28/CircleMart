@@ -35,7 +35,7 @@ class IconStack extends StatelessWidget {
                     child: Text(
                       text??'',
                       style: TextStyle(
-                        color:Colors.white,
+                        color:kWhite,
                         fontSize: SizeConfig.width*0.02,
                       ),)
                     ),

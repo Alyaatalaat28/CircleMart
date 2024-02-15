@@ -6,9 +6,10 @@ class Assets{
   static const notification='assets/images/Container.svg';
   static const cart='assets/images/Group.svg';
   static const location='assets/images/Frame.svg';
-  static const dropDownMenu='assets/images/Group(1).svg';
-  static const search='assets/images/Vector.svg';
-  static const sliderImage='assets/images/1.svg';
+  static const dropDownMenu='assets/images/Group(6).svg';
+  static const search='assets/images/Group(5).svg';
+  static const sliderImage='images/slider.svg';
+  static const vector='assets/images/Vector.svg';
   static const categoryImage='assets/images/Frame36301.svg';
   static const productImage='assets/images/png-clipart-coffee-cup-cafe-cappuccino-espresso-coffee-lid-coffee.svg';
   static const avatarImage='assets/images/Frame236.svg';

@@ -20,7 +20,7 @@ class CustomIconButton extends StatelessWidget {
           decoration:ShapeDecoration(
             color:kLightGray,
             shape:RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(16),
             ),
           ),
           child: Center(
