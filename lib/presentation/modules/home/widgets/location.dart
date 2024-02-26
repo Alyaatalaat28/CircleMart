@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:nami/core/utils/app_styles.dart';
-import 'package:nami/core/utils/assets.dart';
-import 'package:nami/core/utils/constants.dart';
-import 'package:nami/core/utils/size_config.dart';
+import 'package:nami/core/extensions/num_extension.dart';
+import 'package:nami/core/resources/assets.dart';
+import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/app_styles.dart';
 
 class Location extends StatelessWidget {
   const Location({super.key});
 
   @override
   Widget build(BuildContext context) {
-     SizeConfig.init(context);
     return Container(
-      height:56,
-      width:SizeConfig.width*0.35,
+      height:54,
+      width:126.w,
       padding:const EdgeInsets.all(16),
           decoration:ShapeDecoration(
-            color:kRed,
+            color:AppColors.kRed,
             shape:RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
@@ -25,11 +24,11 @@ class Location extends StatelessWidget {
           child: Row(
             children:[
               SvgPicture.asset(Assets.dropDownMenu),
-              const Gap(11),
+               Gap(11.w),
               Text('القاهرة',
-              style:AppStyles.regular14(context, kWhite)
+              style:AppStyles.regular14(context, AppColors.kWhite)
             ),
-            const Gap(11),
+             Gap(11.w),
             SvgPicture.asset(Assets.location),
             ]),
     );

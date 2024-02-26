@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:nami/core/utils/constants.dart';
 
 class ImageSlider extends StatelessWidget {
@@ -10,7 +9,13 @@ class ImageSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return  CarouselSlider(
    items:sliderImages.map((image) {
-        return SvgPicture.asset(image, fit: BoxFit.cover);
+        return Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: Image(
+            image:AssetImage(image),
+            fit: BoxFit.cover
+          ),
+        );
       }).toList(),
    options: CarouselOptions(
       height: 200,

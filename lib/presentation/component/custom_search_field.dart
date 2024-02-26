@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:nami/core/utils/assets.dart';
-import 'package:nami/core/utils/constants.dart';
-
-import 'search_text_form_field.dart';
+import 'package:nami/core/extensions/num_extension.dart';
+import 'package:nami/core/resources/assets.dart';
+import 'package:nami/core/resources/colors.dart';
+import 'inputs/text_form_field.dart';
 
 class SearchField extends StatelessWidget {
-  const SearchField({super.key});
+   const SearchField({super.key,required this.controller});
+    final TextEditingController controller;
+
+
   @override
   Widget build(BuildContext context) {
-    return Flexible(
+    return Expanded(
       child: Container(
-            height:56,
+            height:56.h,
             padding:const EdgeInsets.all(16),
             decoration:ShapeDecoration(
-              color:kLightGray,
+              color:AppColors.kLightGray,
               shape:RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
             ),
               child: Row(
               children:[
-                SearchTextFormField(),
+                CustomTextFormField(
+                  controller:controller,
+                ),
                 const Gap(11),
                 SvgPicture.asset(Assets.search),
               ]),
