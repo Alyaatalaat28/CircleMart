@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../../../../core/routing/app_route.dart';
 import '../../../component/product_item.dart';
 import '../../products/product_details.dart';
