@@ -8,18 +8,22 @@ import 'package:nami/core/resources/colors.dart';
 
 class CustomOrderListTile extends StatelessWidget {
   const CustomOrderListTile({super.key,required this.title,required this.image,
-  this.subTitle,this.textStyle});
+  this.subTitle,this.textStyle,required this.trailing});
 
   final String title;
   final String? subTitle;
   final String image;
   final TextStyle? textStyle;
+  final bool trailing;
   
   @override
   Widget build(BuildContext context) {
     return  Directionality(
       textDirection: TextDirection.rtl,
       child: ListTile(
+        dense:true,
+        minVerticalPadding: 0.0,
+        contentPadding: const EdgeInsets.only(right: 16.0),
         title: Text(title),
     
         titleTextStyle:subTitle!=null? AppStyles.regular12(context, AppColors.kGray):textStyle,
@@ -32,6 +36,14 @@ class CustomOrderListTile extends StatelessWidget {
         width: 25.w,
         height:25.h
         ),
+        trailing:trailing?IconButton(
+          onPressed: () {  }, 
+          icon: const Icon(
+            Icons.arrow_forward_ios_rounded,
+            color: AppColors.kBlack,
+            size:14
+          ),
+        ):null,
       ),
     );
   }

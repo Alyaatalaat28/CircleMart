@@ -5,10 +5,7 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
 
 class ProductsAmountRow extends StatelessWidget {
-  const ProductsAmountRow({super.key,required this.price,required this.amount,required this.product});
- final String price;
- final String amount;
- final String product;
+  const ProductsAmountRow({super.key});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,16 +16,16 @@ class ProductsAmountRow extends StatelessWidget {
         SizedBox(
           width: 35.w,
           height: 24,
-          child: Text(price,
+          child: Text('560',
           style:AppStyles.semiBold16(context,)),
         ),
         Gap(15.w),
-        Text('$amount x',
+        Text('2 x',
         style:AppStyles.semiBold14(context,).copyWith(
           color:AppColors.kGray,
         )),
         const Spacer(),
-        Text(product,
+        Text('جمبري',
          style:AppStyles.regular14(context, AppColors.kBlack)),
       ],
     );

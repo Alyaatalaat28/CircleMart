@@ -46,6 +46,7 @@ class Assets{
   static const branch='assets/images/branch.svg';
   static const payment='assets/images/payment.svg';
   static const note='assets/images/note.svg';
+  static const button='assets/images/Component 25.svg';
 
 
 
