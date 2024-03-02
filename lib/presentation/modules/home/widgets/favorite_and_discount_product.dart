@@ -3,8 +3,8 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/colors.dart';
 
 class ProductFavoriteAndDiscount extends StatelessWidget {
-  const ProductFavoriteAndDiscount({super.key});
-
+  const ProductFavoriteAndDiscount({super.key,required this.iconColor});
+ final Color iconColor;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,8 +16,9 @@ class ProductFavoriteAndDiscount extends StatelessWidget {
            child:  CircleAvatar(
                   backgroundColor:AppColors.kWhite,
                   radius:20.r,         
-            child: const Icon(Icons.favorite_rounded,
-              color:AppColors.kFavoriteIcon,
+            child: Icon(
+              Icons.favorite_rounded,
+              color:iconColor,
               size:18,
               ),                      
             ),

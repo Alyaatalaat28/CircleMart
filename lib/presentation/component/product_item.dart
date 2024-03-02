@@ -6,8 +6,8 @@ import '../modules/home/widgets/product_price_and_cart.dart';
 import '../modules/home/widgets/product_stack.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
-
+  const ProductItem({super.key,this.iconColor=AppColors.kFavoriteIcon});
+ final Color iconColor;
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -29,7 +29,9 @@ class ProductItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment:CrossAxisAlignment.end,
                   children: [
-                   const ProductStack(),
+                    ProductStack(
+                     iconColor:iconColor ,
+                   ),
                     const Spacer(),
                     Text('جمبري',
                     style:AppStyles.regular14(context,AppColors.kBlack)),
