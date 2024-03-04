@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nami/presentation/modules/home/home_view_model.dart';
+import 'package:nami/presentation/modules/invoice/invoice_view_model.dart';
 import 'package:nami/presentation/modules/orders/orders_view_model.dart';
 import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,9 @@ class AppMultiProvider extends StatelessWidget {
           ),
          ChangeNotifierProvider(
           create: (BuildContext context) =>OrdersViewModel(),
+          ),
+         ChangeNotifierProvider(
+          create: (BuildContext context) =>InvoiceViewModel(),
           ),
       ],
       child: child,

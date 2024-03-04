@@ -3,13 +3,12 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/colors.dart';
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key,required this.child,this.height=80});
+  const CustomContainer({super.key,required this.child});
   final Widget child;
-  final double height;
   @override
   Widget build(BuildContext context) {
     return  Container(
-      height: height.h,
+      height: 80.h,
       decoration: ShapeDecoration(
         color: AppColors.kWhite,
         shape: RoundedRectangleBorder(

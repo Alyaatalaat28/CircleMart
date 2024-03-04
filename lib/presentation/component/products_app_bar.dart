@@ -6,8 +6,11 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 
 class ProductsAppBar extends StatelessWidget {
-  const ProductsAppBar({super.key,required this.text});
+  const ProductsAppBar({super.key,required this.text,this.onTapBack});
+
  final String text;
+ final VoidCallback? onTapBack;
+ 
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +23,7 @@ class ProductsAppBar extends StatelessWidget {
           ),
           Gap(10.w),
           InkWell(
-            onTap: (){
+             onTap: onTapBack ?? () {
               Navigator.pop(context);
             },
             child: SvgPicture.asset(Assets.arrow))

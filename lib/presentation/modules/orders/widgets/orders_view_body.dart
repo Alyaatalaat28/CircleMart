@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
+import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/component/products_app_bar.dart';
 import 'package:nami/presentation/modules/orders/orders_view_model.dart';
+import 'package:nami/presentation/modules/setting/setting_view.dart';
 import 'package:provider/provider.dart';
 import 'current_order_list_view.dart';
 import 'orders_status_buttons_row.dart';
@@ -20,7 +22,10 @@ class OrdersViewBody extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children:[
-            const ProductsAppBar(text: 'طلباتي',),
+             ProductsAppBar(
+              text: 'طلباتي',
+              onTapBack: () => push(const SettingView()),
+              ),
             Gap(24.h),
             const OrdersStatusButtonsRow(),
             Gap(24.h),

@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/presentation/modules/orders/widgets/edit_and_cancel_buttons.dart';
 import 'package:nami/presentation/modules/orders/widgets/products_order.dart';
-import 'package:nami/presentation/component/custom_stepper.dart';
+import 'package:nami/presentation/modules/orders/widgets/custom_stepper.dart';
 
 import '../../component/products_app_bar.dart';
 import 'widgets/details_container.dart';

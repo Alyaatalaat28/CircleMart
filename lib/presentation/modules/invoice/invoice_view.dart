@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/presentation/component/products_app_bar.dart';
+import 'package:nami/presentation/modules/invoice/widgets/dialog.dart';
 import 'package:nami/presentation/modules/invoice/widgets/invoice_details.dart';
-import 'package:nami/presentation/modules/invoice/widgets/send_order_button.dart';
 import 'widgets/invoice_products.dart';
 
 class InvoiceView extends StatelessWidget {
@@ -27,7 +27,8 @@ class InvoiceView extends StatelessWidget {
                  Gap(12.h),
                  const InvoiceProducts(),
                  Gap(99.h),
-                 const SendOrderButton(),
+                 const DoneDialog(),
+                 
                 
               ]
             ),

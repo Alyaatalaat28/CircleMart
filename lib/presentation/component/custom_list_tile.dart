@@ -8,13 +8,14 @@ import 'package:nami/core/resources/colors.dart';
 
 class CustomOrderListTile extends StatelessWidget {
   const CustomOrderListTile({super.key,required this.title,required this.image,
-  this.subTitle,this.textStyle,required this.trailing});
+  this.subTitle,this.textStyle,required this.trailing,this.onPressed});
 
   final String title;
   final String? subTitle;
   final String image;
   final TextStyle? textStyle;
   final bool trailing;
+  final void Function()? onPressed;
   
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class CustomOrderListTile extends StatelessWidget {
         height:25.h
         ),
         trailing:trailing?IconButton(
-          onPressed: () {  }, 
+          onPressed:onPressed, 
           icon: const Icon(
             Icons.arrow_forward_ios_rounded,
             color: AppColors.kBlack,
