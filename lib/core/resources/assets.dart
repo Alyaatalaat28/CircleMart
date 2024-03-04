@@ -8,7 +8,7 @@ class Assets{
   static const location='assets/images/Frame.svg';
   static const dropDownMenu='assets/images/Group(6).svg';
   static const search='assets/images/Group(5).svg';
-  static const sliderImage='assets/images/1.png';
+  static const sliderImage='assets/images/slid.png';
   static const vector='assets/images/Vector.svg';
   static const catImage='assets/images/categ.png';
   static const productImage='assets/images/prod.png';
@@ -47,8 +47,19 @@ class Assets{
   static const payment='assets/images/payment.svg';
   static const note='assets/images/note.svg';
   static const button='assets/images/Component 25.svg';
-
-
+  static const x='assets/images/x.svg';
+  static const apay='assets/images/apay.svg';
+  static const mcard='assets/images/mcard.svg';
+  static const cash='assets/images/cash.svg';
+  static const visa='assets/images/visa.svg';
+  static const ourLogo='assets/images/logo.svg';
+  static const contact='assets/images/Group 44.svg';
+  static const aboutUs='assets/images/us.svg';
+  static const email='assets/images/person.svg';
+  static const title='assets/images/title.svg';
+  static const person='assets/images/email.svg';
+  static const g1='assets/images/g1.gif';
+  static const g2='assets/images/g2.gif';
 
   
 }
