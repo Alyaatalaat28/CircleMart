@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/routing/app_route.dart';
+import 'package:nami/presentation/modules/favorite/favorite_view.dart';
+import 'package:nami/presentation/modules/orders/orders_view.dart';
+import 'package:nami/presentation/modules/points/points_view.dart';
 
 import 'orders_item.dart';
 
@@ -21,21 +25,36 @@ class OrdersOptions extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
           ),
-          child:const Center(
+          child: Center(
             child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               OrdersItem(
                 image:Assets.points,
-                text:'النقاط'
+                text:'النقاط',
+                onTap: (){
+                  push(
+                    const PointsView(),
+                  );
+                },
                 ),
                OrdersItem(
                 image:Assets.favorite,
-                text:'المفضلة'
+                text:'المفضلة',
+                onTap: (){
+                  push(
+                    const FavoriteView(),
+                  );
+                },
               ),
              OrdersItem( 
               image:Assets.orders,
-              text:'طلباتي'
+              text:'طلباتي',
+              onTap: (){
+                  push(
+                    const OrdersView(),
+                  );
+                },
               ),
             ]
         ),

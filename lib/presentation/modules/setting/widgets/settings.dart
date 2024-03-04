@@ -1,15 +1,25 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/resources/app_styles.dart';
+import 'package:nami/core/routing/app_route.dart';
+import 'package:nami/presentation/modules/about/about_us_view.dart';
+import 'package:nami/presentation/modules/contact/contact_view.dart';
+import 'package:nami/presentation/modules/setting/widgets/language_bottom_sheet.dart';
 import 'delete_account.dart';
 import 'setting_item.dart';
 
-class Setting extends StatelessWidget {
+class Setting extends StatefulWidget {
   const Setting({super.key});
 
+  @override
+  State<Setting> createState() => _SettingState();
+}
+
+class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     return  SizedBox(
@@ -43,14 +53,24 @@ class Setting extends StatelessWidget {
                    Gap(6),
                  ],
                ),
-               const SettingItem(
+                SettingItem(
                 image: Assets.language, text: 'اللغة',
+                onPressed: ()=>showBottomSheet(),
                 ),
-               const SettingItem(
-                image: Assets.connectToUs, text: 'تواصل معنا'
+                SettingItem(
+                image: Assets.connectToUs, text: 'تواصل معنا',
+                 onPressed:(){ push(
+                    const ContactView(),
+                  );
+                  }
                ),
-               const SettingItem(
-                image: Assets.aboutApp, text: 'عن التطبيق'
+                SettingItem(
+                image: Assets.aboutApp, text: 'عن التطبيق',
+                onPressed: (){
+                  push(
+                    const AboutView(),
+                  );
+                },
               ),
                const Row(
                  children: [
@@ -66,5 +86,12 @@ class Setting extends StatelessWidget {
           ),
       ),
     );
+  }
+
+  void showBottomSheet(){
+            showModalBottomSheet(
+              context:context,
+              builder:(context)=> const LanguageBottomSheet ()
+              );
   }
 }

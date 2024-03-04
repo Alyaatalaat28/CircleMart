@@ -6,10 +6,10 @@ import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/resources/app_styles.dart';
 
 class SettingItem extends StatelessWidget {
-  const SettingItem({super.key,required this.image,required this.text,});
+  const SettingItem({super.key,required this.image,required this.text,this.onPressed});
  final String image;
  final String text;
-
+final void Function()?onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class SettingItem extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            onPressed: () {  },
+            onPressed:onPressed,
              icon: Icon(
               Icons.arrow_back_ios_new_rounded,
               color:AppColors.kGray,
