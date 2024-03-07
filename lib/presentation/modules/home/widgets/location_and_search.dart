@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/presentation/modules/home/widgets/location.dart';
-import '../../../component/custom_search_field.dart';
+import '../../../component/inputs/custom_search_field.dart';
 
 class LocationAndSearch extends StatelessWidget {
    LocationAndSearch({super.key});

@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart'; 
-import 'package:nami/presentation/component/custom_text_field.dart';
+import 'package:nami/presentation/component/inputs/custom_text_field.dart';
 
 class   Notes extends StatelessWidget {
   const Notes({super.key});
@@ -28,9 +28,9 @@ class   Notes extends StatelessWidget {
         padding: const EdgeInsets.only(right: 16.0),
         child: Row(
          children:[
-          const Spacer(),
           const CustomTextField(
           label:'ملاحظات',
+          keyboardType:TextInputType.text,
           ),
           Gap(16.w),
           SvgPicture.asset(Assets.note),

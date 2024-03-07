@@ -60,6 +60,8 @@ class Assets{
   static const person='assets/images/email.svg';
   static const g1='assets/images/g1.gif';
   static const g2='assets/images/g2.gif';
+  static const egFlag='assets/images/Flag_of_Egypt.svg';
+  static const phone='assets/images/phone.svg';
 
   
 }

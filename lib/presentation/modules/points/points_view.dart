@@ -14,15 +14,20 @@ class PointsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  SafeArea(
       child:Scaffold(
+         appBar:AppBar(
+          automaticallyImplyLeading: false,
+           actions:const[
+           ProductsAppBar(
+                    text:'النقاط'
+                  ),
+          ]
+        ),
         body:Padding(
           padding: const EdgeInsets.all(10.0),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               children:[
-                 const ProductsAppBar(
-                    text:'النقاط'
-                  ),
                  const MyPoints(),
                 const CustomTextButton(
                   text: 'دعوة صديق',

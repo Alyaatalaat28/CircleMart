@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/routing/app_route.dart';
-import 'package:nami/presentation/modules/home/bottom_nav_bar.dart';
+import 'package:nami/presentation/modules/auth/login/login_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -31,7 +31,7 @@ class _SplashViewBodyState extends State<SplashView> {
   navigateToHome(){
     Future.delayed(
       const Duration(seconds:3),(){
-        push(const BottomNavBar());
+        push(const LoginView());
       }
     );
   }

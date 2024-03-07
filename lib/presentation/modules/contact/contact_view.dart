@@ -14,16 +14,20 @@ class ContactView extends StatelessWidget {
   Widget build(BuildContext context) {
     return   SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          actions:const [
+                 ProductsAppBar(
+                      text: 'تواصل معنا'
+                 )
+          ],
+        ),
         body:Padding(
           padding: const EdgeInsets.all(10.0),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                const ProductsAppBar(
-                    text: 'تواصل معنا'
-                    ),
-                    Gap(24.h),
                   SvgPicture.asset(Assets.contact),
                    Gap(48.h),
                  const ContactInformation(),

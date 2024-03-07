@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/resources/assets.dart';
+import 'package:nami/core/routing/app_route.dart';
+import 'package:nami/presentation/modules/cart/cart_view.dart';
 import 'custom_icon_button.dart';
 import 'welcome_user.dart';
 
@@ -16,9 +18,12 @@ class CustomAppBar extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children:[
-            const CustomIconButton(
+             CustomIconButton(
               image:Assets.cart,
               text:'1',
+              onTap: (){
+                push(const CartView());
+              },
             ),
             const Gap(8),
             const CustomIconButton(

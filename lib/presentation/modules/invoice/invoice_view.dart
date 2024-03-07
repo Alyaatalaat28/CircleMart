@@ -13,16 +13,21 @@ class InvoiceView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  SafeArea(
       child:Scaffold(
+        appBar:AppBar(
+          automaticallyImplyLeading: false,
+           actions:const[
+             ProductsAppBar(
+                    text:'الفاتورة'
+                  ),
+          ]
+        ),
         body:Padding(
           padding: const EdgeInsets.all(10.0),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               children:[
-                 const ProductsAppBar(
-                    text:'الفاتورة'
-                  ),
-                 Gap(30.h),
+                 //Gap(30.h),
                  const InvoiceDetails(),
                  Gap(12.h),
                  const InvoiceProducts(),

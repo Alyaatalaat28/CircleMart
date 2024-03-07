@@ -20,16 +20,21 @@ class PaymentAndDelivery extends StatelessWidget {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(
+         appBar:AppBar(
+          automaticallyImplyLeading: false,
+           actions:const[
+               ProductsAppBar(
+                text:'الدفع والتوصيل'
+              ),
+          ]
+        ),
       body:Padding(
         padding: const EdgeInsets.all(10.0),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
-            children:[
-              const ProductsAppBar(
-                text:'الدفع والتوصيل'
-              ),
-             Gap(30.h),
+            children:[ 
+             //Gap(30.h),
              const OrderItemsListView(),
              Gap(12.h),
              const Address(),

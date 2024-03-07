@@ -14,24 +14,27 @@ final void Function()?onPressed;
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Row(
-        children: [
-          IconButton(
-            onPressed:onPressed,
-             icon: Icon(
-              Icons.arrow_back_ios_new_rounded,
-              color:AppColors.kGray,
-              size:15.w,
-             ),
+        child:  InkWell(
+         onTap:onPressed,
+      child:Row(
+          children: [
+            IconButton(
+              onPressed:(){},
+               icon: Icon(
+                Icons.arrow_back_ios_new_rounded,
+                color:AppColors.kGray,
+                size:15.w,
+               ),
+            ),
+            const Spacer(),
+            Text(text,
+            style: AppStyles.regular14(context, AppColors.kBlack),),
+            Gap(7.w),
+            SvgPicture.asset(image,
+            ),
+          ],
           ),
-          const Spacer(),
-          Text(text,
-          style: AppStyles.regular14(context, AppColors.kBlack),),
-          Gap(7.w),
-          SvgPicture.asset(image,
-          ),
-        ],
-        ),
+      ),
     );
   }
 }

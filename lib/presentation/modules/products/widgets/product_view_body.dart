@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
-import 'package:nami/presentation/component/custom_search_field.dart';
+import 'package:nami/presentation/component/inputs/custom_search_field.dart';
 import 'product_branches.dart';
 import 'product_sections.dart';
-import '../../../component/products_app_bar.dart';
 import 'products_grid.dart';
 
 class ProductViewBody extends StatelessWidget {
@@ -18,10 +17,7 @@ class ProductViewBody extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-          const ProductsAppBar(
-            text: 'المنتجات',
-           ),
-           Gap(30.h),
+           //Gap(30.h),
            Padding(
              padding: EdgeInsets.all(6.0.w),
              child: Row(

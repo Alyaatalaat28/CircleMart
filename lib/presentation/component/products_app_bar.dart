@@ -13,21 +13,23 @@ class ProductsAppBar extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Row(
-        children:[
-          const Spacer(),
-          Text(text,
-          style:AppStyles.semiBold18(context)
-          ),
-          Gap(10.w),
-          InkWell(
-             onTap: onTapBack ?? () {
-              Navigator.pop(context);
-            },
-            child: SvgPicture.asset(Assets.arrow))
-        ]
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children:[
+            const Spacer(),
+            Text(text,
+            style:AppStyles.semiBold18(context)
+            ),
+            Gap(10.w),
+            InkWell(
+               onTap: onTapBack ?? () {
+                Navigator.pop(context);
+              },
+              child: SvgPicture.asset(Assets.arrow))
+          ]
+        ),
       ),
     );
   }

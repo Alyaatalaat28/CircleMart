@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'inputs/text_form_field.dart';
+import 'text_form_field.dart';
 
 class SearchField extends StatelessWidget {
    const SearchField({super.key,required this.controller});

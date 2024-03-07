@@ -23,16 +23,21 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(
+        appBar:AppBar(
+          automaticallyImplyLeading: false,
+           actions:const[
+             ProductsAppBar(
+                  text: 'تفاصيل المنتج'
+                  ),
+          ]
+        ),
         body:SingleChildScrollView(
           physics:const BouncingScrollPhysics(),
           child: Consumer<ProductsViewModel>(
             builder: (BuildContext context,provider,child) {  
             return Column(
               children: [
-                const ProductsAppBar(
-                  text: 'تفاصيل المنتج'
-                  ),
-                Gap(28.h),
+               // Gap(28.h),
                 const ProductImage(),
                const AddToFavorite(),
                const ProductDescription(),

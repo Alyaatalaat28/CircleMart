@@ -15,16 +15,20 @@ class AboutView extends StatelessWidget {
   Widget build(BuildContext context) {
         return   SafeArea(
       child: Scaffold(
+        appBar:AppBar(
+           automaticallyImplyLeading: false,
+          actions:const[
+             ProductsAppBar(
+                    text: 'عن التطبيق'
+                    ),
+          ]
+        ),
         body:Padding(
           padding: const EdgeInsets.all(10.0),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                const ProductsAppBar(
-                    text: 'عن التطبيق'
-                    ),
-                    Gap(48.h),
                   SvgPicture.asset(Assets.ourLogo),
                    Gap(35.h),
                   const About(),
