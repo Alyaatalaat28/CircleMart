@@ -17,7 +17,6 @@ class ProductViewBody extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-           //Gap(30.h),
            Padding(
              padding: EdgeInsets.all(6.0.w),
              child: Row(
@@ -33,7 +32,7 @@ class ProductViewBody extends StatelessWidget {
            Gap(8.h),
            const ProductBranches(),
            Gap(28.h),
-           const ProductsGrid(),
+            ProductsGrid(),
           ],
         ),
       ),

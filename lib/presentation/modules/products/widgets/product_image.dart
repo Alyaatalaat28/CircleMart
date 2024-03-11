@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nami/core/extensions/num_extension.dart';
-import 'package:nami/core/resources/assets.dart';
 
 class ProductImage extends StatelessWidget {
-  const ProductImage({super.key});
-
+  const ProductImage({super.key,required this.image});
+final String image;
   @override
   Widget build(BuildContext context) {
     return  Padding(
@@ -12,9 +11,9 @@ class ProductImage extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height:234.h,
-        child: const Image(
+        child: Image(
           image:AssetImage(
-            Assets.details,
+            image
           ),
           fit: BoxFit.fill,
         ),

@@ -32,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
               text:'احدث المنتجات'
             ),
             const Gap(16),
-            const ProductGridView(),
+             ProductGridView(),
           ],
         ),
       ),

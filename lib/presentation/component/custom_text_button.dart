@@ -29,11 +29,9 @@ final void Function()?onPressed;
               borderRadius: BorderRadius.circular(radius),
               )),
               child:Center(
-                child: TextButton(
-                  onPressed:(){},
-                   child: Text(text,
+                child: Text(text,
                    style: AppStyles.regular14(context, AppColors.kWhite),
-                   )),
+                   )
               )
       ),
     );

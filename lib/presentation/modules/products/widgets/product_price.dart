@@ -7,8 +7,8 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
 
 class ProductPrice extends StatelessWidget {
-  const ProductPrice({super.key});
-
+  const ProductPrice({super.key,required this.price});
+final double price;
   @override
   Widget build(BuildContext context) {
     return  Container(
@@ -28,7 +28,7 @@ class ProductPrice extends StatelessWidget {
                 Text('ج.م',
                 style:AppStyles.regular12(context, AppColors.kRed)),
                 Gap(4.w),
-                Text('280',
+                Text('$price',
                 style:AppStyles.semiBold24(context),),
                 const Spacer(),
                 Text(': السعر',

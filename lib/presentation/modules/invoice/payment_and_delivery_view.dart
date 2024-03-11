@@ -7,7 +7,9 @@ import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/component/products_app_bar.dart';
 import 'package:nami/presentation/modules/invoice/invoice_view.dart';
 import 'package:nami/presentation/modules/invoice/widgets/orders_items_list_view.dart';
+import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:nami/presentation/sheet/bottom_sheet.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets/address.dart';
 import 'widgets/notes.dart';
@@ -18,51 +20,52 @@ class PaymentAndDelivery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
-      child: Scaffold(
-         appBar:AppBar(
-          automaticallyImplyLeading: false,
-           actions:const[
-               ProductsAppBar(
-                text:'الدفع والتوصيل'
-              ),
-          ]
-        ),
-      body:Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            children:[ 
-             //Gap(30.h),
-             const OrderItemsListView(),
-             Gap(12.h),
-             const Address(),
-             Gap(12.h),
-             const PaymentMethod(),
-             Gap(12.h),
-             const Notes(),
-              Gap(80.h),
-             CustomBottomSheet(
-              width: 79, 
-              height: 45,
-              text: '576',
-              child:Center(
-                child: InkWell(
-                  onTap:(){
-                     push(
-                       const InvoiceView(),
-                      );
-                  },
-                  child: Text('تأكيد',
-                  style:AppStyles.regular14(context, AppColors.kWhite)),
+    return  Consumer<ProductsViewModel>(
+      builder:(context,provider,child)=> SafeArea(
+        child: Scaffold(
+           appBar:AppBar(
+            automaticallyImplyLeading: false,
+             actions:const[
+                 ProductsAppBar(
+                  text:'الدفع والتوصيل'
                 ),
-              ) ,
-              )
             ]
           ),
-        ),
-      )
-    ));
+        body:Padding(
+          padding: const EdgeInsets.symmetric(horizontal:10.0),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children:[ 
+               const OrderItemsListView(),
+               Gap(12.h),
+               const Address(),
+               Gap(12.h),
+               const PaymentMethod(),
+               Gap(12.h),
+               const Notes(),
+                Gap(210.h),
+               CustomBottomSheet(
+                width: 79, 
+                height: 45,
+                text: '${provider.totalPriceForCartProuducts()}',
+                child:Center(
+                  child: InkWell(
+                    onTap:(){
+                       pushReplacement(
+                         const InvoiceView(),
+                        );
+                    },
+                    child: Text('تأكيد',
+                    style:AppStyles.regular14(context, AppColors.kWhite)),
+                  ),
+                ) ,
+                )
+              ]
+            ),
+          ),
+        )
+      )),
+    );
   }
 }

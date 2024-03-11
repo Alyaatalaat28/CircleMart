@@ -15,9 +15,11 @@ final TextInputType keyboardType;
       padding: const EdgeInsets.symmetric(horizontal:5.0),
       child: Row(
        children: [
-        CustomTextField(
-        label: text,
-        keyboardType:keyboardType ,),
+        Expanded(
+          child: CustomTextField(
+          label: text,
+          keyboardType:keyboardType ,),
+        ),
         Gap(8.w),
         SvgPicture.asset(image,)
        ],

@@ -8,7 +8,6 @@ import 'widgets/invoice_products.dart';
 
 class InvoiceView extends StatelessWidget {
   const InvoiceView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -27,12 +26,11 @@ class InvoiceView extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             child: Column(
               children:[
-                 //Gap(30.h),
                  const InvoiceDetails(),
                  Gap(12.h),
                  const InvoiceProducts(),
                  Gap(99.h),
-                 const DoneDialog(),
+                const  DoneDialog(),
                  
                 
               ]

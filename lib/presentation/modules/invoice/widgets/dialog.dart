@@ -7,7 +7,8 @@ import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/modules/orders/orders_view.dart';
-
+import 'package:nami/presentation/modules/products/products_view_model.dart';
+import 'package:provider/provider.dart';
 import '../../../component/custom_text_button.dart';
 
 class DoneDialog extends StatefulWidget {
@@ -24,25 +25,32 @@ class _DoneDialogState extends State<DoneDialog> with  SingleTickerProviderState
     super.initState();
     controller = GifController(vsync: this);
   }
-
+  @override
+  void dispose(){
+    controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
-    return   CustomTextButton(
-                  text: 'ارسال الطلب',
-                  width: double.infinity,
-                  height:50,
-                  radius: 12,
-                  onPressed:(){
-                    _showContentDialog();
-                    _navigateToOrdersScreen();
-                    }
-                 );
+    return   Consumer<ProductsViewModel>(
+      builder:(context,provider,child)=> CustomTextButton(
+                    text: 'ارسال الطلب',
+                    width: double.infinity,
+                    height:50,
+                    radius: 12,
+                    onPressed:(){
+                      _showContentDialog();
+                       provider.clearCart();
+                      _navigateToOrdersScreen();
+                      }   
+                   ),
+    );
   }
 
  void _navigateToOrdersScreen() {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pop();
-      push(
+      pushReplacement(
         const OrdersView(),
       );
     });}

@@ -7,6 +7,7 @@ import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/modules/cart/cart_view.dart';
+import 'package:nami/presentation/modules/products/model/product_model.dart';
 import 'package:nami/presentation/sheet/bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import '../../component/products_app_bar.dart';
@@ -17,10 +18,11 @@ import 'widgets/product_image.dart';
 import 'widgets/product_price_and_amount.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
-
+  const ProductDetails({super.key,required this.product});
+final Product product;
   @override
   Widget build(BuildContext context) {
+   
     return  SafeArea(
       child: Scaffold(
         appBar:AppBar(
@@ -37,12 +39,15 @@ class ProductDetails extends StatelessWidget {
             builder: (BuildContext context,provider,child) {  
             return Column(
               children: [
-               // Gap(28.h),
-                const ProductImage(),
+                const ProductImage(
+                  image:Assets.details ,
+                ),
                const AddToFavorite(),
                const ProductDescription(),
               Gap(12.h),
-              const ProductPriceAndAmount(),
+               ProductPriceAndAmount(
+               product: product,
+               ),
               Gap(30.h),
                CustomBottomSheet(
                 width: 141,
@@ -50,7 +55,9 @@ class ProductDetails extends StatelessWidget {
                 text: '${provider.counter*280}', 
                 child:InkWell(
                   onTap: (){
-                    push(const CartView());
+                    provider.addToCart(product,provider.counter);
+                    pushReplacement(const CartView());
+                    provider.resetCounter();
                   },
                   child: Center(
                     child: Row(

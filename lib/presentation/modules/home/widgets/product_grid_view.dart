@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:nami/core/resources/assets.dart';
+import 'package:nami/presentation/modules/products/model/product_model.dart';
 import '../../../../core/routing/app_route.dart';
 import '../../../component/product_item.dart';
 import '../../products/product_details.dart';
 
 class ProductGridView extends StatelessWidget {
-  const ProductGridView({super.key});
-
+   ProductGridView({super.key});
+final product= Product(
+            name:'جمبري',
+            image:Assets.shrimp ,
+            price:280 ,
+            quantity: 1,
+          );
   @override
   Widget build(BuildContext context) {
      return GridView.count(
@@ -17,9 +24,13 @@ class ProductGridView extends StatelessWidget {
       crossAxisSpacing: 8.0,
       children: List.generate(8, (index) =>InkWell(
         onTap: (){
-          push(const ProductDetails());
+          push( ProductDetails(
+            product: product,
+            ));
         },
-        child: const ProductItem())),
+        child:  ProductItem(
+          product: product,
+        ))),
     );
   }
 }

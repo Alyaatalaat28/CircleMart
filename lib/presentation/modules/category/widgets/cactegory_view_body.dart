@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:nami/core/resources/app_styles.dart';
 import 'categories.dart';
 import 'categoris_list.dart';
 
@@ -9,17 +8,14 @@ class CategoryViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.all(12),
+    return  const Padding(
+      padding: EdgeInsets.all(12),
       child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children:[
-            Text('الاقسام',
-                style:AppStyles.semiBold18(context)),
-            const Gap(16),
-            const Row(
+            Row(
                crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CategorisList(),

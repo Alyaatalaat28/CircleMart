@@ -19,7 +19,6 @@ class OrdersViewBody extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children:[
-           // Gap(24.h),
             const OrdersStatusButtonsRow(),
             Gap(24.h),
             provider.showCurrentOrders? const CurrentOrderListView():const PreviousOrderListView(),

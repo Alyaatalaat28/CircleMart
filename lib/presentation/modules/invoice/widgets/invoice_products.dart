@@ -11,47 +11,51 @@ import 'package:nami/presentation/component/all_order_products_list_view.dart';
 import 'package:nami/presentation/component/order_delivery_price.dart';
 import 'package:nami/presentation/component/order_total_price.dart';
 import 'package:nami/presentation/modules/invoice/widgets/points_option.dart';
+import 'package:nami/presentation/modules/products/products_view_model.dart';
+import 'package:provider/provider.dart';
 
 class InvoiceProducts extends StatelessWidget {
   const InvoiceProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
-       return Container(
-      width: double.infinity,
-      decoration:ShapeDecoration(
-          color:AppColors.kLightGray,
-          shape:RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-            )),
-          child:Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment:CrossAxisAlignment.end,
-              children:[
-                Text('المنتجات',
-                style:AppStyles.semiBold12(context)),
-                const ProductsListView(),
-                  SvgPicture.asset(Assets.line,
-                  color:AppColors.kGray),
-                   Gap(12.h),
-                  const OrderDeliveryPrice(
-                    price: '20',),
-                     Gap(12.h),
+       return Consumer<ProductsViewModel>(
+         builder:(context,provider,child)=> Container(
+               width: double.infinity,
+               decoration:ShapeDecoration(
+            color:AppColors.kLightGray,
+            shape:RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              )),
+            child:Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment:CrossAxisAlignment.end,
+                children:[
+                  Text('المنتجات',
+                  style:AppStyles.semiBold12(context)),
+                  const ProductsListView(),
                     SvgPicture.asset(Assets.line,
-                  color:AppColors.kGray),
-                    Gap(12.h),
-                    const PointsOption(),
+                    color:AppColors.kGray),
                      Gap(12.h),
-                    SvgPicture.asset(Assets.line,
-                  color:AppColors.kGray),
-                    Gap(12.h),
-                  const OrderTotalPrice(
-                    price: '569',),
-                
-              ]
-            ),
-          )
-    );
+                    const OrderDeliveryPrice(
+                      price: '20',),
+                       Gap(12.h),
+                      SvgPicture.asset(Assets.line,
+                    color:AppColors.kGray),
+                      Gap(12.h),
+                      const PointsOption(),
+                       Gap(12.h),
+                      SvgPicture.asset(Assets.line,
+                    color:AppColors.kGray),
+                      Gap(12.h),
+                     OrderTotalPrice(
+                      price: provider.isChecked?'${provider.discount(130)}':'${provider.totalPriceForCartProuducts()}',),
+                  
+                ]
+              ),
+            )
+             ),
+       );
   }
 }

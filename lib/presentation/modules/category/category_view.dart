@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nami/core/resources/app_styles.dart';
 import 'widgets/cactegory_view_body.dart';
 
 class CategoryView extends StatelessWidget {
@@ -6,9 +7,18 @@ class CategoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return  SafeArea(
       child:Scaffold(
-        body:CategoryViewBody(),
+         appBar: AppBar(
+          automaticallyImplyLeading: false,
+          actions:[
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text('الاقسام',
+                  style:AppStyles.semiBold18(context)),
+            ),
+       ] ),
+        body:const CategoryViewBody(),
       )
     );
   }
