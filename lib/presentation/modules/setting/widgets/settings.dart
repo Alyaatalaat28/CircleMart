@@ -7,6 +7,7 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/modules/about/about_us_view.dart';
 import 'package:nami/presentation/modules/contact/contact_view.dart';
+import 'package:nami/presentation/modules/edit_profile/edit_profile.dart';
 import 'package:nami/presentation/modules/setting/widgets/language_bottom_sheet.dart';
 import 'delete_account.dart';
 import 'setting_item.dart';
@@ -44,12 +45,15 @@ class _SettingState extends State<Setting> {
                     const Gap(6),
                   ],
                 ),
-               const Row(
+                Row(
                  children: [
                    SettingItem(
-                    image: Assets.editAccount, text: 'تعديل الحساب'
-                                 ),
-                   Gap(6),
+                    image: Assets.editAccount, text: 'تعديل الحساب',
+                    onPressed: (){
+                      push(const EditProfile());
+                    },
+                     ),
+                  const Gap(6),
                  ],
                ),
                 SettingItem(

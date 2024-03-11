@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
-import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/presentation/modules/setting/widgets/settings.dart';
 import 'avatar.dart';
 import 'log_out_button.dart';
@@ -19,9 +18,6 @@ class SettingViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment:CrossAxisAlignment.end,
           children:[
-             Text('المزيد',
-             style:AppStyles.semiBold18(context)),
-              Gap(14.h), 
              const Avatar(),
               Gap(20.h),
              const OrdersOptions(),

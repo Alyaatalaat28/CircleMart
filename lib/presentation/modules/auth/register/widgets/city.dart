@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
+import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'package:nami/presentation/component/inputs/custom_text_field.dart';
 
-class PhoneNumber extends StatelessWidget {
-  const PhoneNumber({super.key});
+class City extends StatelessWidget {
+  const City({super.key});
 
   @override
   Widget build(BuildContext context) {
     return  Container(
-        height: 60.h,
+      height: 61.h,
         decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -23,22 +23,21 @@ class PhoneNumber extends StatelessWidget {
             )
           )
           ),
-          child:  Padding(
-            padding: const EdgeInsets.symmetric(horizontal:16.0),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal:20.0),
             child: Row(
-              children: [
-                const Spacer(),
-               const Expanded(
-                 child: CustomTextField(
-                  label: 'رقم الجوال',
-                  color: AppColors.kBlack,
-                   keyboardType:TextInputType.phone ,),
-               ),
-                Gap(8.5.w),
-                SvgPicture.asset(Assets.phone,)
-              ],
-            ),
+                children: [
+                  SvgPicture.asset(Assets.dropDownMenu,
+                  color: AppColors.kRed,),
+                  const Spacer(),
+                  Text('المدينة',
+                  style: AppStyles.regular14(context, AppColors.kBlack),),
+                  Gap(6.w),
+                  SvgPicture.asset(Assets.city,)
+                ],
+              ),
           ),
+          
     );
   }
 }

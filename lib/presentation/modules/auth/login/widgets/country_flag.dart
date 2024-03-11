@@ -30,7 +30,7 @@ class CountryFlag extends StatelessWidget {
                 const Spacer(),
                 Text('مصر',
                 style: AppStyles.regular14(context, AppColors.kBlack),),
-                Gap(6.w),
+                Gap(12.w),
                 SvgPicture.asset(Assets.egFlag,)
               ],
             ),

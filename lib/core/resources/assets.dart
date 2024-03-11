@@ -60,8 +60,14 @@ class Assets{
   static const person='assets/images/email.svg';
   static const g1='assets/images/g1.gif';
   static const g2='assets/images/g2.gif';
-  static const egFlag='assets/images/Flag_of_Egypt.svg';
+  static const egFlag='assets/images/flag.svg';
   static const phone='assets/images/phone.svg';
+  static const pin='assets/images/pin.png';
+  static const otp='assets/images/otp.svg';
+  static const city='assets/images/city.svg';
+  static const mart='assets/images/mart.svg';
+  static const register='assets/images/register.svg';
+  static const add='assets/images/add.svg';
 
   
 }
