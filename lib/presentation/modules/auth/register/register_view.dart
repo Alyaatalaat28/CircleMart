@@ -4,8 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/routing/app_route.dart';
-import 'package:nami/presentation/component/custom_text_button.dart';
-import 'package:nami/presentation/component/products_app_bar.dart';
+import 'package:nami/presentation/component/buttons/custom_text_button.dart';
+import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'package:nami/presentation/modules/auth/register/widgets/city.dart';
 import 'package:nami/presentation/modules/auth/register/widgets/first_and_last_name.dart';
 import 'package:nami/presentation/modules/auth/register/widgets/invite_by_someone_option.dart';
@@ -44,7 +44,7 @@ class RegisterView extends StatelessWidget {
                    height: 53,
                    text: 'تأكيد',
                    radius: 12,
-                   onPressed: ()=>pushReplacement(const BottomNavBar()),
+                   onPressed: ()=>pushAndRemoveUntil(const BottomNavBar()),
                   
                  ),
               ]

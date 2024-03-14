@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nami/presentation/component/products_app_bar.dart';
+import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'package:nami/presentation/modules/favorite/widgets/favorite_grid_view.dart';
 
 class FavoriteView extends StatelessWidget {

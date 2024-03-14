@@ -7,11 +7,11 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/component/all_order_products_list_view.dart';
 import 'package:nami/presentation/component/order_delivery_price.dart';
 import 'package:nami/presentation/component/order_total_price.dart';
 import 'package:nami/presentation/modules/invoice/widgets/points_option.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:provider/provider.dart';
 
 class InvoiceProducts extends StatelessWidget {
@@ -19,7 +19,7 @@ class InvoiceProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-       return Consumer<ProductsViewModel>(
+       return Consumer<SharedPref>(
          builder:(context,provider,child)=> Container(
                width: double.infinity,
                decoration:ShapeDecoration(
@@ -50,7 +50,7 @@ class InvoiceProducts extends StatelessWidget {
                     color:AppColors.kGray),
                       Gap(12.h),
                      OrderTotalPrice(
-                      price: provider.isChecked?'${provider.discount(130)}':'${provider.totalPriceForCartProuducts()}',),
+                      price:'${provider.totalPriceForCartProuducts()}',),
                   
                 ]
               ),

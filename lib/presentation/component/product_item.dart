@@ -1,11 +1,10 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/resources/app_styles.dart';
-import 'package:nami/core/routing/app_route.dart';
-import 'package:nami/presentation/modules/cart/cart_view.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
+import 'package:nami/presentation/component/dialog/snack_bar.dart';
 import 'package:nami/presentation/modules/products/model/product_model.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:provider/provider.dart';
 import '../modules/home/widgets/product_price_and_cart.dart';
 import '../modules/home/widgets/product_stack.dart';
@@ -16,7 +15,7 @@ class ProductItem extends StatelessWidget {
  final Product product;
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProductsViewModel>(
+    return Consumer<SharedPref>(
       builder:(context,provider,child)=> ConstrainedBox(
             constraints: const BoxConstraints(
               maxWidth: double.infinity, 
@@ -48,7 +47,7 @@ class ProductItem extends StatelessWidget {
                         price:product.price ,
                         onTap:(){
                           provider.addToCart(product,provider.currentQuentity);
-                          push(const CartView());
+                          ScaffoldMessenger.of(context).showSnackBar(showSnack(context));
                         },
                       ),
                     ],
@@ -59,4 +58,5 @@ class ProductItem extends StatelessWidget {
           ),
     );
   }
+
 }

@@ -31,7 +31,7 @@ class _SplashViewBodyState extends State<SplashView> {
   navigateToHome(){
     Future.delayed(
       const Duration(seconds:3),(){
-        pushReplacement(const BottomNavBar());
+        pushAndRemoveUntil(const BottomNavBar());
       }
     );
   }

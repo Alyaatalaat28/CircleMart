@@ -5,7 +5,7 @@ import 'package:nami/presentation/modules/orders/widgets/edit_and_cancel_buttons
 import 'package:nami/presentation/modules/orders/widgets/products_order.dart';
 import 'package:nami/presentation/modules/orders/widgets/custom_stepper.dart';
 
-import '../../component/products_app_bar.dart';
+import '../../component/appbars/products_app_bar.dart';
 import 'widgets/details_container.dart';
 import 'widgets/shopping_bag.dart';
 

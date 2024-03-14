@@ -3,8 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/modules/products/model/product_model.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:provider/provider.dart';
 
 class ProductsAmountRow extends StatelessWidget {
@@ -12,7 +12,7 @@ class ProductsAmountRow extends StatelessWidget {
   final Product product;
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProductsViewModel>(
+    return Consumer<SharedPref>(
       builder:(context,provider,child)=> Row(
         children: [
           Text('ج.م',

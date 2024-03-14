@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nami/presentation/component/products_app_bar.dart';
+import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:provider/provider.dart';
 import 'widgets/cart_view_body.dart';

@@ -68,6 +68,7 @@ class Assets{
   static const mart='assets/images/mart.svg';
   static const register='assets/images/register.svg';
   static const add='assets/images/add.svg';
+  static const empty='assets/images/empty.svg';
 
   
 }

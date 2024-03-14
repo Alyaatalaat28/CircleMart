@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
-import 'package:nami/presentation/component/custom_text_button.dart';
+import 'package:nami/presentation/component/buttons/custom_text_button.dart';
 import 'package:nami/presentation/modules/invoice/widgets/payment_method_list.dart';
 
 class PaymentsBottomSheet extends StatelessWidget {

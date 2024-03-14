@@ -5,7 +5,7 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'package:nami/presentation/component/products_app_bar.dart';
+import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'package:nami/presentation/modules/about/widgets/us.dart';
 
 class AboutView extends StatelessWidget {

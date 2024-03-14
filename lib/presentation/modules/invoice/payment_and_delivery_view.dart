@@ -4,13 +4,12 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/routing/app_route.dart';
-import 'package:nami/presentation/component/products_app_bar.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
+import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'package:nami/presentation/modules/invoice/invoice_view.dart';
 import 'package:nami/presentation/modules/invoice/widgets/orders_items_list_view.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:nami/presentation/sheet/bottom_sheet.dart';
 import 'package:provider/provider.dart';
-
 import 'widgets/address.dart';
 import 'widgets/notes.dart';
 import 'widgets/payment_method.dart';
@@ -20,7 +19,7 @@ class PaymentAndDelivery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Consumer<ProductsViewModel>(
+    return  Consumer<SharedPref>(
       builder:(context,provider,child)=> SafeArea(
         child: Scaffold(
            appBar:AppBar(
@@ -52,7 +51,7 @@ class PaymentAndDelivery extends StatelessWidget {
                 child:Center(
                   child: InkWell(
                     onTap:(){
-                       pushReplacement(
+                       push(
                          const InvoiceView(),
                         );
                     },

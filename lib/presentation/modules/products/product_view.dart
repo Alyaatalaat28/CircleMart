@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nami/presentation/component/products_app_bar.dart';
+import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'widgets/product_view_body.dart';
 
 class ProductView extends StatelessWidget {

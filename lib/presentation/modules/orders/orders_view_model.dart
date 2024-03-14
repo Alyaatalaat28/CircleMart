@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class OrdersViewModel with ChangeNotifier{
 
 bool showCurrentOrders=true;
-double _activeStep=1;
 
+double _activeStep=1;
 double get activeStep=>_activeStep;
 
 void toggleOrdersView(){

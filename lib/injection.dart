@@ -1,5 +1,6 @@
 
 import 'package:get_it/get_it.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/modules/category/category_view_model.dart';
 import 'package:nami/presentation/modules/home/home_view_model.dart';
 import 'package:nami/presentation/modules/invoice/invoice_view_model.dart';
@@ -15,6 +16,8 @@ Future<void> init()async{
    getIt.registerLazySingleton(() => ProductsViewModel());
    getIt.registerLazySingleton(() => OrdersViewModel());
    getIt.registerLazySingleton(() => InvoiceViewModel());
+   getIt.registerLazySingleton(() => SharedPref());
+
 
 
 }

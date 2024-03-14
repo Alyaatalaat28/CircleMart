@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:provider/provider.dart';
 import 'products_amount_row.dart';
 
@@ -8,7 +8,7 @@ class ProductsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProductsViewModel>(
+    return Consumer<SharedPref>(
       builder:(context,provider,child)=> ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),

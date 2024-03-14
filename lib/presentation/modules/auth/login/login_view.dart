@@ -6,7 +6,7 @@ import 'package:nami/core/resources/assets.dart';
 import 'package:nami/presentation/modules/auth/login/widgets/country_flag.dart';
 import 'package:nami/presentation/modules/auth/login/widgets/enter.dart';
 import 'package:nami/presentation/modules/auth/login/widgets/logo.dart';
-import 'package:nami/presentation/component/products_app_bar.dart';
+import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'package:nami/presentation/modules/auth/login/widgets/phone_number.dart';
 import 'package:nami/presentation/modules/auth/login/widgets/welcome_user.dart';
 

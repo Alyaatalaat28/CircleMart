@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/routing/app_route.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
+import 'package:nami/presentation/modules/cart/widgets/cart_empty.dart';
 import 'package:nami/presentation/modules/invoice/payment_and_delivery_view.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:nami/presentation/sheet/bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/resources/app_styles.dart';
@@ -13,8 +14,10 @@ class CartViewBody extends StatelessWidget {
 
  @override
   Widget build(BuildContext context) {
-    return  Consumer<ProductsViewModel>(
-      builder:(context,provider,child)=>Column(
+    return  Consumer<SharedPref>(
+      builder:(context,provider,child){
+      if(provider.cart.isNotEmpty){
+      return Column(
         children: [
             const DetailsListView(),
             const Spacer(),
@@ -22,17 +25,22 @@ class CartViewBody extends StatelessWidget {
             height: 45, 
             width: 103,
             text: '${provider.totalPriceForCartProuducts()}',
-            child: provider.cart.isNotEmpty? InkWell(
+            child:InkWell(
               onTap: (){
-                pushReplacement(const PaymentAndDelivery());
+                push(const PaymentAndDelivery());
               },
               child: Center(
                 child: Text('اطلب الأن',
                 style: AppStyles.regular14(context, AppColors.kWhite),),
               ),
-            ):Container(),),
+            )),
         ],
-      ),
+      );
+      }else{
+        return  const EmptyCart();
+      }
+      }
     );
+    
   }
 }

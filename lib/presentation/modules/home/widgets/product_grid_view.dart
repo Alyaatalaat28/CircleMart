@@ -7,12 +7,6 @@ import '../../products/product_details.dart';
 
 class ProductGridView extends StatelessWidget {
    ProductGridView({super.key});
-final product= Product(
-            name:'جمبري',
-            image:Assets.shrimp ,
-            price:280 ,
-            quantity: 1,
-          );
   @override
   Widget build(BuildContext context) {
      return GridView.count(
@@ -33,4 +27,11 @@ final product= Product(
         ))),
     );
   }
+  
+  final product= Product(
+            name:'جمبري',
+            image:Assets.shrimp ,
+            price:280 ,
+            quantity: 1,
+          );
 }

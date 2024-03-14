@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/modules/invoice/widgets/order_item.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:provider/provider.dart';
 
 class OrderItemsListView extends StatelessWidget {
@@ -11,7 +11,7 @@ class OrderItemsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Consumer<ProductsViewModel>(
+    return  Consumer<SharedPref>(
       builder:(context,provider,child)=> Container(
        decoration: BoxDecoration(
         color: AppColors.kRed.withOpacity(0.08),

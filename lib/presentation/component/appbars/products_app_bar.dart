@@ -6,9 +6,10 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 
 class ProductsAppBar extends StatelessWidget {
-  const ProductsAppBar({super.key,required this.text});
+  const ProductsAppBar({super.key,required this.text,this.onTap});
 
  final String text;
+ final void Function()?onTap;
  
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ProductsAppBar extends StatelessWidget {
             ),
             Gap(10.w),
             InkWell(
-               onTap:(){
+               onTap:onTap??(){
                 Navigator.pop(context);
               },
               child: SvgPicture.asset(Assets.arrow))

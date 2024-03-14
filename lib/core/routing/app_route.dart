@@ -7,8 +7,8 @@ push(Widget child)=>Navigator.of(navigator.currentContext!).push(
 );
 
 //pushAndRemoveUntil
-pushAndRemoveUntil(Widget child)=>Navigator.of(navigator.currentContext!).pushNamedAndRemoveUntil(
-   MaterialPageRoute(builder: (context) => child) as String, (route) => false
+pushAndRemoveUntil(Widget child)=>Navigator.of(navigator.currentContext!).pushAndRemoveUntil(
+   MaterialPageRoute(builder: (context) => child), (route) => false
    );
 
 //pushReplacement

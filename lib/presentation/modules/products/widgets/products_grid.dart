@@ -26,7 +26,7 @@ class ProductsGrid extends StatelessWidget {
       crossAxisSpacing: 8.0,
       children: List.generate(6, (index) => InkWell(
       onTap: (){
-          pushReplacement( ProductDetails(
+          pushAndRemoveUntil( ProductDetails(
             product:product ,
           ));
           },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nami/presentation/component/custom_text_button.dart';
+import 'package:nami/presentation/component/buttons/custom_text_button.dart';
 import 'package:nami/presentation/modules/auth/login/widgets/otp_bottom_sheet.dart';
 
 class Enter extends StatefulWidget {
@@ -23,6 +23,7 @@ class _EnterState extends State<Enter> {
     void showBottomSheet(){
             showModalBottomSheet(
               context:context,
+              isScrollControlled: true,
               builder:(context)=>  const OtpBottomSheet()
               );
   }

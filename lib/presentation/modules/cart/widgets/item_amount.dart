@@ -3,9 +3,9 @@ import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/modules/cart/widgets/custom_icon_button.dart';
 import 'package:nami/presentation/modules/products/model/product_model.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/resources/app_styles.dart';
 import 'total_price.dart';
@@ -15,7 +15,7 @@ class ItemAmount extends StatelessWidget {
  final Product product;
   @override
   Widget build(BuildContext context) {
-    return  Consumer<ProductsViewModel>(
+    return  Consumer<SharedPref>(
       builder:(context,provider,child)=> Padding(
         padding: const EdgeInsets.symmetric(horizontal:16.0),
         child: Row(

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:provider/provider.dart';
 
 import 'item_details.dart';
@@ -14,7 +14,7 @@ class DetailsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Consumer<ProductsViewModel>(
+    return  Consumer<SharedPref>(
       builder:(context,provider,child)=> SizedBox(
          height: MediaQuery.of(context).size.height * 0.7,
         child: ListView.separated(

@@ -6,10 +6,10 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/routing/app_route.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/modules/orders/orders_view.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:provider/provider.dart';
-import '../../../component/custom_text_button.dart';
+import '../../../component/buttons/custom_text_button.dart';
 
 class DoneDialog extends StatefulWidget {
   const DoneDialog({super.key});
@@ -32,7 +32,7 @@ class _DoneDialogState extends State<DoneDialog> with  SingleTickerProviderState
   }
   @override
   Widget build(BuildContext context) {
-    return   Consumer<ProductsViewModel>(
+    return   Consumer<SharedPref>(
       builder:(context,provider,child)=> CustomTextButton(
                     text: 'ارسال الطلب',
                     width: double.infinity,
@@ -50,8 +50,8 @@ class _DoneDialogState extends State<DoneDialog> with  SingleTickerProviderState
  void _navigateToOrdersScreen() {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pop();
-      pushReplacement(
-        const OrdersView(),
+      pushAndRemoveUntil(
+        const OrdersView(isFromHome: true,),
       );
     });}
 

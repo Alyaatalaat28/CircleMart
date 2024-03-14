@@ -52,7 +52,7 @@ class OrdersOptions extends StatelessWidget {
               text:'طلباتي',
               onTap: (){
                   push(
-                    const OrdersView(),
+                    const OrdersView(isFromHome: false,),
                   );
                 },
               ),

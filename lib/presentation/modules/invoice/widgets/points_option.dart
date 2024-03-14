@@ -4,16 +4,20 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/presentation/modules/invoice/widgets/use_points.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
-import 'package:provider/provider.dart';
 
-class PointsOption extends StatelessWidget {
+class PointsOption extends StatefulWidget {
   const PointsOption({super.key});
 
   @override
+  State<PointsOption> createState() => _PointsOptionState();
+}
+
+class _PointsOptionState extends State<PointsOption> {
+  bool isChecked=true;
+
+  @override
   Widget build(BuildContext context) {
-    return  Consumer<ProductsViewModel>(
-      builder:(context,provider,child)=> Row(
+    return  Row(
         children: [
           Text('ج.م',
           style:AppStyles.regular12(context, AppColors.kGray)),
@@ -25,7 +29,7 @@ class PointsOption extends StatelessWidget {
            Gap(12.w),
           Checkbox(
             activeColor:AppColors.kRed,
-            value: provider.isChecked,
+            value: isChecked,
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
@@ -34,10 +38,12 @@ class PointsOption extends StatelessWidget {
               )
             ),
             onChanged: (value){
-               provider.checked(value!);
+              setState(() {
+                isChecked=value!;
+              });
             })
         ],
-      ),
-    );
+      );
+    
   }
 }

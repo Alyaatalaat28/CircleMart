@@ -6,12 +6,13 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/routing/app_route.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
+import 'package:nami/presentation/component/dialog/snack_bar.dart';
 import 'package:nami/presentation/modules/cart/cart_view.dart';
 import 'package:nami/presentation/modules/products/model/product_model.dart';
 import 'package:nami/presentation/sheet/bottom_sheet.dart';
 import 'package:provider/provider.dart';
-import '../../component/products_app_bar.dart';
-import 'products_view_model.dart';
+import '../../component/appbars/products_app_bar.dart';
 import 'widgets/add_to_favorite.dart';
 import 'widgets/product_description.dart';
 import 'widgets/product_image.dart';
@@ -35,7 +36,7 @@ final Product product;
         ),
         body:SingleChildScrollView(
           physics:const BouncingScrollPhysics(),
-          child: Consumer<ProductsViewModel>(
+          child: Consumer<SharedPref>(
             builder: (BuildContext context,provider,child) {  
             return Column(
               children: [
@@ -56,7 +57,8 @@ final Product product;
                 child:InkWell(
                   onTap: (){
                     provider.addToCart(product,provider.counter);
-                    pushReplacement(const CartView());
+                    ScaffoldMessenger.of(context).showSnackBar(showSnack(context));
+                    push(const CartView());
                     provider.resetCounter();
                   },
                   child: Center(
