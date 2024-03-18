@@ -1,5 +1,3 @@
-
-
 import 'package:equatable/equatable.dart';
 
 import 'data.dart';
@@ -24,11 +22,9 @@ class HomeSlider extends Equatable {
         'message': message,
         'code': code,
       };
-      
-        @override
-        List<Object?> get props {
-          return[data,message,code];
-        }
 
-
+  @override
+  List<Object?> get props {
+    return [data, message, code];
+  }
 }

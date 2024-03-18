@@ -13,19 +13,20 @@ final getIt = GetIt.instance;
 
 Future<void> init() async {
   //core
-  getIt.registerLazySingleton(() =>DioClient(AppURL.kBaseURL, getIt()));
+  getIt.registerLazySingleton(() => DioClient(AppURL.kBaseURL, getIt()));
 
   //repository
-    getIt.registerLazySingleton(() =>HomeRepoImpl(dioClient: getIt()));
+  getIt.registerLazySingleton(() => HomeRepoImpl(dioClient: getIt()));
 
   // Providers
-  getIt.registerLazySingleton(() => HomeProvider(homeRepo:getIt<HomeRepoImpl>()));
+  getIt.registerLazySingleton(
+      () => HomeProvider(homeRepo: getIt<HomeRepoImpl>()));
 
   getIt.registerLazySingleton(() => ProductsViewModel());
   getIt.registerLazySingleton(() => OrdersViewModel());
   getIt.registerLazySingleton(() => InvoiceViewModel());
   getIt.registerLazySingleton(() => SharedPref());
-  
+
   //external
-   getIt.registerLazySingleton(() => Dio());
+  getIt.registerLazySingleton(() => Dio());
 }

@@ -4,8 +4,8 @@ import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/resources/app_styles.dart';
 
 class CategorisListItem extends StatelessWidget {
-const CategorisListItem({super.key,required this.subCategory});
-final String subCategory;
+  const CategorisListItem({super.key, required this.subCategory});
+  final String subCategory;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

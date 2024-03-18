@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nami/core/resources/assets.dart';
-import 'package:nami/presentation/component/product_item.dart';
-import 'package:nami/presentation/modules/products/model/product_model.dart';
+import 'package:nami/presentation/modules/favorite/model/product_model.dart';
+import 'package:nami/presentation/modules/favorite/widgets/favorite_item.dart';
 
 class FavoriteGridView extends StatelessWidget {
   const FavoriteGridView({super.key});

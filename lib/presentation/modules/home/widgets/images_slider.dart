@@ -10,14 +10,13 @@ class ImageSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
-      builder:(context,provider,child)=> CarouselSlider(
+      builder: (context, provider, child) => CarouselSlider(
           items: provider.homeSlider.map((e) {
             return CachedNetworkImage(
-                    imageUrl:'${e.image}',
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
-                    width:double.infinity,
-                  ); 
-            
+              imageUrl: '${e.image}',
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              width: double.infinity,
+            );
           }).toList(),
           options: CarouselOptions(
             height: 200,

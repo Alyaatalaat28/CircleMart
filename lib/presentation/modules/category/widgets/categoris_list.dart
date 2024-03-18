@@ -9,27 +9,24 @@ class CategorisList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(
-      builder:(context,provider,child){
-        if (provider.selectedIndex >= 0 && provider.selectedIndex < provider.categoris.length) {
-          final categoris = provider.categoris[provider.selectedIndex];
-          final subCategories = categoris.subCategories;
-          return Column(
-            children: subCategories!.map((subCategory) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CategorisListItem(
-                  subCategory: subCategory.title!,
-                ),
-              );
-            }).toList(),
-          );
-        } else {
-          return  const Expanded(
-            child: EmptyCategory()
-          ); 
-        }
+    return Consumer<HomeProvider>(builder: (context, provider, child) {
+      if (provider.selectedIndex >= 0 &&
+          provider.selectedIndex < provider.categoris.length) {
+        final categoris = provider.categoris[provider.selectedIndex];
+        final subCategories = categoris.subCategories;
+        return Column(
+          children: subCategories!.map((subCategory) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CategorisListItem(
+                subCategory: subCategory.title!,
+              ),
+            );
+          }).toList(),
+        );
+      } else {
+        return const Expanded(child: EmptyCategory());
       }
-    );
+    });
   }
 }

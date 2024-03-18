@@ -3,11 +3,11 @@ import 'package:gap/gap.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
-import 'package:nami/data/model/body/latest_products/datum.dart';
-import 'package:nami/presentation/component/dialog/snack_bar.dart';
+import 'package:nami/presentation/modules/favorite/model/product_model.dart';
+import 'package:nami/presentation/modules/home/widgets/product_price_and_cart.dart';
+import 'package:nami/presentation/modules/home/widgets/product_stack.dart';
 import 'package:provider/provider.dart';
-import '../modules/home/widgets/product_price_and_cart.dart';
-import '../modules/home/widgets/product_stack.dart';
+
 
 class ProductItem extends StatelessWidget {
   const ProductItem(
@@ -15,7 +15,7 @@ class ProductItem extends StatelessWidget {
       this.iconColor = AppColors.kFavoriteIcon,
       required this.product});
   final Color iconColor;
-  final Datam product;
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(
@@ -40,19 +40,18 @@ class ProductItem extends StatelessWidget {
                 children: [
                   ProductStack(
                     iconColor: iconColor,
-                    image: product.image!,
+                    image: product.image,
                   ),
                   const Spacer(),
-                  Text(product.title!,
-                  textDirection:TextDirection.rtl ,
+                  Text(product.name,
                       style: AppStyles.regular14(context, AppColors.kBlack)),
                   const Gap(8),
                   ProductPriceAndCart(
-                    price: product.price!,
+                    price: product.price,
                     onTap: () {
-                      provider.addToCart(product, provider.currentQuentity);
-                      ScaffoldMessenger.of(context)
-                          .showSnackBar(showSnack(context));
+                      // provider.addToCart(product, provider.currentQuentity);
+                      // ScaffoldMessenger.of(context)
+                      //     .showSnackBar(showSnack(context));
                     },
                   ),
                 ],

@@ -15,7 +15,10 @@ class AppMultiProvider extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (BuildContext context) => getIt<HomeProvider>()..getCategorisData()..getHomeSliderImages(),
+          create: (BuildContext context) => getIt<HomeProvider>()
+            ..getCategorisData()
+            ..getHomeSliderImages()
+            ..getLatestProducts(),
         ),
         ChangeNotifierProvider(
           create: (BuildContext context) => getIt<ProductsViewModel>(),

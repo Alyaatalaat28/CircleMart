@@ -8,7 +8,7 @@ import 'package:nami/core/resources/app_styles.dart';
 
 class ProductPriceAndCart extends StatelessWidget {
   const ProductPriceAndCart({super.key, required this.price, this.onTap});
-  final double price;
+  final int price;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {

@@ -9,17 +9,19 @@ class CategoryGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
-      builder:(context,provider,child)=> GridView.count(
+      builder: (context, provider, child) => GridView.count(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         crossAxisCount: 4,
         childAspectRatio: 1 / 1.8,
         mainAxisSpacing: 8.0,
         crossAxisSpacing: 7.0,
-        children: List.generate(provider.categoris.length>8?8:provider.categoris.length, (index) => CategoryItem(
-          title:provider.categoris[index].title!,
-          image:provider.categoris[index].image!,
-        )),
+        children: List.generate(
+            provider.categoris.length > 8 ? 8 : provider.categoris.length,
+            (index) => CategoryItem(
+                  title: provider.categoris[index].title!,
+                  image: provider.categoris[index].image!,
+                )),
       ),
     );
   }

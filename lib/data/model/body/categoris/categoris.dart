@@ -22,9 +22,9 @@ class Categoris extends Equatable {
         'message': message,
         'code': code,
       };
-      
-        @override
-        List<Object?> get props {
-          return [data, message, code];
-        }
+
+  @override
+  List<Object?> get props {
+    return [data, message, code];
+  }
 }

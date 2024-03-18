@@ -12,17 +12,17 @@ class EmptyCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-              padding: const EdgeInsets.symmetric(vertical:200.0),
-              child: Column(
-                children: [
-                  SvgPicture.asset(Assets.emptyCat,
-                  width:70),
-                  Gap(10.h),
-              Text( 'قم باختيار القسم لعرض المنتجات',
-              style: AppStyles. regular12(context, AppColors.kGray),
-                        )
-                ],
-              ),
-            );
+      padding: const EdgeInsets.symmetric(vertical: 200.0),
+      child: Column(
+        children: [
+          SvgPicture.asset(Assets.emptyCat, width: 70),
+          Gap(10.h),
+          Text(
+            'قم باختيار القسم لعرض المنتجات',
+            style: AppStyles.regular12(context, AppColors.kGray),
+          )
+        ],
+      ),
+    );
   }
 }

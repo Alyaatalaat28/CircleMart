@@ -4,4 +4,5 @@ class AppURL {
   ///Home
   static const String kSliderURI = "user/home/slider";
   static const String kCategorisURI = "user/home/categories";
+  static const String kLatestProductsURI = "user/home/latestProducts";
 }

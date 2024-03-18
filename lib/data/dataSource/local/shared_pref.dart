@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:nami/presentation/modules/products/model/product_model.dart';
+import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref with ChangeNotifier {
@@ -13,8 +13,8 @@ class SharedPref with ChangeNotifier {
   int get counter => _counter;
 
 //cart
-  List<Product> _cart = [];
-  List<Product> get cart => _cart;
+  List<Datam> _cart = [];
+  List<Datam> get cart => _cart;
 
 //load cart
   void loadCart() async {
@@ -23,7 +23,7 @@ class SharedPref with ChangeNotifier {
 
     if (cartList != null) {
       _cart = cartList
-          .map((e) => Product.fromJson(e as Map<String, dynamic>))
+          .map((e) => Datam.fromMap(e as Map<String, dynamic>))
           .toList();
       notifyListeners();
     }
@@ -37,13 +37,13 @@ class SharedPref with ChangeNotifier {
   }
 
 //add to cart
-  void addToCart(Product product, int currentQuentity) {
+  void addToCart(Datam product, int currentQuentity) {
     int productExist =
-        _cart.indexWhere((element) => element.name == product.name);
+        _cart.indexWhere((element) => element.id == product.id);
     if (productExist != -1) {
-      _cart[productExist].quantity += currentQuentity;
+      _cart[productExist].weightUnit =_cart[productExist].weightUnit!+currentQuentity;
     } else {
-      product.quantity = currentQuentity;
+      product.weightUnit = currentQuentity;
       _cart.add(product);
     }
     saveCart();
@@ -59,41 +59,41 @@ class SharedPref with ChangeNotifier {
   }
 
 //remove from cart
-  void removeFromCart(Product product) {
+  void removeFromCart(Datam product) {
     _cart.remove(product);
     saveCart();
     notifyListeners();
   }
 
 //increase quantity
-  void increaseProductQuantity(Product product) {
+  void increaseProductQuantity(Datam product) {
     int productIndex = _cart.indexOf(product);
     if (productIndex != -1) {
-      _cart[productIndex].quantity += 1;
+      _cart[productIndex].weightUnit =_cart[productIndex].weightUnit! + 1;
       saveCart();
       notifyListeners();
     }
   }
 
 //decrease quantity
-  void decreaseProductQuantity(Product product) {
+  void decreaseProductQuantity(Datam product) {
     int productIndex = _cart.indexOf(product);
-    if (productIndex != -1 && _cart[productIndex].quantity > 1) {
-      _cart[productIndex].quantity -= 1;
+    if (productIndex != -1 && _cart[productIndex].weightUnit! > 1) {
+      _cart[productIndex].weightUnit = _cart[productIndex].weightUnit! - 1;
       saveCart();
       notifyListeners();
     }
   }
 
 //total price for single product
-  double totalPriceForSingleProduct(Product product) {
-    return product.price * product.quantity;
+  int totalPriceForSingleProduct(Datam product) {
+    return product.price! * product.weightUnit!;
   }
 
 //total price for all cart products
   double totalPriceForCartProuducts() {
     double total = 0.0;
-    for (Product product in _cart) {
+    for (Datam product in _cart) {
       total += totalPriceForSingleProduct(product);
     }
     return total;

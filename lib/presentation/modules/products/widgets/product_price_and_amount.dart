@@ -5,14 +5,14 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
-import 'package:nami/presentation/modules/products/model/product_model.dart';
+import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:provider/provider.dart';
 import 'product_amount.dart';
 import 'product_price.dart';
 
 class ProductPriceAndAmount extends StatelessWidget {
   const ProductPriceAndAmount({super.key, required this.product});
-  final Product product;
+  final Datam product;
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(
@@ -31,7 +31,7 @@ class ProductPriceAndAmount extends StatelessWidget {
           ),
           child: Column(children: [
             ProductPrice(
-              price: product.price,
+              price: product.price!,
             ),
             Gap(12.h),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [

@@ -7,9 +7,9 @@ import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/modules/products/product_view.dart';
 
 class CategoryItem extends StatelessWidget {
-const CategoryItem({super.key,required this.title,required this.image});
- final String title;
- final String image;
+  const CategoryItem({super.key, required this.title, required this.image});
+  final String title;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +29,13 @@ const CategoryItem({super.key,required this.title,required this.image});
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              child:AspectRatio(
+              child: AspectRatio(
                 aspectRatio: 1 / 1,
                 child: CachedNetworkImage(
-                    imageUrl: image,
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
-                    fit:BoxFit.fill,
-                  ),  
+                  imageUrl: image,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
           ),

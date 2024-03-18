@@ -7,63 +7,75 @@ import 'package:nami/data/dataSource/remote/dio/dio_client.dart';
 import 'package:nami/data/dataSource/remote/exception/failure.dart';
 import 'package:nami/data/model/body/categoris/datum.dart';
 import 'package:nami/data/model/body/home_slider/slider.dart';
+import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:nami/data/repository/home/home_repo.dart';
 
-class HomeRepoImpl implements HomeRepo{
+class HomeRepoImpl implements HomeRepo {
   final DioClient dioClient;
-    HomeRepoImpl({required this.dioClient});
+  HomeRepoImpl({required this.dioClient});
 
   //home slider
   @override
-  Future<Either<Failure,List<Slider>>>getHomeSlider()async{
-    try{
-     List<Slider> slider=[];
-     var response= await dioClient.get(AppURL.kSliderURI);
-     for(var item in response['data']['slider']){
-        try{
+  Future<Either<Failure, List<Slider>>> getHomeSlider() async {
+    try {
+      List<Slider> slider = [];
+      var response = await dioClient.get(AppURL.kSliderURI);
+      for (var item in response['data']['slider']) {
+        try {
           slider.add(Slider.fromJson(item));
-        }catch(e){
+        } catch (e) {
           slider.add(Slider.fromJson(item));
         }
-       }
-       return right(slider);
-     }catch(e){
-        if(e is DioError){
-          return left(
-            ServerFailure.fromDioError(e)
-            );
-        }
-         return left(
-            ServerFailure(e.toString())
-            );
-     }       
+      }
+      return right(slider);
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
-  
+  }
+
   //categoris
- @override
- Future<Either<Failure,List<Datum>>>getCategoris()async{
-     try{
-        List<Datum> category=[];
-       var response= await dioClient.get(AppURL.kCategorisURI);
-       for(var item in response['data']){
-        try{
+  @override
+  Future<Either<Failure, List<Datum>>> getCategoris() async {
+    try {
+      List<Datum> category = [];
+      var response = await dioClient.get(AppURL.kCategorisURI);
+      for (var item in response['data']) {
+        try {
           category.add(Datum.fromJson(item));
-        }catch(e){
+        } catch (e) {
           category.add(Datum.fromJson(item));
         }
-       }
-       return right(category);
-     }catch(e){
-        if(e is DioError){
-          return left(
-            ServerFailure.fromDioError(e)
-            );
+      }
+      return right(category);
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+  //latest product
+  @override
+  Future<Either<Failure, List<Datam>>> getLatestProducts()async {
+     try {
+      List<Datam> latestProducts = [];
+      var response = await dioClient.get(AppURL.kLatestProductsURI);
+      for (var item in response['data']) {
+        try {
+          latestProducts.add(Datam.fromMap(item));
+        } catch (e) {
+          latestProducts.add(Datam.fromMap(item));
         }
-         return left(
-            ServerFailure(e.toString())
-            );
-     }
-       
-   
+      }
+      return right(latestProducts);
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
-  }
+}

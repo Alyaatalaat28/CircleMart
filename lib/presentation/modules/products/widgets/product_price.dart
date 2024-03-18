@@ -8,7 +8,7 @@ import 'package:nami/core/resources/colors.dart';
 
 class ProductPrice extends StatelessWidget {
   const ProductPrice({super.key, required this.price});
-  final double price;
+  final int price;
   @override
   Widget build(BuildContext context) {
     return Container(

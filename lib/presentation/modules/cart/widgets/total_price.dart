@@ -4,12 +4,12 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
-import 'package:nami/presentation/modules/products/model/product_model.dart';
+import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:provider/provider.dart';
 
 class TotalPrice extends StatelessWidget {
   const TotalPrice({super.key, required this.product});
-  final Product product;
+  final Datam product;
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(

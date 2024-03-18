@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 import 'package:nami/data/model/body/home_slider/slider.dart';
 
@@ -19,11 +18,9 @@ class Data extends Equatable {
         'slider': slider?.map((e) => e.toJson()).toList(),
         'notification_count': notificationCount,
       };
-      
-        @override
-        List<Object?> get props {
-          return[slider,notificationCount];
-        }
 
- 
+  @override
+  List<Object?> get props {
+    return [slider, notificationCount];
+  }
 }

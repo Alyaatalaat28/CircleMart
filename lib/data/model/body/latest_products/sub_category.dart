@@ -1,3 +1,4 @@
+
 import 'package:equatable/equatable.dart';
 
 class SubCategory extends Equatable {
@@ -15,7 +16,7 @@ class SubCategory extends Equatable {
     this.createdAt,
   });
 
-  factory SubCategory.fromJson(Map<String, dynamic> data) => SubCategory(
+  factory SubCategory.fromMap(Map<String, dynamic> data) => SubCategory(
         id: data['id'] as int?,
         image: data['image'] as String?,
         title: data['title'] as String?,
@@ -23,7 +24,7 @@ class SubCategory extends Equatable {
         createdAt: data['created_at'] as String?,
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'image': image,
         'title': title,
@@ -31,8 +32,7 @@ class SubCategory extends Equatable {
         'created_at': createdAt,
       };
 
+
   @override
-  List<Object?> get props {
-    return [id, image, title, subCategories, createdAt];
-  }
+  List<Object?> get props => [id, image, title, subCategories, createdAt];
 }

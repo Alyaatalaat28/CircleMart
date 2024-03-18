@@ -70,5 +70,4 @@ class Assets {
   static const add = 'assets/images/add.svg';
   static const empty = 'assets/images/empty.svg';
   static const emptyCat = 'assets/images/categoryemp.svg';
-
 }

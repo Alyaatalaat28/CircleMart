@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'package:nami/presentation/modules/products/model/product_model.dart';
+import 'package:nami/data/model/body/latest_products/datum.dart';
 import '../../../../core/resources/app_styles.dart';
 
 class OrderAmount extends StatelessWidget {
   const OrderAmount({super.key, required this.product});
-  final Product product;
+  final Datam product;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Text(product.name, style: AppStyles.semiBold14(context)),
+        Text(product.title!, style: AppStyles.semiBold14(context)),
         Gap(9.5.h),
         Row(
           children: [
-            Text('${product.quantity}',
+            Text('${product.weightUnit}',
                 style: AppStyles.semiBold14(context).copyWith(
                   color: AppColors.kRed,
                 )),

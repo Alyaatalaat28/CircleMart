@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 
 class Slider extends Equatable {
@@ -22,11 +21,9 @@ class Slider extends Equatable {
         'category_id': categoryId,
         'sub_category_id': subCategoryId,
       };
-      
-        @override
-        List<Object?> get props{
-           return[id,image,categoryId,subCategoryId];
-        }
 
-
+  @override
+  List<Object?> get props {
+    return [id, image, categoryId, subCategoryId];
+  }
 }

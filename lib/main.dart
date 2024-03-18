@@ -17,5 +17,5 @@ void main() async {
         path: 'assets/translations',
         fallbackLocale: supportedLanguages[0],
         child: const MyApp()),
-  )); 
+  ));
 }

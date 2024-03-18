@@ -19,48 +19,39 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Assets.settingGray,
-                color: currentIndex == 0
-                    ? AppColors.kRed
-                    : AppColors.kGray,
-              ),
-              label: '',
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              Assets.settingGray,
+              color: currentIndex == 0 ? AppColors.kRed : AppColors.kGray,
             ),
-            BottomNavigationBarItem(
-                icon: SvgPicture.asset(Assets.mapGray,
-                    color: currentIndex == 1
-                        ? AppColors.kRed
-                        : AppColors.kGray),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  Assets.categoryGray,
-                  color: currentIndex == 2
-                      ? AppColors.kRed
-                      : AppColors.kGray,
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: SvgPicture.asset(Assets.homeGray,
-                    color: currentIndex == 3
-                        ? AppColors.kRed
-                        : AppColors.kGray),
-                label: ''),
-          ],
-          currentIndex: currentIndex,
-          onTap: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-        ),
-        body: screens[currentIndex],
-      
+            label: '',
+          ),
+          BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.mapGray,
+                  color: currentIndex == 1 ? AppColors.kRed : AppColors.kGray),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                Assets.categoryGray,
+                color: currentIndex == 2 ? AppColors.kRed : AppColors.kGray,
+              ),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.homeGray,
+                  color: currentIndex == 3 ? AppColors.kRed : AppColors.kGray),
+              label: ''),
+        ],
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+      ),
+      body: screens[currentIndex],
     );
   }
 }

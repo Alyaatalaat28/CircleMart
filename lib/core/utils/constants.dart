@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/presentation/modules/category/category_view.dart';
@@ -12,12 +11,12 @@ final supportedLanguages = <Locale>[
   const Locale('ar', 'EG')
 ];
 
-  List<Widget> screens = const [
-     SettingView(),
-     MapView(),
-     CategoryView(),
-     HomeView(),
-  ];
+List<Widget> screens = const [
+  SettingView(),
+  MapView(),
+  CategoryView(),
+  HomeView(),
+];
 
 List<Payment> paymentMethods = [
   Payment(text: 'كاش', image: Assets.cash),

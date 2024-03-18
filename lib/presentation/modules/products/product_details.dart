@@ -7,9 +7,9 @@ import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
+import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:nami/presentation/component/dialog/snack_bar.dart';
 import 'package:nami/presentation/modules/cart/cart_view.dart';
-import 'package:nami/presentation/modules/products/model/product_model.dart';
 import 'package:nami/presentation/sheet/bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import '../../component/appbars/products_app_bar.dart';
@@ -20,7 +20,7 @@ import 'widgets/product_price_and_amount.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key, required this.product});
-  final Product product;
+  final Datam product;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,16 +34,20 @@ class ProductDetails extends StatelessWidget {
               builder: (BuildContext context, provider, child) {
             return Column(
               children: [
-                const ProductImage(
-                  image: Assets.details,
+                 ProductImage(
+                  product:product,
                 ),
-                const AddToFavorite(),
-                const ProductDescription(),
+                 AddToFavorite(
+                  product:product,
+                ),
+                 ProductDescription(
+                   product:product,
+                ),
                 Gap(12.h),
                 ProductPriceAndAmount(
                   product: product,
                 ),
-                Gap(30.h),
+                Gap(60.h),
                 CustomBottomSheet(
                   width: 141,
                   height: 45,

@@ -9,12 +9,12 @@ class CategoriesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
-      builder:(context,provider,child)=> ListView.builder(
+      builder: (context, provider, child) => ListView.builder(
         itemBuilder: (BuildContext context, int index) => Category(
           index: index,
-          title:provider.categoris[index].title!,
-          image:provider.categoris[index].image!,
-          ),
+          title: provider.categoris[index].title!,
+          image: provider.categoris[index].image!,
+        ),
         itemCount: provider.categoris.length,
       ),
     );

@@ -4,12 +4,12 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
-import 'package:nami/presentation/modules/products/model/product_model.dart';
+import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:provider/provider.dart';
 
 class ProductsAmountRow extends StatelessWidget {
   const ProductsAmountRow({super.key, required this.product});
-  final Product product;
+  final Datam product;
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(
@@ -22,14 +22,14 @@ class ProductsAmountRow extends StatelessWidget {
                 context,
               )),
           Gap(15.w),
-          Text('${product.quantity} x',
+          Text('${product.weightUnit} x',
               style: AppStyles.semiBold14(
                 context,
               ).copyWith(
                 color: AppColors.kGray,
               )),
           const Spacer(),
-          Text(product.name,
+          Text(product.title!,
               style: AppStyles.regular14(context, AppColors.kBlack)),
         ],
       ),

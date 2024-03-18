@@ -1,11 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:nami/presentation/modules/products/model/product_model.dart';
+import 'package:gap/gap.dart';
+import 'package:nami/core/extensions/num_extension.dart';
+import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'order_amount.dart';
 import 'order_price.dart';
 
 class OrderItem extends StatelessWidget {
   const OrderItem({super.key, required this.product});
-  final Product product;
+  final Datam product;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,13 +20,13 @@ class OrderItem extends StatelessWidget {
         OrderAmount(
           product: product,
         ),
-        Image(
-          image: AssetImage(
-            product.image,
-          ),
-          width: 72,
-          height: 48,
-        ),
+        Gap(6.w),
+                CachedNetworkImage(
+                    imageUrl: product.image!,
+                    errorWidget: (context, url, error) =>const Icon(Icons.error),
+                    height: 40,
+                    width:25
+                    ),
       ],
     );
   }

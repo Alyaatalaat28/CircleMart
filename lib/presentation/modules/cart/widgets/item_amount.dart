@@ -4,15 +4,15 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
+import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:nami/presentation/modules/cart/widgets/custom_icon_button.dart';
-import 'package:nami/presentation/modules/products/model/product_model.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/resources/app_styles.dart';
 import 'total_price.dart';
 
 class ItemAmount extends StatelessWidget {
   const ItemAmount({super.key, required this.product});
-  final Product product;
+  final Datam product;
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(
@@ -41,7 +41,7 @@ class ItemAmount extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Text('${product.quantity}',
+                child: Text('${product.weightUnit}',
                     style: AppStyles.semiBold16(context)),
               ),
             ),
