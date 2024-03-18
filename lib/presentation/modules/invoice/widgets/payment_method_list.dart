@@ -8,13 +8,14 @@ class PaymentMethodList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      children:List.generate(
-        paymentMethods.length, 
-        (index) =>PaymentMethodItem(
-          image:paymentMethods[index].image,
-          text:paymentMethods[index].text,
-          index: index,) ),
+    return Column(
+      children: List.generate(
+          paymentMethods.length,
+          (index) => PaymentMethodItem(
+                image: paymentMethods[index].image,
+                text: paymentMethods[index].text,
+                index: index,
+              )),
     );
   }
 }

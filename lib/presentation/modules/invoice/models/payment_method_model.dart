@@ -1,4 +1,4 @@
-class Payment{
+class Payment {
   final String text;
   final String image;
 

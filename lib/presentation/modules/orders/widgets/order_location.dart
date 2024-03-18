@@ -9,18 +9,19 @@ import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 
 class OrderLocation extends StatelessWidget {
-  const OrderLocation({super.key,required this.location});
-   final String location;
+  const OrderLocation({super.key, required this.location});
+  final String location;
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
-         const Spacer(),
-         Text(location,
-         style:AppStyles.regular14(context, AppColors.kBlack)),
-         Gap(8.w),
-         SvgPicture.asset(Assets.location,
-         color:AppColors.kBlack ,)
+        const Spacer(),
+        Text(location, style: AppStyles.regular14(context, AppColors.kBlack)),
+        Gap(8.w),
+        SvgPicture.asset(
+          Assets.location,
+          color: AppColors.kBlack,
+        )
       ],
     );
   }

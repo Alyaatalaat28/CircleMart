@@ -13,32 +13,31 @@ class PhoneNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-        height: 60.h,
-        decoration: ShapeDecoration(
+    return Container(
+      height: 60.h,
+      decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-            side: const BorderSide(
-              color: AppColors.kLightGray
-            )
-          )
-          ),
-          child:  Padding(
-            padding: const EdgeInsets.symmetric(horizontal:16.0),
-            child: Row(
-              children: [
-                const Spacer(),
-               const Expanded(
-                 child: CustomTextField(
-                  label: 'رقم الجوال',
-                  color: AppColors.kBlack,
-                   keyboardType:TextInputType.phone ,),
-               ),
-                Gap(8.5.w),
-                SvgPicture.asset(Assets.phone,)
-              ],
+              borderRadius: BorderRadius.circular(12),
+              side: const BorderSide(color: AppColors.kLightGray))),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Row(
+          children: [
+            const Spacer(),
+            const Expanded(
+              child: CustomTextField(
+                label: 'رقم الجوال',
+                color: AppColors.kBlack,
+                keyboardType: TextInputType.phone,
+              ),
             ),
-          ),
+            Gap(8.5.w),
+            SvgPicture.asset(
+              Assets.phone,
+            )
+          ],
+        ),
+      ),
     );
   }
 }

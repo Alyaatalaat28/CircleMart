@@ -7,11 +7,11 @@ class AvatarImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
+    return Stack(
       alignment: AlignmentDirectional.bottomEnd,
       children: [
         const Image(
-          image:AssetImage(Assets.avatarImage),
+          image: AssetImage(Assets.avatarImage),
         ),
         Padding(
           padding: const EdgeInsets.all(3.0),

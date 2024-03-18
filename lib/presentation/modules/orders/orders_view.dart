@@ -5,25 +5,23 @@ import 'package:nami/presentation/modules/home/bottom_nav_bar.dart';
 import 'widgets/orders_view_body.dart';
 
 class OrdersView extends StatelessWidget {
-  const OrdersView({super.key,required this.isFromHome});
-final bool isFromHome;
+  const OrdersView({super.key, required this.isFromHome});
+  final bool isFromHome;
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
-      child:Scaffold(
-         appBar:AppBar(
-          automaticallyImplyLeading: false,
-           actions:[
-          ProductsAppBar(
-              text: 'طلباتي',
-              onTap: (){
-                 isFromHome?pushAndRemoveUntil(const BottomNavBar()):Navigator.pop(context);
-              },
-              ),
-          ]
+    return SafeArea(
+        child: Scaffold(
+      appBar: AppBar(automaticallyImplyLeading: false, actions: [
+        ProductsAppBar(
+          text: 'طلباتي',
+          onTap: () {
+            isFromHome
+                ? pushAndRemoveUntil(const BottomNavBar())
+                : Navigator.pop(context);
+          },
         ),
-        body:const OrdersViewBody(),
-      )
-    );
+      ]),
+      body: const OrdersViewBody(),
+    ));
   }
 }

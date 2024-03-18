@@ -11,14 +11,14 @@ class Address extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  CustomContainer(
+    return CustomContainer(
       child: CustomOrderListTile(
         title: 'عنوان التوصيل',
         subTitle: 'شارع الحرية - الجيزة',
         image: Assets.location,
         trailing: true,
-        onPressed: ()=>push(const LoationView()),
-        
-      ),);
+        onPressed: () => push(const LoationView()),
+      ),
+    );
   }
 }

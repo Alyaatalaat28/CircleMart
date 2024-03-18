@@ -11,23 +11,25 @@ class OrderItemsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Consumer<SharedPref>(
-      builder:(context,provider,child)=> Container(
-       decoration: BoxDecoration(
-        color: AppColors.kRed.withOpacity(0.08),
-        borderRadius: BorderRadius.circular(12),
-       ),
+    return Consumer<SharedPref>(
+      builder: (context, provider, child) => Container(
+        decoration: BoxDecoration(
+          color: AppColors.kRed.withOpacity(0.08),
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: ListView.separated(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (BuildContext context, int index)=> Padding(
-            padding: const EdgeInsets.symmetric(horizontal:12.0,vertical:16),
+          itemBuilder: (BuildContext context, int index) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 16),
             child: OrderItem(
-              product:provider.cart[index],
+              product: provider.cart[index],
             ),
           ),
-          separatorBuilder: (BuildContext context, int index)=>SvgPicture.asset(Assets.line),
-          itemCount:provider.cart.length,),
+          separatorBuilder: (BuildContext context, int index) =>
+              SvgPicture.asset(Assets.line),
+          itemCount: provider.cart.length,
+        ),
       ),
     );
   }

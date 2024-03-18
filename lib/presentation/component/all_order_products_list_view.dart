@@ -9,17 +9,17 @@ class ProductsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(
-      builder:(context,provider,child)=> ListView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (BuildContext context, int index)=> Padding(
-            padding: const EdgeInsets.only(bottom:12.0),
-            child: ProductsAmountRow(
-              product:provider.cart[index] ,
-            ),
+      builder: (context, provider, child) => ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (BuildContext context, int index) => Padding(
+          padding: const EdgeInsets.only(bottom: 12.0),
+          child: ProductsAmountRow(
+            product: provider.cart[index],
           ),
-          itemCount: provider.cart.length,
-          ),
+        ),
+        itemCount: provider.cart.length,
+      ),
     );
   }
 }

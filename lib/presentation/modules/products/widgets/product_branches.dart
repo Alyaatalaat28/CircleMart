@@ -11,17 +11,15 @@ class ProductBranches extends StatelessWidget {
       height: 50.h,
       width: double.infinity,
       child: ListView.builder(
-                   scrollDirection:Axis.horizontal,
-                   shrinkWrap: true,
-                   physics: const BouncingScrollPhysics(),
-                   itemBuilder:(BuildContext context, int index)=> Padding(
-                     padding: const EdgeInsets.symmetric(horizontal:6.0),
-                     child: ProductBranchItem(
-                      index:index
-                     ),
-                   ) , 
-                   itemCount: 5,
-                   ),
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (BuildContext context, int index) => Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6.0),
+          child: ProductBranchItem(index: index),
+        ),
+        itemCount: 5,
+      ),
     );
   }
 }

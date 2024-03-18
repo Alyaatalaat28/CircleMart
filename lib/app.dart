@@ -9,13 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color:AppColors.kWhite,
+      color: AppColors.kWhite,
       debugShowCheckedModeBanner: false,
       navigatorKey: navigator,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
-      locale:context.locale,
-      home:const SplashView(),
+      locale: context.locale,
+      home: const SplashView(),
     );
   }
 }

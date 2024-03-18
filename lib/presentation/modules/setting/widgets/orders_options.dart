@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
@@ -16,49 +15,49 @@ class OrdersOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height:121.h,
-      width:double.infinity,
-      child:Container(
-        decoration:ShapeDecoration(
-          color:AppColors.kLightGray,
-          shape:RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          ),
-          child: Center(
-            child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              OrdersItem(
-                image:Assets.points,
-                text:'النقاط',
-                onTap: (){
-                  push(
-                    const PointsView(),
-                  );
-                },
-                ),
-               OrdersItem(
-                image:Assets.favorite,
-                text:'المفضلة',
-                onTap: (){
-                  push(
-                    const FavoriteView(),
-                  );
-                },
+        height: 121.h,
+        width: double.infinity,
+        child: Container(
+            decoration: ShapeDecoration(
+              color: AppColors.kLightGray,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
               ),
-             OrdersItem( 
-              image:Assets.orders,
-              text:'طلباتي',
-              onTap: (){
-                  push(
-                    const OrdersView(isFromHome: false,),
-                  );
-                },
-              ),
-            ]
-        ),
-      ))
-    );
+            ),
+            child: Center(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    OrdersItem(
+                      image: Assets.points,
+                      text: 'النقاط',
+                      onTap: () {
+                        push(
+                          const PointsView(),
+                        );
+                      },
+                    ),
+                    OrdersItem(
+                      image: Assets.favorite,
+                      text: 'المفضلة',
+                      onTap: () {
+                        push(
+                          const FavoriteView(),
+                        );
+                      },
+                    ),
+                    OrdersItem(
+                      image: Assets.orders,
+                      text: 'طلباتي',
+                      onTap: () {
+                        push(
+                          const OrdersView(
+                            isFromHome: false,
+                          ),
+                        );
+                      },
+                    ),
+                  ]),
+            )));
   }
 }

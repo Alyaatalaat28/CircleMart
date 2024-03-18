@@ -13,31 +13,25 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        return   SafeArea(
-      child: Scaffold(
-        appBar:AppBar(
-           automaticallyImplyLeading: false,
-          actions:const[
-             ProductsAppBar(
-                    text: 'عن التطبيق'
-                    ),
-          ]
-        ),
-        body:Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                  SvgPicture.asset(Assets.ourLogo),
-                   Gap(35.h),
-                  const About(),
-                  Gap(24.h),
-                  Text('هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص',
-                  textDirection: TextDirection.rtl,
-                 style: AppStyles.regular14(context, AppColors.kGray),)
-            ])
-            ))
-            ));
+    return SafeArea(
+        child: Scaffold(
+            appBar: AppBar(automaticallyImplyLeading: false, actions: const [
+              ProductsAppBar(text: 'عن التطبيق'),
+            ]),
+            body: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    child: Column(children: [
+                      SvgPicture.asset(Assets.ourLogo),
+                      Gap(35.h),
+                      const About(),
+                      Gap(24.h),
+                      Text(
+                        'هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص',
+                        textDirection: TextDirection.rtl,
+                        style: AppStyles.regular14(context, AppColors.kGray),
+                      )
+                    ])))));
   }
 }

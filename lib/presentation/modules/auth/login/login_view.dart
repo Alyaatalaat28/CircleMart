@@ -15,37 +15,33 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
-      child:Scaffold(
-        appBar:AppBar(
-          automaticallyImplyLeading: false,
-           actions:const[
-             ProductsAppBar(text:''),
-          ]
-        ),
-        body:Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children:[
-                 const AppLogo(),
-                  Gap(64.h),
-                  const WelcomeUser(), 
-                   Gap(24.h),
-                  const CountryFlag(),
-                  Gap(16.h),
-                  const PhoneNumber(),
-                  Gap(24.h),
-                  const Enter(),
-                  Gap(70.h),
-                 SvgPicture.asset(Assets.mart,)
-              ]
-            ),
-          ),
-        )
-      )
-    );
+    return SafeArea(
+        child: Scaffold(
+            appBar: AppBar(automaticallyImplyLeading: false, actions: const [
+              ProductsAppBar(text: ''),
+            ]),
+            body: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const AppLogo(),
+                      Gap(64.h),
+                      const WelcomeUser(),
+                      Gap(24.h),
+                      const CountryFlag(),
+                      Gap(16.h),
+                      const PhoneNumber(),
+                      Gap(24.h),
+                      const Enter(),
+                      Gap(70.h),
+                      SvgPicture.asset(
+                        Assets.mart,
+                      )
+                    ]),
+              ),
+            )));
   }
 }

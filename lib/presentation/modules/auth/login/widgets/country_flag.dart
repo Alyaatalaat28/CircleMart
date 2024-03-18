@@ -13,28 +13,33 @@ class CountryFlag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-        height: 60.h,
-        decoration: ShapeDecoration(
+    return Container(
+      height: 60.h,
+      decoration: ShapeDecoration(
           color: AppColors.kLightGray,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
-          )
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal:16.0),
-            child: Row(
-              children: [
-                SvgPicture.asset(Assets.dropDownMenu,
-                color: AppColors.kRed,),
-                const Spacer(),
-                Text('مصر',
-                style: AppStyles.regular14(context, AppColors.kBlack),),
-                Gap(12.w),
-                SvgPicture.asset(Assets.egFlag,)
-              ],
+          )),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              Assets.dropDownMenu,
+              color: AppColors.kRed,
             ),
-          ),
+            const Spacer(),
+            Text(
+              'مصر',
+              style: AppStyles.regular14(context, AppColors.kBlack),
+            ),
+            Gap(12.w),
+            SvgPicture.asset(
+              Assets.egFlag,
+            )
+          ],
+        ),
+      ),
     );
   }
 }

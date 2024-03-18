@@ -9,12 +9,12 @@ class CurrentOrderListView extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemBuilder: (BuildContext context, int index)=> const Padding(
-          padding: EdgeInsets.symmetric(vertical:8.0),
+        itemBuilder: (BuildContext context, int index) => const Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.0),
           child: CurrentOrder(),
         ),
         itemCount: 1,
-        ),
+      ),
     );
   }
 }

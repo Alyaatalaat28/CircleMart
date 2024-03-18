@@ -19,52 +19,45 @@ class PaymentAndDelivery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Consumer<SharedPref>(
-      builder:(context,provider,child)=> SafeArea(
-        child: Scaffold(
-           appBar:AppBar(
-            automaticallyImplyLeading: false,
-             actions:const[
-                 ProductsAppBar(
-                  text:'الدفع والتوصيل'
+    return Consumer<SharedPref>(
+      builder: (context, provider, child) => SafeArea(
+          child: Scaffold(
+              appBar: AppBar(automaticallyImplyLeading: false, actions: const [
+                ProductsAppBar(text: 'الدفع والتوصيل'),
+              ]),
+              body: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Column(children: [
+                    const OrderItemsListView(),
+                    Gap(12.h),
+                    const Address(),
+                    Gap(12.h),
+                    const PaymentMethod(),
+                    Gap(12.h),
+                    const Notes(),
+                    Gap(210.h),
+                    CustomBottomSheet(
+                      width: 79,
+                      height: 45,
+                      text: '${provider.totalPriceForCartProuducts()}',
+                      child: Center(
+                        child: InkWell(
+                          onTap: () {
+                            push(
+                              const InvoiceView(),
+                            );
+                          },
+                          child: Text('تأكيد',
+                              style: AppStyles.regular14(
+                                  context, AppColors.kWhite)),
+                        ),
+                      ),
+                    )
+                  ]),
                 ),
-            ]
-          ),
-        body:Padding(
-          padding: const EdgeInsets.symmetric(horizontal:10.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children:[ 
-               const OrderItemsListView(),
-               Gap(12.h),
-               const Address(),
-               Gap(12.h),
-               const PaymentMethod(),
-               Gap(12.h),
-               const Notes(),
-                Gap(210.h),
-               CustomBottomSheet(
-                width: 79, 
-                height: 45,
-                text: '${provider.totalPriceForCartProuducts()}',
-                child:Center(
-                  child: InkWell(
-                    onTap:(){
-                       push(
-                         const InvoiceView(),
-                        );
-                    },
-                    child: Text('تأكيد',
-                    style:AppStyles.regular14(context, AppColors.kWhite)),
-                  ),
-                ) ,
-                )
-              ]
-            ),
-          ),
-        )
-      )),
+              ))),
     );
   }
 }

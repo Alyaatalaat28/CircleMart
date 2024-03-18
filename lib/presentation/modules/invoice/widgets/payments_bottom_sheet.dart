@@ -12,35 +12,29 @@ class PaymentsBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
+    return SizedBox(
       height: 388.h,
       child: Padding(
         padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children:[
-            Row(
-              children:[
-                InkWell(
-                  onTap:()=>Navigator.pop(context),
-                  child: SvgPicture.asset(Assets.x)
-                  ),
-                const Spacer(),
-                Text('طريقة الدفع',
-                style:AppStyles.semiBold18(context)),
-              ]
-            ),
-            Gap(32.h),
-            const PaymentMethodList(),
-             Gap(32.h),
-             CustomTextButton(
-              width: double.infinity, 
-              height: 53,
-              text: 'تأكيد', 
-              radius: 16,
-              onPressed: ()=>Navigator.pop(context),
-              ),
-          ]
-        ),
+        child: Column(children: [
+          Row(children: [
+            InkWell(
+                onTap: () => Navigator.pop(context),
+                child: SvgPicture.asset(Assets.x)),
+            const Spacer(),
+            Text('طريقة الدفع', style: AppStyles.semiBold18(context)),
+          ]),
+          Gap(32.h),
+          const PaymentMethodList(),
+          Gap(32.h),
+          CustomTextButton(
+            width: double.infinity,
+            height: 53,
+            text: 'تأكيد',
+            radius: 16,
+            onPressed: () => Navigator.pop(context),
+          ),
+        ]),
       ),
     );
   }

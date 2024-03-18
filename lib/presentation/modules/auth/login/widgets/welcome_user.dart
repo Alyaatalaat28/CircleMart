@@ -9,27 +9,28 @@ class WelcomeUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
-                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text('!.. اهلا بك',
-                      style: AppStyles.semiBold24(context).copyWith(
-                        color: AppColors.kGray,
-                        fontSize: 28,
-                      ),),
-                    ],
-                  ),
-                Gap(8.h),
-                Row(
-                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text('.. سجل الدخول في التطبيق و اطلب الان',
-                      style: AppStyles.regular14(context,AppColors.kGray)),
-                  ],
-                ),
-              
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text(
+              '!.. اهلا بك',
+              style: AppStyles.semiBold24(context).copyWith(
+                color: AppColors.kGray,
+                fontSize: 28,
+              ),
+            ),
+          ],
+        ),
+        Gap(8.h),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text('.. سجل الدخول في التطبيق و اطلب الان',
+                style: AppStyles.regular14(context, AppColors.kGray)),
+          ],
+        ),
       ],
     );
   }

@@ -12,16 +12,22 @@ class UsePoints extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Text('استخدام النقاط',
-        style:AppStyles.regular12(context, AppColors.kGray),),
+        Text(
+          'استخدام النقاط',
+          style: AppStyles.regular12(context, AppColors.kGray),
+        ),
         Gap(2.h),
         Row(
           children: [
-            Text('نقطة',
-            style: AppStyles.regular10(context),),
+            Text(
+              'نقطة',
+              style: AppStyles.regular10(context),
+            ),
             Gap(4.w),
-            Text('( 130 )',
-            style: AppStyles.semiBold14(context),),
+            Text(
+              '( 130 )',
+              style: AppStyles.semiBold14(context),
+            ),
           ],
         ),
       ],

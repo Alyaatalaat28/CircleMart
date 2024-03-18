@@ -13,18 +13,18 @@ class _EnterState extends State<Enter> {
   @override
   Widget build(BuildContext context) {
     return CustomTextButton(
-                    width: double.infinity,
-                    height: 53,
-                    text: 'دخول',
-                    radius: 12,
-                    onPressed: ()=>showBottomSheet(),
-                    );
+      width: double.infinity,
+      height: 53,
+      text: 'دخول',
+      radius: 12,
+      onPressed: () => showBottomSheet(),
+    );
   }
-    void showBottomSheet(){
-            showModalBottomSheet(
-              context:context,
-              isScrollControlled: true,
-              builder:(context)=>  const OtpBottomSheet()
-              );
+
+  void showBottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (context) => const OtpBottomSheet());
   }
 }

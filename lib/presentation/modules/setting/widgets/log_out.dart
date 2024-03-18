@@ -10,14 +10,12 @@ class LogOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-              mainAxisAlignment:MainAxisAlignment.center,
-              children:[
-              Text('تسجيل الخروج',
-              style:AppStyles.regular14(context,AppColors.kLogOutButtonBorderColor)),
-              const Gap(12),
-              SvgPicture.asset(Assets.logOut),
-            ]
-           );
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Text('تسجيل الخروج',
+          style:
+              AppStyles.regular14(context, AppColors.kLogOutButtonBorderColor)),
+      const Gap(12),
+      SvgPicture.asset(Assets.logOut),
+    ]);
   }
 }

@@ -9,19 +9,16 @@ class CartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Consumer<ProductsViewModel>(
-      builder:(context,provider,child)=> SafeArea(
-        child: Scaffold(
-           appBar:AppBar(
-            automaticallyImplyLeading: false,
-             actions:const[
-             ProductsAppBar(
-              text: 'السلة',
-            ),
-            ]
+    return Consumer<ProductsViewModel>(
+      builder: (context, provider, child) => SafeArea(
+          child: Scaffold(
+        appBar: AppBar(automaticallyImplyLeading: false, actions: const [
+          ProductsAppBar(
+            text: 'السلة',
           ),
-          body:const CartViewBody(),
-        )),
+        ]),
+        body: const CartViewBody(),
+      )),
     );
   }
 }

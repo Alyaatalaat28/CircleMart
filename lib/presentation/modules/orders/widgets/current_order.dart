@@ -12,30 +12,32 @@ class CurrentOrder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-       width:double.infinity,
-       height:158.h,
-       padding:const EdgeInsets.symmetric(horizontal:12.0,vertical:16.0),
-        decoration:ShapeDecoration(
-          color:AppColors.kLightGray,
-          shape:RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+    return Container(
+      width: double.infinity,
+      height: 158.h,
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
+      decoration: ShapeDecoration(
+        color: AppColors.kLightGray,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+      child: Column(
+        children: [
+          const OrderNumber(
+            orderNumber: '#26585',
           ),
-        ),
-        child:  Column(
-          children: [
-                const OrderNumber(
-                  orderNumber: '#26585',
-                  ),
-                  Gap(16.h),
-                const OrderDateAndTime(
-                  time: '03:23', 
-                  date: '11/11/2022',),
-                 Gap(16.h),
-                const OrderLocation(
-                  location: 'شارع الحرية - الجيزة',),
-          ],
-        ),
+          Gap(16.h),
+          const OrderDateAndTime(
+            time: '03:23',
+            date: '11/11/2022',
+          ),
+          Gap(16.h),
+          const OrderLocation(
+            location: 'شارع الحرية - الجيزة',
+          ),
+        ],
+      ),
     );
   }
 }

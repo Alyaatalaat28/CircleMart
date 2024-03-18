@@ -12,35 +12,34 @@ import 'details_list_view.dart';
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
 
- @override
+  @override
   Widget build(BuildContext context) {
-    return  Consumer<SharedPref>(
-      builder:(context,provider,child){
-      if(provider.cart.isNotEmpty){
-      return Column(
-        children: [
+    return Consumer<SharedPref>(builder: (context, provider, child) {
+      if (provider.cart.isNotEmpty) {
+        return Column(
+          children: [
             const DetailsListView(),
             const Spacer(),
-           CustomBottomSheet(
-            height: 45, 
-            width: 103,
-            text: '${provider.totalPriceForCartProuducts()}',
-            child:InkWell(
-              onTap: (){
-                push(const PaymentAndDelivery());
-              },
-              child: Center(
-                child: Text('اطلب الأن',
-                style: AppStyles.regular14(context, AppColors.kWhite),),
-              ),
-            )),
-        ],
-      );
-      }else{
-        return  const EmptyCart();
+            CustomBottomSheet(
+                height: 45,
+                width: 103,
+                text: '${provider.totalPriceForCartProuducts()}',
+                child: InkWell(
+                  onTap: () {
+                    push(const PaymentAndDelivery());
+                  },
+                  child: Center(
+                    child: Text(
+                      'اطلب الأن',
+                      style: AppStyles.regular14(context, AppColors.kWhite),
+                    ),
+                  ),
+                )),
+          ],
+        );
+      } else {
+        return const EmptyCart();
       }
-      }
-    );
-    
+    });
   }
 }

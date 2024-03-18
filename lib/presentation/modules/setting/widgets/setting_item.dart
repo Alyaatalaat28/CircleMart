@@ -6,34 +6,38 @@ import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/resources/app_styles.dart';
 
 class SettingItem extends StatelessWidget {
-  const SettingItem({super.key,required this.image,required this.text,this.onPressed});
- final String image;
- final String text;
-final void Function()?onPressed;
+  const SettingItem(
+      {super.key, required this.image, required this.text, this.onPressed});
+  final String image;
+  final String text;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child:  InkWell(
-         onTap:onPressed,
-      child:Row(
+      child: InkWell(
+        onTap: onPressed,
+        child: Row(
           children: [
             IconButton(
-              onPressed:(){},
-               icon: Icon(
+              onPressed: () {},
+              icon: Icon(
                 Icons.arrow_back_ios_new_rounded,
-                color:AppColors.kGray,
-                size:15.w,
-               ),
+                color: AppColors.kGray,
+                size: 15.w,
+              ),
             ),
             const Spacer(),
-            Text(text,
-            style: AppStyles.regular14(context, AppColors.kBlack),),
+            Text(
+              text,
+              style: AppStyles.regular14(context, AppColors.kBlack),
+            ),
             Gap(7.w),
-            SvgPicture.asset(image,
+            SvgPicture.asset(
+              image,
             ),
           ],
-          ),
+        ),
       ),
     );
   }

@@ -15,19 +15,19 @@ class PaymentMethod extends StatefulWidget {
 class _PaymentMethodState extends State<PaymentMethod> {
   @override
   Widget build(BuildContext context) {
-    return  CustomContainer(
+    return CustomContainer(
       child: CustomOrderListTile(
         title: 'طريقة الدفع',
         subTitle: 'كاش',
         image: Assets.payment,
         trailing: true,
-       onPressed:()=> showBottomSheet(),
-      ),);
+        onPressed: () => showBottomSheet(),
+      ),
+    );
   }
-void showBottomSheet(){
-            showModalBottomSheet(
-              context:context,
-              builder:(context)=>  const PaymentsBottomSheet()
-              );
+
+  void showBottomSheet() {
+    showModalBottomSheet(
+        context: context, builder: (context) => const PaymentsBottomSheet());
   }
 }

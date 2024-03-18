@@ -5,21 +5,17 @@ import 'package:nami/core/utils/constants.dart';
 import 'package:nami/injection.dart' as injection;
 import 'package:nami/providers.dart';
 
-final GlobalKey<NavigatorState> navigator=GlobalKey<NavigatorState>();
-void main()async {
+final GlobalKey<NavigatorState> navigator = GlobalKey<NavigatorState>();
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await injection.init();
 
-  runApp(
-  AppMultiProvider(
+  runApp(AppMultiProvider(
     child: EasyLocalization(
-        supportedLocales:supportedLanguages,
+        supportedLocales: supportedLanguages,
         path: 'assets/translations',
-        fallbackLocale:supportedLanguages[0],
-        child: const MyApp()
-        ),
-  ));
+        fallbackLocale: supportedLanguages[0],
+        child: const MyApp()),
+  )); 
 }
-
-

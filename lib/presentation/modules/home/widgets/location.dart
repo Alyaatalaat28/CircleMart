@@ -12,25 +12,22 @@ class Location extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:54,
-      width:126.w,
-      padding:const EdgeInsets.all(16),
-          decoration:ShapeDecoration(
-            color:AppColors.kRed,
-            shape:RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-          ),
-          child: Row(
-            children:[
-              SvgPicture.asset(Assets.dropDownMenu),
-               Gap(11.w),
-              Text('القاهرة',
-              style:AppStyles.regular14(context, AppColors.kWhite)
-            ),
-             Gap(11.w),
-            SvgPicture.asset(Assets.location),
-            ]),
+      height: 54,
+      width: 126.w,
+      padding: const EdgeInsets.all(16),
+      decoration: ShapeDecoration(
+        color: AppColors.kRed,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+      child: Row(children: [
+        SvgPicture.asset(Assets.dropDownMenu),
+        Gap(11.w),
+        Text('القاهرة', style: AppStyles.regular14(context, AppColors.kWhite)),
+        Gap(11.w),
+        SvgPicture.asset(Assets.location),
+      ]),
     );
   }
 }

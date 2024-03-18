@@ -12,18 +12,17 @@ class PreviousOrderButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
-          width:110.w,
-          height:41.h,
-           decoration:ShapeDecoration(
-              color:AppColors.kWhite,
-              shape:RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
+          width: 110.w,
+          height: 41.h,
+          decoration: ShapeDecoration(
+            color: AppColors.kWhite,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
             ),
-            child: Center(
-             child: Text('طلب منتهي',
-              style:AppStyles.regular14(context, AppColors.kRed))
-            ),
+          ),
+          child: Center(
+              child: Text('طلب منتهي',
+                  style: AppStyles.regular14(context, AppColors.kRed))),
         ),
       ],
     );

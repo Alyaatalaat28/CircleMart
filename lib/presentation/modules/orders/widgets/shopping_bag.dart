@@ -13,26 +13,26 @@ class ShoppingBagRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Consumer<OrdersViewModel>(
-    builder:(context,provider,child)=> Padding(
-                  padding: const EdgeInsets.only(top:22.0,right:22.0),
-                  child: Row(
-                    children: [
-                      const Spacer(),
-                      Text('تم استلام طلبك',
-                      style:AppStyles.regular14(context, AppColors.kGray)),
-                      Gap(8.w),
-                       InkWell(
-                        onTap:()=>provider.sliderIncrement(),
-                         child: CircleAvatar(
-                          backgroundColor: AppColors.kRed.withOpacity(0.1),
-                          radius: 20,
-                          child: SvgPicture.asset(Assets.bag),
-                                               ),
-                       ),
-                    ],
-                  ),
-                ),
+    return Consumer<OrdersViewModel>(
+      builder: (context, provider, child) => Padding(
+        padding: const EdgeInsets.only(top: 22.0, right: 22.0),
+        child: Row(
+          children: [
+            const Spacer(),
+            Text('تم استلام طلبك',
+                style: AppStyles.regular14(context, AppColors.kGray)),
+            Gap(8.w),
+            InkWell(
+              onTap: () => provider.sliderIncrement(),
+              child: CircleAvatar(
+                backgroundColor: AppColors.kRed.withOpacity(0.1),
+                radius: 20,
+                child: SvgPicture.asset(Assets.bag),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

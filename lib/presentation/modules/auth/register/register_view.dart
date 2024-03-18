@@ -18,38 +18,31 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child:Scaffold(
-        appBar:AppBar(
-          automaticallyImplyLeading: false,
-           actions:const[
-             ProductsAppBar(text:'انشاء حساب'),
-          ]
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children:[
-                SvgPicture.asset(Assets.register),
-                 Gap(32.h),
-                const FirstAndLastName(),
-                Gap(32.h),
-                const City(),
-                Gap(32.h),
-                const InviteBySomeOneOption(),
-                 Gap(200.h),
-                  CustomTextButton(
-                  width: double.infinity,
-                   height: 53,
-                   text: 'تأكيد',
-                   radius: 12,
-                   onPressed: ()=>pushAndRemoveUntil(const BottomNavBar()),
-                  
-                 ),
-              ]
-              )
-              ))
-              ));
+        child: Scaffold(
+            appBar: AppBar(automaticallyImplyLeading: false, actions: const [
+              ProductsAppBar(text: 'انشاء حساب'),
+            ]),
+            body: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    child: Column(children: [
+                      SvgPicture.asset(Assets.register),
+                      Gap(32.h),
+                      const FirstAndLastName(),
+                      Gap(32.h),
+                      const City(),
+                      Gap(32.h),
+                      const InviteBySomeOneOption(),
+                      Gap(200.h),
+                      CustomTextButton(
+                        width: double.infinity,
+                        height: 53,
+                        text: 'تأكيد',
+                        radius: 12,
+                        onPressed: () =>
+                            pushAndRemoveUntil(const BottomNavBar()),
+                      ),
+                    ])))));
   }
 }

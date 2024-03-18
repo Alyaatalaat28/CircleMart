@@ -13,31 +13,32 @@ class City extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       height: 61.h,
-        decoration: ShapeDecoration(
+      decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-            side: const BorderSide(
-              color: AppColors.kLightGray
+              borderRadius: BorderRadius.circular(12),
+              side: const BorderSide(color: AppColors.kLightGray))),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              Assets.dropDownMenu,
+              color: AppColors.kRed,
+            ),
+            const Spacer(),
+            Text(
+              'المدينة',
+              style: AppStyles.regular14(context, AppColors.kBlack),
+            ),
+            Gap(6.w),
+            SvgPicture.asset(
+              Assets.city,
             )
-          )
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal:20.0),
-            child: Row(
-                children: [
-                  SvgPicture.asset(Assets.dropDownMenu,
-                  color: AppColors.kRed,),
-                  const Spacer(),
-                  Text('المدينة',
-                  style: AppStyles.regular14(context, AppColors.kBlack),),
-                  Gap(6.w),
-                  SvgPicture.asset(Assets.city,)
-                ],
-              ),
-          ),
-          
+          ],
+        ),
+      ),
     );
   }
 }

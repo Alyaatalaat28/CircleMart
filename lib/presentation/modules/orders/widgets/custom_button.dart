@@ -6,9 +6,12 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
 
 class CustomOrderButton extends StatelessWidget {
-  const CustomOrderButton({
-    super.key,required this.borderColor,required this.textColor,
-    required this.image,required this.text});
+  const CustomOrderButton(
+      {super.key,
+      required this.borderColor,
+      required this.textColor,
+      required this.image,
+      required this.text});
 
   final Color borderColor;
   final Color textColor;
@@ -19,25 +22,26 @@ class CustomOrderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        height:48.h,
-      decoration:ShapeDecoration(
-          color:AppColors.kWhite,
-          shape:RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-            side:BorderSide(
-              color:borderColor,
-            )
-          ),),
+          height: 48.h,
+          decoration: ShapeDecoration(
+            color: AppColors.kWhite,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+                side: BorderSide(
+                  color: borderColor,
+                )),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                  Text(text,
-                  style: AppStyles.regular12(context, textColor),),
-                  Gap(8.w),
-                  SvgPicture.asset(image)
-              ],
-          )
-      ),
+            children: [
+              Text(
+                text,
+                style: AppStyles.regular12(context, textColor),
+              ),
+              Gap(8.w),
+              SvgPicture.asset(image)
+            ],
+          )),
     );
   }
 }

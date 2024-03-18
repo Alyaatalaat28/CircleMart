@@ -12,28 +12,25 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Expanded(
+    return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:16.0,vertical:4),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children:[
-             CustomIconButton(
-              image:Assets.cart,
-              text:'1',
-              onTap: (){
+          children: [
+            CustomIconButton(
+              image: Assets.cart,
+              text: '1',
+              onTap: () {
                 push(const CartView());
               },
             ),
             const Gap(8),
-            const CustomIconButton(
-              image:Assets.notification
-            ),
+            const CustomIconButton(image: Assets.notification),
             const Spacer(),
             const WelcomeUser(),
             const Gap(10),
             SvgPicture.asset(Assets.logo),
-        
           ],
         ),
       ),

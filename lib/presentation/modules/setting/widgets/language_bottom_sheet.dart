@@ -12,32 +12,27 @@ class LanguageBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(16.0),
       child: SizedBox(
         height: 242,
-        child: Column(
-           children:[
-                  Row(
-                  children:[
-                    InkWell(
-                      onTap:()=>Navigator.pop(context),
-                      child: SvgPicture.asset(Assets.x)
-                      ),
-                    const Spacer(),
-                    Text('اللغة',
-                    style:AppStyles.semiBold18(context)),
-                  ]
-                ),
-                 const ChooseLanguage(),
-                   Gap(16.h),
-                   const CustomTextButton(
-                    width: double.infinity,
-                     height: 60,
-                      text: 'تأكيد', 
-                      radius: 16,),
-           ]
-        ),
+        child: Column(children: [
+          Row(children: [
+            InkWell(
+                onTap: () => Navigator.pop(context),
+                child: SvgPicture.asset(Assets.x)),
+            const Spacer(),
+            Text('اللغة', style: AppStyles.semiBold18(context)),
+          ]),
+          const ChooseLanguage(),
+          Gap(16.h),
+          const CustomTextButton(
+            width: double.infinity,
+            height: 60,
+            text: 'تأكيد',
+            radius: 16,
+          ),
+        ]),
       ),
     );
   }

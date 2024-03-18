@@ -7,14 +7,13 @@ class CodeTimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
-       Text('00:48',
-       style:AppStyles.regular14(context, AppColors.kBlack)),
-       const Spacer(),
+        Text('00:48', style: AppStyles.regular14(context, AppColors.kBlack)),
+        const Spacer(),
         Text('اعادة ارسال الرمز',
-          textAlign: TextAlign.center,
-          style:AppStyles.regular14(context, AppColors.kRed)),
+            textAlign: TextAlign.center,
+            style: AppStyles.regular14(context, AppColors.kRed)),
       ],
     );
   }

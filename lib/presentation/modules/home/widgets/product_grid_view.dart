@@ -6,32 +6,34 @@ import '../../../component/product_item.dart';
 import '../../products/product_details.dart';
 
 class ProductGridView extends StatelessWidget {
-   ProductGridView({super.key});
+  ProductGridView({super.key});
   @override
   Widget build(BuildContext context) {
-     return GridView.count(
-      physics:const NeverScrollableScrollPhysics(),
-      shrinkWrap:true,
+    return GridView.count(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       crossAxisCount: 2,
-      childAspectRatio:1/1.2,
+      childAspectRatio: 1 / 1.2,
       mainAxisSpacing: 10.0,
       crossAxisSpacing: 8.0,
-      children: List.generate(8, (index) =>InkWell(
-        onTap: (){
-          push( ProductDetails(
-            product: product,
-            ));
-        },
-        child:  ProductItem(
-          product: product,
-        ))),
+      children: List.generate(
+          8,
+          (index) => InkWell(
+              onTap: () {
+                push(ProductDetails(
+                  product: product,
+                ));
+              },
+              child: ProductItem(
+                product: product,
+              ))),
     );
   }
-  
-  final product= Product(
-            name:'جمبري',
-            image:Assets.shrimp ,
-            price:280 ,
-            quantity: 1,
-          );
+
+  final product = Product(
+    name: 'جمبري',
+    image: Assets.shrimp,
+    price: 280,
+    quantity: 1,
+  );
 }

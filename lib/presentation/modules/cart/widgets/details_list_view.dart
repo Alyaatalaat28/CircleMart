@@ -14,23 +14,23 @@ class DetailsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Consumer<SharedPref>(
-      builder:(context,provider,child)=> SizedBox(
-         height: MediaQuery.of(context).size.height * 0.7,
+    return Consumer<SharedPref>(
+      builder: (context, provider, child) => SizedBox(
+        height: MediaQuery.of(context).size.height * 0.7,
         child: ListView.separated(
           shrinkWrap: true,
           physics: const BouncingScrollPhysics(),
-          itemBuilder: (BuildContext context, int index)=> Padding(
-            padding: const EdgeInsets.symmetric(vertical:16.0),
+          itemBuilder: (BuildContext context, int index) => Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ItemDetails(
-              product:provider.cart[index],
+              product: provider.cart[index],
             ),
           ),
-          separatorBuilder: (BuildContext context, int index) { 
-            return SvgPicture.asset(Assets.line,
-            color:AppColors.kGray);
-           },
-          itemCount: provider.cart.length,),
+          separatorBuilder: (BuildContext context, int index) {
+            return SvgPicture.asset(Assets.line, color: AppColors.kGray);
+          },
+          itemCount: provider.cart.length,
+        ),
       ),
     );
   }

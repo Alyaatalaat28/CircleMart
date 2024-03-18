@@ -8,33 +8,30 @@ import '../../../../core/resources/assets.dart';
 import 'item_amount.dart';
 
 class ItemDetails extends StatelessWidget {
-  const ItemDetails({super.key,required this.product});
-final Product product;
+  const ItemDetails({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(
-      builder:(context,provider,child)=> Padding(
-        padding: const EdgeInsets.symmetric(horizontal:16.0),
+      builder: (context, provider, child) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
             Row(
               children: [
                 InkWell(
-                  onTap:(){
-                    provider.removeFromCart(product);
-                  },
-                  child: SvgPicture.asset(Assets.delete)
-                  ),
+                    onTap: () {
+                      provider.removeFromCart(product);
+                    },
+                    child: SvgPicture.asset(Assets.delete)),
                 const Spacer(),
-                const  ItemPrice(),
-                  Image(
-                  image:AssetImage(product.image)
-                  ),
+                const ItemPrice(),
+                Image(image: AssetImage(product.image)),
               ],
             ),
-           ItemAmount(
-            product: product,
-          ),
+            ItemAmount(
+              product: product,
+            ),
           ],
         ),
       ),

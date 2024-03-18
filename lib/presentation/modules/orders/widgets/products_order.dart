@@ -13,29 +13,25 @@ class ProductsOrderAmount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      decoration:ShapeDecoration(
-          color:AppColors.kLightGray,
-          shape:RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+        width: double.infinity,
+        decoration: ShapeDecoration(
+            color: AppColors.kLightGray,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
             )),
-          child:Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment:CrossAxisAlignment.end,
-              children:[
-                Text('المنتجات',
-                style:AppStyles.semiBold12(context)),
-                const ProductsListView(),
-                  const OrderDeliveryPrice(
-                    price: '20',),
-                    Gap(24.h),
-                  const OrderTotalPrice(
-                      price: '569',),
-                
-              ]
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+            Text('المنتجات', style: AppStyles.semiBold12(context)),
+            const ProductsListView(),
+            const OrderDeliveryPrice(
+              price: '20',
             ),
-          )
-    );
+            Gap(24.h),
+            const OrderTotalPrice(
+              price: '569',
+            ),
+          ]),
+        ));
   }
 }

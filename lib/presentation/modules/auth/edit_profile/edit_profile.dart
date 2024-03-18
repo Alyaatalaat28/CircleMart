@@ -12,33 +12,25 @@ class EditProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child:Scaffold(
-        appBar:AppBar(
-          automaticallyImplyLeading: false,
-           actions:const[
-             ProductsAppBar(text:'تعديل الحساب'),
-          ]
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children:[
-                const AvatarImage(),
-                Gap(32.h),
-                const FirstAndLastName(),
-                 Gap(400.h),
-                 const CustomTextButton(
-                  width: double.infinity,
-                   height: 53,
-                   text: 'تأكيد',
-                   radius: 12,
-                  
-                 ),
-              ]
-              )
-              ))
-              ));
+        child: Scaffold(
+            appBar: AppBar(automaticallyImplyLeading: false, actions: const [
+              ProductsAppBar(text: 'تعديل الحساب'),
+            ]),
+            body: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    child: Column(children: [
+                      const AvatarImage(),
+                      Gap(32.h),
+                      const FirstAndLastName(),
+                      Gap(400.h),
+                      const CustomTextButton(
+                        width: double.infinity,
+                        height: 53,
+                        text: 'تأكيد',
+                        radius: 12,
+                      ),
+                    ])))));
   }
 }

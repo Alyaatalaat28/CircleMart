@@ -7,19 +7,16 @@ class WelcomeUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.only(top:7.0),
+    return Padding(
+      padding: const EdgeInsets.only(top: 7.0),
       child: Column(
-        crossAxisAlignment:CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text('اهلا وسهلا',
-          style:AppStyles.regular12(
-            context, AppColors.kGray
-            ),
+          Text(
+            'اهلا وسهلا',
+            style: AppStyles.regular12(context, AppColors.kGray),
           ),
-          Text('محمد العشري',
-           style:AppStyles.semiBold16(context)
-           ),
+          Text('محمد العشري', style: AppStyles.semiBold16(context)),
         ],
       ),
     );

@@ -10,41 +10,41 @@ class InvoiceDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:315.h ,
+      height: 315.h,
       width: double.infinity,
-      decoration:ShapeDecoration(
-          color:AppColors.kRed.withOpacity(0.08),
-          shape:RoundedRectangleBorder(
+      decoration: ShapeDecoration(
+          color: AppColors.kRed.withOpacity(0.08),
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            )),
-            child:  const Column(
-              children: [
-                CustomOrderListTile(
-                  trailing: false,
-                  image: Assets.branch,
-                   title: 'الفرع',
-                   subTitle: 'شارع الحرية',
-                   ),
-                CustomOrderListTile(
-                  image: Assets.location,
-                   title: 'عنوان التوصيل',
-                   subTitle: 'شارع الحرية - الجيزة',
-                   trailing: false,
-                   ),
-                CustomOrderListTile(
-                  image: Assets.payment,
-                   title: 'طريقة الدفع',
-                   subTitle: 'كاش',
-                   trailing: false,
-                   ),
-                CustomOrderListTile(
-                  image: Assets.note,
-                   title: 'ملاحظات',
-                   subTitle: 'هات الجمبري طازة',
-                   trailing: false,
-                   ),
-              ],
-            ),
+          )),
+      child: const Column(
+        children: [
+          CustomOrderListTile(
+            trailing: false,
+            image: Assets.branch,
+            title: 'الفرع',
+            subTitle: 'شارع الحرية',
+          ),
+          CustomOrderListTile(
+            image: Assets.location,
+            title: 'عنوان التوصيل',
+            subTitle: 'شارع الحرية - الجيزة',
+            trailing: false,
+          ),
+          CustomOrderListTile(
+            image: Assets.payment,
+            title: 'طريقة الدفع',
+            subTitle: 'كاش',
+            trailing: false,
+          ),
+          CustomOrderListTile(
+            image: Assets.note,
+            title: 'ملاحظات',
+            subTitle: 'هات الجمبري طازة',
+            trailing: false,
+          ),
+        ],
+      ),
     );
   }
 }

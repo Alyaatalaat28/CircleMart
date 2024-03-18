@@ -10,32 +10,26 @@ class InviteBySomeOneOption extends StatefulWidget {
 }
 
 class _InviteBySomeOneOptionState extends State<InviteBySomeOneOption> {
- bool isChecked=false;
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
-      children:[
-        const Spacer(),
-        Text('مدعو بواسطة مستخدم ؟',
-        style:AppStyles.regular14(context, AppColors.kBlack)),
-        Checkbox(
-          activeColor:AppColors.kRed,
+    return Row(children: [
+      const Spacer(),
+      Text('مدعو بواسطة مستخدم ؟',
+          style: AppStyles.regular14(context, AppColors.kBlack)),
+      Checkbox(
+          activeColor: AppColors.kRed,
           value: isChecked,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side: const BorderSide(
-              color: AppColors.kGray
-            )
-          ),
-          onChanged: (value){
-           setState(() {
-             isChecked=value!;
-           });
+              borderRadius: BorderRadius.circular(8),
+              side: const BorderSide(color: AppColors.kGray)),
+          onChanged: (value) {
+            setState(() {
+              isChecked = value!;
+            });
           })
-
-      ]
-    );
+    ]);
   }
 }

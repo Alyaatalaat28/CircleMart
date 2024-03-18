@@ -8,22 +8,19 @@ class FavoriteView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child:Scaffold(
-                appBar:AppBar(
-          automaticallyImplyLeading: false,
-           actions:const[
-           ProductsAppBar(
-            text: 'المفضلة',
-          ),
-          ]
+        child: Scaffold(
+      appBar: AppBar(automaticallyImplyLeading: false, actions: const [
+        ProductsAppBar(
+          text: 'المفضلة',
         ),
+      ]),
       body: const Padding(
         padding: EdgeInsets.all(10.0),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
-            //  Gap(30.h),
+              //  Gap(30.h),
               FavoriteGridView(),
             ],
           ),

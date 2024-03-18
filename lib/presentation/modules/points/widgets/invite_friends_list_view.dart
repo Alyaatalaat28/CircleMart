@@ -9,9 +9,9 @@ class InviteFriendsListView extends StatelessWidget {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemBuilder: (BuildContext context, int index) =>const InviteFriendsItem(),
+      itemBuilder: (BuildContext context, int index) =>
+          const InviteFriendsItem(),
       itemCount: 6,
-
     );
   }
 }

@@ -11,21 +11,31 @@ class ContactInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Column(
-      children:[
-              const ContactItem(image:Assets.person, text: 'الاسم',keyboardType: TextInputType.name),
-              const CustomDivider(),
-                Gap(20.h),
-              const ContactItem(image:Assets.email, text: 'البريد الالكتروني',keyboardType: TextInputType.emailAddress),
-              const CustomDivider(),
-                Gap(20.h),
-              const ContactItem(image:Assets.title, text: 'عنوان الرسالة',keyboardType: TextInputType.text),
-              const CustomDivider(),
-               Gap(20.h),
-              const ContactItem(image:Assets.note, text: 'الرسالة',keyboardType: TextInputType.text),
-                Gap(100.h),
-              const CustomDivider(),
-      ]
-    );
+    return Column(children: [
+      const ContactItem(
+          image: Assets.person,
+          text: 'الاسم',
+          keyboardType: TextInputType.name),
+      const CustomDivider(),
+      Gap(20.h),
+      const ContactItem(
+          image: Assets.email,
+          text: 'البريد الالكتروني',
+          keyboardType: TextInputType.emailAddress),
+      const CustomDivider(),
+      Gap(20.h),
+      const ContactItem(
+          image: Assets.title,
+          text: 'عنوان الرسالة',
+          keyboardType: TextInputType.text),
+      const CustomDivider(),
+      Gap(20.h),
+      const ContactItem(
+          image: Assets.note,
+          text: 'الرسالة',
+          keyboardType: TextInputType.text),
+      Gap(100.h),
+      const CustomDivider(),
+    ]);
   }
 }

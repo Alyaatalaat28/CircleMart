@@ -19,43 +19,37 @@ class InvoiceProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-       return Consumer<SharedPref>(
-         builder:(context,provider,child)=> Container(
-               width: double.infinity,
-               decoration:ShapeDecoration(
-            color:AppColors.kLightGray,
-            shape:RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+    return Consumer<SharedPref>(
+      builder: (context, provider, child) => Container(
+          width: double.infinity,
+          decoration: ShapeDecoration(
+              color: AppColors.kLightGray,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
               )),
-            child:Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment:CrossAxisAlignment.end,
-                children:[
-                  Text('المنتجات',
-                  style:AppStyles.semiBold12(context)),
-                  const ProductsListView(),
-                    SvgPicture.asset(Assets.line,
-                    color:AppColors.kGray),
-                     Gap(12.h),
-                    const OrderDeliveryPrice(
-                      price: '20',),
-                       Gap(12.h),
-                      SvgPicture.asset(Assets.line,
-                    color:AppColors.kGray),
-                      Gap(12.h),
-                      const PointsOption(),
-                       Gap(12.h),
-                      SvgPicture.asset(Assets.line,
-                    color:AppColors.kGray),
-                      Gap(12.h),
-                     OrderTotalPrice(
-                      price:'${provider.totalPriceForCartProuducts()}',),
-                  
-                ]
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+              Text('المنتجات', style: AppStyles.semiBold12(context)),
+              const ProductsListView(),
+              SvgPicture.asset(Assets.line, color: AppColors.kGray),
+              Gap(12.h),
+              const OrderDeliveryPrice(
+                price: '20',
               ),
-            )
-             ),
-       );
+              Gap(12.h),
+              SvgPicture.asset(Assets.line, color: AppColors.kGray),
+              Gap(12.h),
+              const PointsOption(),
+              Gap(12.h),
+              SvgPicture.asset(Assets.line, color: AppColors.kGray),
+              Gap(12.h),
+              OrderTotalPrice(
+                price: '${provider.totalPriceForCartProuducts()}',
+              ),
+            ]),
+          )),
+    );
   }
 }

@@ -8,24 +8,26 @@ class EditAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
+    return Stack(
       alignment: AlignmentDirectional.bottomStart,
       children: [
-       const Image(
-         image:AssetImage((Assets.avatarImage),),
+        const Image(
+          image: AssetImage(
+            (Assets.avatarImage),
           ),
+        ),
         Container(
-          decoration:const ShapeDecoration(
-          color:AppColors.kWhite,
-          shape:RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-            topRight:Radius.circular(36) ,
-            bottomRight: Radius.circular(36),
+          decoration: const ShapeDecoration(
+            color: AppColors.kWhite,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(36),
+                bottomRight: Radius.circular(36),
+              ),
             ),
           ),
-       ) ,
-          child:SvgPicture.asset(Assets.userPen),
-          )
+          child: SvgPicture.asset(Assets.userPen),
+        )
       ],
     );
   }

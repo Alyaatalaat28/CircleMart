@@ -8,17 +8,13 @@ class Avatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
-      width:double.infinity,
-      child: Column(
-        crossAxisAlignment:CrossAxisAlignment.center,
-        children:[
-          const EditAvatar(),
-          const Gap(12),
-          Text('محمد العشري',
-          style:AppStyles.semiBold18(context))
-        ]
-      ),
+    return SizedBox(
+      width: double.infinity,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        const EditAvatar(),
+        const Gap(12),
+        Text('محمد العشري', style: AppStyles.semiBold18(context))
+      ]),
     );
   }
 }

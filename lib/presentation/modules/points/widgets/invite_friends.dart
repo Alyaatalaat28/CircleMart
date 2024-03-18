@@ -9,17 +9,18 @@ class InviteFriends extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  DottedBorder(
+    return DottedBorder(
       padding: const EdgeInsets.all(16.0),
-      color:AppColors.kGray,
+      color: AppColors.kGray,
       borderType: BorderType.Rect,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text('السجل',
-          style: AppStyles.semiBold12(context).copyWith(
-            color: AppColors.kGray
-          ),),
+          Text(
+            'السجل',
+            style:
+                AppStyles.semiBold12(context).copyWith(color: AppColors.kGray),
+          ),
           const InviteFriendsListView(),
         ],
       ),

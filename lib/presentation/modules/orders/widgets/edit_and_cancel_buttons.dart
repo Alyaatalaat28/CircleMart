@@ -11,23 +11,23 @@ class EditAndCancelButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.symmetric(horizontal:30.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Row(
         children: [
           const CustomOrderButton(
             borderColor: AppColors.kBlack,
-             textColor:AppColors.kBlack, 
-             image: Assets.cancel,
-              text: 'الغاء',
-              ),
+            textColor: AppColors.kBlack,
+            image: Assets.cancel,
+            text: 'الغاء',
+          ),
           Gap(8.w),
           const CustomOrderButton(
-             borderColor: AppColors.kRed,
-             textColor:AppColors.kRed, 
-             image: Assets.edit,
-              text: 'تعديل',
-             ),
+            borderColor: AppColors.kRed,
+            textColor: AppColors.kRed,
+            image: Assets.edit,
+            text: 'تعديل',
+          ),
         ],
       ),
     );

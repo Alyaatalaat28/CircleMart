@@ -10,15 +10,16 @@ class About extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
-     children: [
-       const Spacer(),
-       Text('من نحن',
-       style:AppStyles.semiBold18(context),
-       ),
-       Gap(8.w),
-       SvgPicture.asset(Assets.aboutUs),
-     ],
+    return Row(
+      children: [
+        const Spacer(),
+        Text(
+          'من نحن',
+          style: AppStyles.semiBold18(context),
+        ),
+        Gap(8.w),
+        SvgPicture.asset(Assets.aboutUs),
+      ],
     );
   }
 }

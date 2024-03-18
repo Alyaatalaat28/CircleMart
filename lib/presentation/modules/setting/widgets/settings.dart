@@ -22,79 +22,78 @@ class Setting extends StatefulWidget {
 class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
-      width:double.infinity,
-      height:374.h,
+    return SizedBox(
+      width: double.infinity,
+      height: 374.h,
       child: Container(
-         decoration:ShapeDecoration(
-            color:AppColors.kSettingContainerColor,
-            shape:RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
+        decoration: ShapeDecoration(
+          color: AppColors.kSettingContainerColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment:CrossAxisAlignment.end,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text('الاعدادات',
-                    style:AppStyles.semiBold12(context)),
-                    const Gap(6),
-                  ],
-                ),
-                Row(
-                 children: [
-                   SettingItem(
-                    image: Assets.editAccount, text: 'تعديل الحساب',
-                    onPressed: (){
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text('الاعدادات', style: AppStyles.semiBold12(context)),
+                  const Gap(6),
+                ],
+              ),
+              Row(
+                children: [
+                  SettingItem(
+                    image: Assets.editAccount,
+                    text: 'تعديل الحساب',
+                    onPressed: () {
                       push(const EditProfile());
                     },
-                     ),
+                  ),
                   const Gap(6),
-                 ],
-               ),
-                SettingItem(
-                image: Assets.language, text: 'اللغة',
-                onPressed: ()=>showBottomSheet(),
-                ),
-                SettingItem(
-                image: Assets.connectToUs, text: 'تواصل معنا',
-                 onPressed:(){ push(
-                    const ContactView(),
-                  );
-                  }
-               ),
-                SettingItem(
-                image: Assets.aboutApp, text: 'عن التطبيق',
-                onPressed: (){
+                ],
+              ),
+              SettingItem(
+                image: Assets.language,
+                text: 'اللغة',
+                onPressed: () => showBottomSheet(),
+              ),
+              SettingItem(
+                  image: Assets.connectToUs,
+                  text: 'تواصل معنا',
+                  onPressed: () {
+                    push(
+                      const ContactView(),
+                    );
+                  }),
+              SettingItem(
+                image: Assets.aboutApp,
+                text: 'عن التطبيق',
+                onPressed: () {
                   push(
                     const AboutView(),
                   );
                 },
               ),
-               const Row(
-                 children: [
-                   SettingItem(
-                    image: Assets.rateApp, text: 'تقييم التطبيق'
-                    ),
-                     Gap(6),
-                 ],
-               ),
+              const Row(
+                children: [
+                  SettingItem(image: Assets.rateApp, text: 'تقييم التطبيق'),
+                  Gap(6),
+                ],
+              ),
               const DeleteAccount(),
-              ],
-            ),
+            ],
           ),
+        ),
       ),
     );
   }
 
-  void showBottomSheet(){
-            showModalBottomSheet(
-              context:context,
-              builder:(context)=> const LanguageBottomSheet ()
-              );
+  void showBottomSheet() {
+    showModalBottomSheet(
+        context: context, builder: (context) => const LanguageBottomSheet());
   }
 }

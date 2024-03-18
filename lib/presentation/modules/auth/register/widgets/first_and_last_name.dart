@@ -8,20 +8,18 @@ class FirstAndLastName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Row(
-      children:[
-         const Expanded(
-           child: NameField(
-               label:'الاسم الاخير' ,
-             ),
-         ),
-          Gap(8.w),
-        const Expanded(
-          child: NameField(
-              label:'الاسم الاول' ,
-            ),
-        ),   
-      ]
-    );
+    return Row(children: [
+      const Expanded(
+        child: NameField(
+          label: 'الاسم الاخير',
+        ),
+      ),
+      Gap(8.w),
+      const Expanded(
+        child: NameField(
+          label: 'الاسم الاول',
+        ),
+      ),
+    ]);
   }
 }

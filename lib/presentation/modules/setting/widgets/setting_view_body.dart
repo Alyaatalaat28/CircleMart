@@ -15,18 +15,15 @@ class SettingViewBody extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        child: Column(
-          crossAxisAlignment:CrossAxisAlignment.end,
-          children:[
-             const Avatar(),
-              Gap(20.h),
-             const OrdersOptions(),
-              Gap(16.h),
-             const Setting(),
-              Gap(16.h),
-             const LogOutButton(),
-          ]
-        ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+          const Avatar(),
+          Gap(20.h),
+          const OrdersOptions(),
+          Gap(16.h),
+          const Setting(),
+          Gap(16.h),
+          const LogOutButton(),
+        ]),
       ),
     );
   }

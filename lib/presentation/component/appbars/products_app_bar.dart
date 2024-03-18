@@ -6,30 +6,27 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 
 class ProductsAppBar extends StatelessWidget {
-  const ProductsAppBar({super.key,required this.text,this.onTap});
+  const ProductsAppBar({super.key, required this.text, this.onTap});
 
- final String text;
- final void Function()?onTap;
- 
+  final String text;
+  final void Function()? onTap;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children:[
-            const Spacer(),
-            Text(text,
-            style:AppStyles.semiBold18(context)
-            ),
-            Gap(10.w),
-            InkWell(
-               onTap:onTap??(){
-                Navigator.pop(context);
-              },
+        child: Row(children: [
+          const Spacer(),
+          Text(text, style: AppStyles.semiBold18(context)),
+          Gap(10.w),
+          InkWell(
+              onTap: onTap ??
+                  () {
+                    Navigator.pop(context);
+                  },
               child: SvgPicture.asset(Assets.arrow))
-          ]
-        ),
+        ]),
       ),
     );
   }

@@ -11,15 +11,16 @@ class EmptyCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
+    return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(Assets.empty,
-          width:100),
+          SvgPicture.asset(Assets.empty, width: 100),
           Gap(10.h),
-          Text('السلة فارغة',
-          style: AppStyles.regular14(context, AppColors.kGray),)
+          Text(
+            'السلة فارغة',
+            style: AppStyles.regular14(context, AppColors.kGray),
+          )
         ],
       ),
     );

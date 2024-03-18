@@ -6,16 +6,11 @@ class LoationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
-        appBar:AppBar(
-          automaticallyImplyLeading: false,
-           actions:const[
-             ProductsAppBar(
-                      text:'عنوان التوصيل'
-              ),
-          ]
-        ),
+        appBar: AppBar(automaticallyImplyLeading: false, actions: const [
+          ProductsAppBar(text: 'عنوان التوصيل'),
+        ]),
       ),
     );
   }

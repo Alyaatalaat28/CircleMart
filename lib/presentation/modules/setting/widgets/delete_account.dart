@@ -10,15 +10,17 @@ class DeleteAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-             Text('حذف الحساب',
-              style: AppStyles.regular14(context, AppColors.kRed),),
-              const Gap(7),
-              SvgPicture.asset(Assets.deleteApp),
-              const Gap(6),
-              ],
-             );
+      children: [
+        Text(
+          'حذف الحساب',
+          style: AppStyles.regular14(context, AppColors.kRed),
+        ),
+        const Gap(7),
+        SvgPicture.asset(Assets.deleteApp),
+        const Gap(6),
+      ],
+    );
   }
 }

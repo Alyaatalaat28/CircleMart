@@ -4,23 +4,25 @@ import 'order_amount.dart';
 import 'order_price.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({super.key,required this.product});
-final Product product;
+  const OrderItem({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
-       OrderPrice(
-        product: product,
-       ),
+        OrderPrice(
+          product: product,
+        ),
         const Spacer(),
         OrderAmount(
-           product: product,
+          product: product,
         ),
         Image(
-          image: AssetImage( product.image,),
-          width:72,
-          height:48,
+          image: AssetImage(
+            product.image,
+          ),
+          width: 72,
+          height: 48,
         ),
       ],
     );

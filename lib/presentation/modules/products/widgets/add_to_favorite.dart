@@ -8,23 +8,23 @@ class AddToFavorite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.symmetric(horizontal:16.0,),
-      child: Row(
-                  children:[
-                    IconButton(
-                      onPressed: () {  },
-                      icon: const Icon(Icons.favorite_rounded,
-                        color:AppColors.kFavoriteIcon,
-                     ),                     
-                    ),
-                    const Spacer(),
-                    Text('جمبري',
-                    style:AppStyles.semiBold18(context).copyWith(
-                      color: AppColors.kRed
-                    ))
-                  ]
-                ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16.0,
+      ),
+      child: Row(children: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.favorite_rounded,
+            color: AppColors.kFavoriteIcon,
+          ),
+        ),
+        const Spacer(),
+        Text('جمبري',
+            style:
+                AppStyles.semiBold18(context).copyWith(color: AppColors.kRed))
+      ]),
     );
   }
 }

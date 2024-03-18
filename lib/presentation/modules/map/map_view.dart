@@ -7,9 +7,8 @@ class MapView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-      child: Scaffold(
-        body: MapViewBody(),
-      )
-      );
+        child: Scaffold(
+      body: MapViewBody(),
+    ));
   }
 }

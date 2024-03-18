@@ -14,31 +14,30 @@ class OrderDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
-       appBar:AppBar(
-          automaticallyImplyLeading: false,
-           actions:const[
-           ProductsAppBar(text: 'تفاصيل الطلب',),
-          ]
-        ),
-      body:SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child:  Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              const ShoppingBagRow(),
-              const CustomStepper(),
-              Gap(22.h),
-              const EditAndCancelButtons(),
-               Gap(31.h),
-              const OrderDetailsContainer(),
-              Gap(12.h),
-              const ProductsOrderAmount(),
-            ],
-          ),
-        ))),
+          appBar: AppBar(automaticallyImplyLeading: false, actions: const [
+            ProductsAppBar(
+              text: 'تفاصيل الطلب',
+            ),
+          ]),
+          body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    const ShoppingBagRow(),
+                    const CustomStepper(),
+                    Gap(22.h),
+                    const EditAndCancelButtons(),
+                    Gap(31.h),
+                    const OrderDetailsContainer(),
+                    Gap(12.h),
+                    const ProductsOrderAmount(),
+                  ],
+                ),
+              ))),
     );
   }
 }

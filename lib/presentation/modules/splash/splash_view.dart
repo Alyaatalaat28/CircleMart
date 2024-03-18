@@ -17,22 +17,19 @@ class _SplashViewBodyState extends State<SplashView> {
     super.initState();
     navigateToHome();
   }
-  @override 
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: Lottie.asset(Assets.splash)
-          ),
+        body: Center(child: Lottie.asset(Assets.splash)),
       ),
     );
   }
 
-  navigateToHome(){
-    Future.delayed(
-      const Duration(seconds:3),(){
-        pushAndRemoveUntil(const BottomNavBar());
-      }
-    );
+  navigateToHome() {
+    Future.delayed(const Duration(seconds: 3), () {
+      pushAndRemoveUntil(const BottomNavBar());
+    });
   }
 }
