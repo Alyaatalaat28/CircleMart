@@ -11,53 +11,47 @@ import 'product_amount.dart';
 import 'product_price.dart';
 
 class ProductPriceAndAmount extends StatelessWidget {
-  const  ProductPriceAndAmount({super.key,required this.product});
-final Product product;
+  const ProductPriceAndAmount({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
-    return  Consumer<SharedPref>(
-      builder: (BuildContext context, provider,child) {  
+    return Consumer<SharedPref>(
+        builder: (BuildContext context, provider, child) {
       return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Container(
           height: 136,
-          width:double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal:8,vertical:12),
-        decoration:ShapeDecoration(
-              color:AppColors.kLightGray,
-              shape:RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          decoration: ShapeDecoration(
+            color: AppColors.kLightGray,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+          child: Column(children: [
+            ProductPrice(
+              price: product.price,
+            ),
+            Gap(12.h),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              GestureDetector(
+                  onTap: () {
+                    provider.increaseQuantity();
+                  },
+                  child: SvgPicture.asset(Assets.plus)),
+              ProductAmount(
+                amount: provider.counter,
               ),
-            ),
-            child: Column(
-              children:[
-                 ProductPrice(
-                  price: product.price,
-                ),
-                Gap(12.h),
-                Row(
-                  mainAxisAlignment:MainAxisAlignment.spaceAround,
-                  children:[
-                    GestureDetector(
-                      onTap:(){
-                       provider.increaseQuantity();
-                      },
-                      child: SvgPicture.asset(Assets.plus)),
-                     ProductAmount(
-                      amount:provider.counter,
-                    ),
-                    GestureDetector(
-                      onTap:(){
-                        provider.decreaseQuantity();
-                      },
-                      child: SvgPicture.asset(Assets.minus))
-                  ]
-                ),
-              ]
-            ),
+              GestureDetector(
+                  onTap: () {
+                    provider.decreaseQuantity();
+                  },
+                  child: SvgPicture.asset(Assets.minus))
+            ]),
+          ]),
         ),
       );
-      }
-    );
+    });
   }
 }

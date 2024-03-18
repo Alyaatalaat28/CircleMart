@@ -8,17 +8,17 @@ class Categoris extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
-      width:85.w,
-      height:MediaQuery.sizeOf(context).height,
+    return SizedBox(
+      width: 85.w,
+      height: MediaQuery.sizeOf(context).height,
       child: Container(
-        decoration:ShapeDecoration(
-          color:AppColors.kLightGray,
-          shape:RoundedRectangleBorder(
+        decoration: ShapeDecoration(
+          color: AppColors.kLightGray,
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        child:const CategoriesListView(),
+        child: const CategoriesListView(),
       ),
     );
   }

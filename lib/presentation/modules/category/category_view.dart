@@ -7,19 +7,15 @@ class CategoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
-      child:Scaffold(
-         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          actions:[
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text('الاقسام',
-                  style:AppStyles.semiBold18(context)),
-            ),
-       ] ),
-        body:const CategoryViewBody(),
-      )
-    );
+    return SafeArea(
+        child: Scaffold(
+      appBar: AppBar(automaticallyImplyLeading: false, actions: [
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Text('الاقسام', style: AppStyles.semiBold18(context)),
+        ),
+      ]),
+      body: const CategoryViewBody(),
+    ));
   }
 }

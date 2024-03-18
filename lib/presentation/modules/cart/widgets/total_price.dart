@@ -8,25 +8,30 @@ import 'package:nami/presentation/modules/products/model/product_model.dart';
 import 'package:provider/provider.dart';
 
 class TotalPrice extends StatelessWidget {
-  const TotalPrice({super.key,required this.product});
-final Product product;
+  const TotalPrice({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
-    return  Consumer<SharedPref>(
-      builder:(context,provider,child)=> Column(
+    return Consumer<SharedPref>(
+      builder: (context, provider, child) => Column(
         children: [
-          Text(': الاجمالي',
-          style: AppStyles.regular12(context, AppColors.kBlack),),
+          Text(
+            ': الاجمالي',
+            style: AppStyles.regular12(context, AppColors.kBlack),
+          ),
           Gap(4.h),
           Row(
             children: [
-            Text('ج.م',
-            style: AppStyles.regular12(context, AppColors.kRed),),
-            Gap(4.w),
-           Text('${provider.totalPriceForSingleProduct(product)}',
-          style: AppStyles.semiBold18(context).copyWith(
-            color: AppColors.kRed
-          ),),
+              Text(
+                'ج.م',
+                style: AppStyles.regular12(context, AppColors.kRed),
+              ),
+              Gap(4.w),
+              Text(
+                '${provider.totalPriceForSingleProduct(product)}',
+                style: AppStyles.semiBold18(context)
+                    .copyWith(color: AppColors.kRed),
+              ),
             ],
           )
         ],

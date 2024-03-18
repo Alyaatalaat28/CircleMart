@@ -13,25 +13,29 @@ class ItemPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text('جمبري',
-              style: AppStyles.semiBold14(context),),
-              Gap(8.h),
-              Row(
-                children: [
-              Text('ج.م',
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          'جمبري',
+          style: AppStyles.semiBold14(context),
+        ),
+        Gap(8.h),
+        Row(
+          children: [
+            Text(
+              'ج.م',
               style: AppStyles.regular12(context, AppColors.kBlack),
-              ),
-              Gap(4.w),
-              Text('280',
+            ),
+            Gap(4.w),
+            Text(
+              '280',
               style: AppStyles.semiBold16(context),
-              ),
-              Gap(4.w),
-              SvgPicture.asset(Assets.price)
-              ],)
-
-            ],
-          );
+            ),
+            Gap(4.w),
+            SvgPicture.asset(Assets.price)
+          ],
+        )
+      ],
+    );
   }
 }

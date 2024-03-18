@@ -8,23 +8,20 @@ class CategoryViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Padding(
+    return const Padding(
       padding: EdgeInsets.all(12),
       child: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children:[
-            Row(
-               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CategorisList(),
-                Gap(12),
-                Categoris(),
-              ],
-            ),
-          ]
-        ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CategorisList(),
+              Gap(12),
+              Categoris(),
+            ],
+          ),
+        ]),
       ),
     );
   }

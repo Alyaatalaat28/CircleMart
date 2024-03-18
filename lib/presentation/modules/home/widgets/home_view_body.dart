@@ -11,10 +11,10 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(16.0),
-      child:  SingleChildScrollView(
-        physics:  const BouncingScrollPhysics(),
+      child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             const Gap(20),
@@ -22,17 +22,13 @@ class HomeViewBody extends StatelessWidget {
             const Gap(16),
             const ImageSlider(),
             const Gap(32),
-            const CustomCategorisRow(
-              text:'الاقسام'
-            ),
+            const CustomCategorisRow(text: 'الاقسام'),
             const Gap(16),
             const CategoryGridView(),
             const Gap(16),
-             const CustomCategorisRow(
-              text:'احدث المنتجات'
-            ),
+            const CustomCategorisRow(text: 'احدث المنتجات'),
             const Gap(16),
-             ProductGridView(),
+            ProductGridView(),
           ],
         ),
       ),
