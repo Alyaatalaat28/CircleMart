@@ -28,7 +28,7 @@ class HomeViewBody extends StatelessWidget {
             const Gap(16),
             const CustomCategorisRow(text: 'احدث المنتجات'),
             const Gap(16),
-            ProductGridView(),
+           const ProductGridView(),
           ],
         ),
       ),

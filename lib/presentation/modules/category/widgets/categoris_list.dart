@@ -11,8 +11,8 @@ class CategorisList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(builder: (context, provider, child) {
       if (provider.selectedIndex >= 0 &&
-          provider.selectedIndex < provider.categoris.length) {
-        final categoris = provider.categoris[provider.selectedIndex];
+          provider.selectedIndex < provider.categoris!.data!.length) {
+        final categoris = provider.categoris!.data![provider.selectedIndex];
         final subCategories = categoris.subCategories;
         return Column(
           children: subCategories!.map((subCategory) {

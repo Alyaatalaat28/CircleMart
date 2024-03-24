@@ -33,7 +33,7 @@ class ProductViewBody extends StatelessWidget {
             Gap(8.h),
             const ProductBranches(),
             Gap(28.h),
-            ProductsGrid(),
+           const ProductsGrid(),
           ],
         ),
       ),

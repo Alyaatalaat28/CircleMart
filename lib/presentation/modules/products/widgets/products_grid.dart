@@ -20,15 +20,15 @@ class ProductsGrid extends StatelessWidget {
         mainAxisSpacing: 10.0,
         crossAxisSpacing: 8.0,
         children: List.generate(
-            provider.latestProducts.length,
+            provider.latestProducts!.data!.length,
             (index) => InkWell(
                 onTap: () {
                   pushAndRemoveUntil(ProductDetails(
-                    product: provider.latestProducts[index],
+                    product: provider.latestProducts!.data![index],
                   ));
                 },
                 child: ProductItem(
-                  product:  provider.latestProducts[index],
+                  product:  provider.latestProducts!.data![index],
                 ))),
       ),
     );

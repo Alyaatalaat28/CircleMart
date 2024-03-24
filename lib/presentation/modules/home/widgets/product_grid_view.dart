@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nami/presentation/component/shimmer.dart';
 import 'package:nami/presentation/modules/home/home_provider.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/routing/app_route.dart';
@@ -10,25 +11,30 @@ class ProductGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
-      builder:(context,provider,child)=> GridView.count(
+      builder:(context,provider,child){
+        return GridView.count(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         crossAxisCount: 2,
         childAspectRatio: 1 / 1.45,
         mainAxisSpacing: 10.0,
         crossAxisSpacing: 8.0,
-        children: List.generate(
-            provider.latestProducts.length,
-            (index) => InkWell(
-                onTap: () {
-                  push(ProductDetails(
-                    product: provider.latestProducts[index],
-                  ));
-                },
-                child: ProductItem(
-                  product: provider.latestProducts[index],
-                ))),
-      ),
+        children:provider.isLoading?List.generate(8, (index) =>const ShimmerWidget()):
+         (provider.latestProducts?.data ?? []).map((product) {
+                  return InkWell(
+                    onTap: () {
+                      push(ProductDetails(
+                        product: product,
+                      ));
+                    },
+                    child: ProductItem(
+                      product: product,
+                    ),
+                  );
+                }).toList(),
+      );
+      }
+      
     );
   }
 

@@ -8,7 +8,7 @@ class DioClient {
   DioClient(this.baseUrl, this.dio);
 
   //get
-  Future<Map<String, dynamic>> get(
+  Future<Response> get(
     String uri, {
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -17,7 +17,7 @@ class DioClient {
         '$baseUrl$uri',
         queryParameters: queryParameters,
       );
-      return response.data;
+      return response;
     } on SocketException catch (e) {
       throw SocketException(e.toString());
     } on FormatException catch (_) {

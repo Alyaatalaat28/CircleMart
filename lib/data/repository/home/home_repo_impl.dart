@@ -1,81 +1,45 @@
-// ignore_for_file: deprecated_member_use
-
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:nami/data/app_urls/app_url.dart';
 import 'package:nami/data/dataSource/remote/dio/dio_client.dart';
-import 'package:nami/data/dataSource/remote/exception/failure.dart';
-import 'package:nami/data/model/body/categoris/datum.dart';
-import 'package:nami/data/model/body/home_slider/slider.dart';
-import 'package:nami/data/model/body/latest_products/datum.dart';
+import 'package:nami/data/model/response/base/api_response.dart';
 import 'package:nami/data/repository/home/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final DioClient dioClient;
   HomeRepoImpl({required this.dioClient});
 
-  //home slider
+  //fetch home slider data
   @override
-  Future<Either<Failure, List<Slider>>> getHomeSlider() async {
-    try {
-      List<Slider> slider = [];
-      var response = await dioClient.get(AppURL.kSliderURI);
-      for (var item in response['data']['slider']) {
-        try {
-          slider.add(Slider.fromJson(item));
-        } catch (e) {
-          slider.add(Slider.fromJson(item));
-        }
+  Future<ApiResponse> getHomeSlider() async {
+      try{
+     Response response = await dioClient.get(AppURL.kSliderURI);
+      return ApiResponse.withSuccess(response);
+      }catch(e){
+        print('error fetching $e');
+        return ApiResponse.withError(e);
       }
-      return right(slider);
-    } catch (e) {
-      if (e is DioError) {
-        return left(ServerFailure.fromDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
   }
 
-  //categoris
+  //fetch categoris
   @override
-  Future<Either<Failure, List<Datum>>> getCategoris() async {
-    try {
-      List<Datum> category = [];
-      var response = await dioClient.get(AppURL.kCategorisURI);
-      for (var item in response['data']) {
-        try {
-          category.add(Datum.fromJson(item));
-        } catch (e) {
-          category.add(Datum.fromJson(item));
-        }
-      }
-      return right(category);
-    } catch (e) {
-      if (e is DioError) {
-        return left(ServerFailure.fromDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
+  Future<ApiResponse> getCategoris() async {
+     try{
+       Response response = await dioClient.get(AppURL.kCategorisURI);
+        return ApiResponse.withSuccess(response );
+     }catch(e){
+      return ApiResponse.withError(e);
+     } 
   }
-  //latest product
+
+  //fetch latest product
   @override
-  Future<Either<Failure, List<Datam>>> getLatestProducts()async {
-     try {
-      List<Datam> latestProducts = [];
-      var response = await dioClient.get(AppURL.kLatestProductsURI);
-      for (var item in response['data']) {
-        try {
-          latestProducts.add(Datam.fromMap(item));
-        } catch (e) {
-          latestProducts.add(Datam.fromMap(item));
-        }
-      }
-      return right(latestProducts);
-    } catch (e) {
-      if (e is DioError) {
-        return left(ServerFailure.fromDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
+  Future<ApiResponse> getLatestProducts()async {
+      try{
+        Response response = await dioClient.get(AppURL.kLatestProductsURI);
+        return ApiResponse.withSuccess(response );
+      }catch(e){
+        return ApiResponse.withError(e);
+      }       
   }
+
 }

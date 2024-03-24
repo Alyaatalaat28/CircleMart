@@ -1,70 +1,89 @@
 import 'package:flutter/foundation.dart';
-import 'package:nami/data/model/body/categoris/datum.dart';
-import 'package:nami/data/model/body/home_slider/slider.dart';
-import 'package:nami/data/model/body/latest_products/datum.dart';
+import 'package:nami/core/api_checker.dart';
+import 'package:nami/data/model/body/categoris/categoris.dart';
+import 'package:nami/data/model/body/home_slider/home_slider.dart';
+import 'package:nami/data/model/body/latest_products/latest_products.dart';
+import 'package:nami/data/model/response/base/api_response.dart';
 import 'package:nami/data/repository/home/home_repo.dart';
+
+import '../../../core/utils/show_toast.dart';
 
 class HomeProvider with ChangeNotifier {
   final HomeRepo homeRepo;
 
   HomeProvider({required this.homeRepo});
 
-  List<Slider> _homeSlider = [];
-  List<Datum> _categoris = [];
-  List<Datam> _latestProducts = [];
-
+///variables
+  HomeSlider? _homeSlider ;
+  Categoris? _categoris ;
+  LatestProducts? _latestProducts ;
+  bool _isLoading = false;
   int _selectedIndex = -1;
 
-  List<Slider> get homeSlider => _homeSlider;
-  List<Datum> get categoris => _categoris;
-  List<Datam> get latestProducts => _latestProducts;
-
+ ///getter
+  HomeSlider? get homeSlider => _homeSlider;
+  Categoris? get categoris => _categoris;
+  LatestProducts? get latestProducts => _latestProducts;
+  bool get isLoading => _isLoading;
   int get selectedIndex => _selectedIndex;
 
 //slider
-  Future<void> getHomeSliderImages() async {
-    var result = await homeRepo.getHomeSlider();
-    result.fold((failure) {
-      if (kDebugMode) {
-        print('Error fetching home:${failure.errMessage}');
+  Future<ApiResponse> getHomeSliderImages() async {
+    _isLoading = true;
+    ApiResponse response = await homeRepo.getHomeSlider();
+    _isLoading = false;
+    if (response.response != null && response.response?.statusCode == 200) {
+      _homeSlider= HomeSlider.fromJson(response.response?.data);
+      if (_homeSlider?.code != 200) {
+        ToastUtils.showToast(_homeSlider?.message ?? "");   
       }
-      notifyListeners();
-    }, (slider) {
-      _homeSlider = slider;
-      notifyListeners();
-    });
+    } else {
+      ApiChecker.checkApi(response);
+    }
+    _isLoading = false;
+    notifyListeners();
+    return response;
+    
   }
 
   //categoris
-  Future<void> getCategorisData() async {
-    var result = await homeRepo.getCategoris();
-    result.fold((failure) {
-      if (kDebugMode) {
-        print('Error fetching categoris:${failure.errMessage}');
+  Future<ApiResponse> getCategorisData() async {
+    _isLoading = true;
+    ApiResponse response = await homeRepo.getCategoris();
+    _isLoading = false;
+    if (response.response != null && response.response?.statusCode == 200) {
+      _categoris= Categoris.fromJson(response.response?.data);
+      if (_categoris?.code != 200) {
+        ToastUtils.showToast(_categoris?.message ?? "");   
       }
-      notifyListeners();
-    }, (categoris) {
-      _categoris = categoris;
-      notifyListeners();
-    });
+    } else {
+      ApiChecker.checkApi(response);
+    }
+    _isLoading = false;
+    notifyListeners();
+    return response;
+   
   }
 
  //latest products
- Future<void> getLatestProducts()async {
-    var result = await homeRepo.getLatestProducts();
-    result.fold((failure) {
-      if (kDebugMode) {
-        print('Error fetching latest products:${failure.errMessage}');
+ Future<ApiResponse> getLatestProducts()async {
+   _isLoading = true;
+    ApiResponse response = await homeRepo.getLatestProducts();
+    _isLoading = false;
+    if (response.response != null && response.response?.statusCode == 200) {
+      _latestProducts= LatestProducts.fromMap(response.response?.data);
+      if (_latestProducts?.code != 200) {
+        ToastUtils.showToast(_latestProducts?.message ?? "");   
       }
-      notifyListeners();
-    }, (latestProducts) {
-      _latestProducts = latestProducts;
-      print(_latestProducts);
-      notifyListeners();
-    });
-  }
- 
-
+    } else {
+      ApiChecker.checkApi(response);
+    }
+    _isLoading = false;
+    notifyListeners();
+    return response;
+ }
+   
+ ///update index of categoris
   void updateSelectedIndex(int index) {
     _selectedIndex = index;
     notifyListeners();
