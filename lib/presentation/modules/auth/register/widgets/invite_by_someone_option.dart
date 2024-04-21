@@ -15,9 +15,6 @@ class _InviteBySomeOneOptionState extends State<InviteBySomeOneOption> {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      const Spacer(),
-      Text('مدعو بواسطة مستخدم ؟',
-          style: AppStyles.regular14(context, AppColors.kBlack)),
       Checkbox(
           activeColor: AppColors.kRed,
           value: isChecked,
@@ -29,7 +26,10 @@ class _InviteBySomeOneOptionState extends State<InviteBySomeOneOption> {
             setState(() {
               isChecked = value!;
             });
-          })
+          }),
+      Text('مدعو بواسطة مستخدم ؟',
+          style: AppStyles.regular14(context, AppColors.kBlack)),
+      const Spacer(),
     ]);
   }
 }

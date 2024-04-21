@@ -11,10 +11,12 @@ class OrderAmount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(product.title!, style: AppStyles.semiBold14(context)),
-        Gap(9.5.h),
+        Text(
+          product.title!,
+          style: AppStyles.semiBold12(context),
+        ),
         Row(
           children: [
             Text('${product.weightUnit}',

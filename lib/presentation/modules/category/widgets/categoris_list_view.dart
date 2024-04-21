@@ -9,28 +9,26 @@ class CategoriesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(
-      builder: (context, provider, child) {
-        if(provider.isLoading){
-          return const Center(
-            child: CircularProgressIndicator(
-              color: AppColors.kRed,
-            ),
-          );
-        }
-        if(provider.categoris!=null) {
-          return ListView.builder(
-        itemBuilder: (BuildContext context, int index) => Category(
-          index: index,
-          title: provider.categoris!.data![index].title!,
-          image: provider.categoris!.data![index].image!,
-        ),
-        itemCount: provider.categoris!.data!.length,
-      );
-        }else{
-          return Container();
-        }
+    return Consumer<HomeProvider>(builder: (context, provider, child) {
+      if (provider.isLoading) {
+        return const Center(
+          child: CircularProgressIndicator(
+            color: AppColors.kRed,
+          ),
+        );
       }
-    );
+      if (provider.categoris != null) {
+        return ListView.builder(
+          itemBuilder: (BuildContext context, int index) => Category(
+            index: index,
+            title: provider.categoris!.data![index].title!,
+            image: provider.categoris!.data![index].image!,
+          ),
+          itemCount: provider.categoris!.data!.length,
+        );
+      } else {
+        return Container();
+      }
+    });
   }
 }

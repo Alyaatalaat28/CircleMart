@@ -17,9 +17,12 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: AppBar(automaticallyImplyLeading: false, actions: const [
-              ProductsAppBar(text: ''),
-            ]),
+            appBar: AppBar(
+                surfaceTintColor: Colors.transparent,
+                automaticallyImplyLeading: false,
+                actions: const [
+                  ProductsAppBar(text: ''),
+                ]),
             body: Padding(
               padding: const EdgeInsets.all(16.0),
               child: SingleChildScrollView(
@@ -37,8 +40,13 @@ class LoginView extends StatelessWidget {
                       Gap(24.h),
                       const Enter(),
                       Gap(70.h),
-                      SvgPicture.asset(
-                        Assets.mart,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          SvgPicture.asset(
+                            Assets.mart,
+                          ),
+                        ],
                       )
                     ]),
               ),

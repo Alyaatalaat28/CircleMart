@@ -12,10 +12,10 @@ class WelcomeUser extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              '!.. اهلا بك',
+              'اهلا بك',
               style: AppStyles.semiBold24(context).copyWith(
                 color: AppColors.kGray,
                 fontSize: 28,
@@ -25,9 +25,9 @@ class WelcomeUser extends StatelessWidget {
         ),
         Gap(8.h),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text('.. سجل الدخول في التطبيق و اطلب الان',
+            Text(' سجل الدخول في التطبيق و اطلب الان',
                 style: AppStyles.regular14(context, AppColors.kGray)),
           ],
         ),

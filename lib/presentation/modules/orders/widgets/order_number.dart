@@ -10,6 +10,11 @@ class OrderNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
+      Text(
+        orderNumber,
+        style: AppStyles.semiBold18(context).copyWith(color: AppColors.kRed),
+      ),
+      const Spacer(),
       GestureDetector(
         onTap: () {
           push(const OrderDetails());
@@ -18,11 +23,6 @@ class OrderNumber extends StatelessWidget {
           'التفاصيل',
           style: AppStyles.regular14(context, AppColors.kRed),
         ),
-      ),
-      const Spacer(),
-      Text(
-        orderNumber,
-        style: AppStyles.semiBold18(context).copyWith(color: AppColors.kRed),
       ),
     ]);
   }

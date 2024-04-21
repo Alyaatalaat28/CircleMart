@@ -22,11 +22,11 @@ class Location extends StatelessWidget {
         ),
       ),
       child: Row(children: [
-        SvgPicture.asset(Assets.dropDownMenu),
+        SvgPicture.asset(Assets.location),
         Gap(11.w),
         Text('القاهرة', style: AppStyles.regular14(context, AppColors.kWhite)),
         Gap(11.w),
-        SvgPicture.asset(Assets.location),
+        SvgPicture.asset(Assets.dropDownMenu),
       ]),
     );
   }

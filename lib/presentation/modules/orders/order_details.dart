@@ -16,11 +16,14 @@ class OrderDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(automaticallyImplyLeading: false, actions: const [
-            ProductsAppBar(
-              text: 'تفاصيل الطلب',
-            ),
-          ]),
+          appBar: AppBar(
+              surfaceTintColor: Colors.transparent,
+              automaticallyImplyLeading: false,
+              actions: const [
+                ProductsAppBar(
+                  text: 'تفاصيل الطلب',
+                ),
+              ]),
           body: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Padding(

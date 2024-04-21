@@ -13,3 +13,6 @@ pushAndRemoveUntil(Widget child) =>
 //pushReplacement
 pushReplacement(Widget child) => Navigator.of(navigator.currentContext!)
     .pushReplacement(MaterialPageRoute(builder: (context) => child));
+
+//pop
+pop() => Navigator.of(navigator.currentContext!).pop();

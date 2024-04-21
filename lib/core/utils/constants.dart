@@ -6,16 +6,11 @@ import 'package:nami/presentation/modules/invoice/models/payment_method_model.da
 import 'package:nami/presentation/modules/map/map_view.dart';
 import 'package:nami/presentation/modules/setting/setting_view.dart';
 
-final supportedLanguages = <Locale>[
-  const Locale('en', 'US'),
-  const Locale('ar', 'EG')
-];
-
 List<Widget> screens = const [
-  SettingView(),
-  MapView(),
-  CategoryView(),
   HomeView(),
+  CategoryView(),
+  MapView(),
+  SettingView(),
 ];
 
 List<Payment> paymentMethods = [

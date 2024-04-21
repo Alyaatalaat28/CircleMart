@@ -21,7 +21,8 @@ class ProductsOrderAmount extends StatelessWidget {
             )),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('المنتجات', style: AppStyles.semiBold12(context)),
             const ProductsListView(),
             const OrderDeliveryPrice(

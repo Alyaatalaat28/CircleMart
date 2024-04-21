@@ -25,14 +25,14 @@ class Notes extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(right: 16.0),
         child: Row(children: [
-          const Expanded(
+          SvgPicture.asset(Assets.note),
+          Gap(16.w),
+          Expanded(
             child: CustomTextField(
               label: 'ملاحظات',
               keyboardType: TextInputType.text,
             ),
           ),
-          Gap(16.w),
-          SvgPicture.asset(Assets.note),
         ]),
       ),
     );

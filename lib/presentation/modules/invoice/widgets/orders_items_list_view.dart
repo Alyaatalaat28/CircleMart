@@ -21,7 +21,7 @@ class OrderItemsListView extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (BuildContext context, int index) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 16),
             child: OrderItem(
               product: provider.cart[index],
             ),

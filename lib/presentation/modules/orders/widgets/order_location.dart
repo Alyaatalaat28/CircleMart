@@ -15,13 +15,13 @@ class OrderLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Spacer(),
-        Text(location, style: AppStyles.regular14(context, AppColors.kBlack)),
-        Gap(8.w),
         SvgPicture.asset(
           Assets.location,
           color: AppColors.kBlack,
-        )
+        ),
+        Gap(8.w),
+        Text(location, style: AppStyles.regular14(context, AppColors.kBlack)),
+        const Spacer(),
       ],
     );
   }

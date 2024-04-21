@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 
 class SubCategory extends Equatable {
@@ -31,7 +30,6 @@ class SubCategory extends Equatable {
         'sub_categories': subCategories,
         'created_at': createdAt,
       };
-
 
   @override
   List<Object?> get props => [id, image, title, subCategories, createdAt];

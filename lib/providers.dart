@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/injection.dart';
+import 'package:nami/presentation/modules/auth/auth_provider.dart';
 import 'package:nami/presentation/modules/home/home_provider.dart';
 import 'package:nami/presentation/modules/invoice/invoice_view_model.dart';
 import 'package:nami/presentation/modules/orders/orders_view_model.dart';
-import 'package:nami/presentation/modules/products/products_view_model.dart';
 import 'package:provider/provider.dart';
 
 class AppMultiProvider extends StatelessWidget {
@@ -15,14 +15,11 @@ class AppMultiProvider extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (BuildContext context) => getIt<HomeProvider>()
-            ..getCategorisData()
-            ..getHomeSliderImages()
-            ..getLatestProducts(),
-        ),
-        ChangeNotifierProvider(
-          create: (BuildContext context) => getIt<ProductsViewModel>(),
-        ),
+            create: (BuildContext context) => getIt<HomeProvider>()
+              ..getCategorisData()
+              ..getHomeSliderImages()
+              ..getLatestProducts()
+              ..getFavorite()),
         ChangeNotifierProvider(
           create: (BuildContext context) => getIt<OrdersViewModel>(),
         ),
@@ -31,6 +28,9 @@ class AppMultiProvider extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (BuildContext context) => getIt<SharedPref>()..loadCart(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => getIt<AuthProvider>()..getCity(),
         ),
       ],
       child: child,

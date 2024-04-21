@@ -16,7 +16,6 @@ import 'widgets/payment_method.dart';
 
 class PaymentAndDelivery extends StatelessWidget {
   const PaymentAndDelivery({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(
@@ -26,7 +25,7 @@ class PaymentAndDelivery extends StatelessWidget {
                 ProductsAppBar(text: 'الدفع والتوصيل'),
               ]),
               body: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   child: Column(children: [
@@ -46,7 +45,7 @@ class PaymentAndDelivery extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             push(
-                              const InvoiceView(),
+                              InvoiceView(),
                             );
                           },
                           child: Text('تأكيد',

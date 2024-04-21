@@ -16,24 +16,24 @@ class OrdersStatusButtonsRow extends StatelessWidget {
       return Row(
         children: [
           OrdersStatusButton(
-            text: 'السابقة',
-            buttonColor: provider.showCurrentOrders
-                ? AppColors.kLightGray
-                : AppColors.kRed,
-            textColor:
-                provider.showCurrentOrders ? AppColors.kGray : AppColors.kWhite,
-            onTap: () {
-              provider.toggleOrdersView();
-            },
-          ),
-          Gap(10.w),
-          OrdersStatusButton(
             text: 'الحالية',
             buttonColor: provider.showCurrentOrders
                 ? AppColors.kRed
                 : AppColors.kLightGray,
             textColor:
                 provider.showCurrentOrders ? AppColors.kWhite : AppColors.kGray,
+            onTap: () {
+              provider.toggleOrdersView();
+            },
+          ),
+          Gap(10.w),
+          OrdersStatusButton(
+            text: 'السابقة',
+            buttonColor: provider.showCurrentOrders
+                ? AppColors.kLightGray
+                : AppColors.kRed,
+            textColor:
+                provider.showCurrentOrders ? AppColors.kGray : AppColors.kWhite,
             onTap: () {
               provider.toggleOrdersView();
             },

@@ -4,8 +4,8 @@ import 'package:nami/core/resources/colors.dart';
 import 'package:nami/data/model/body/latest_products/datum.dart';
 
 class ProductDescription extends StatelessWidget {
-  const ProductDescription({super.key,required this.product});
- final Datam product;
+  const ProductDescription({super.key, required this.product});
+  final Datam product;
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -17,15 +17,15 @@ class ProductsAppBar extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(children: [
-          const Spacer(),
-          Text(text, style: AppStyles.semiBold18(context)),
-          Gap(10.w),
           InkWell(
               onTap: onTap ??
                   () {
                     Navigator.pop(context);
                   },
-              child: SvgPicture.asset(Assets.arrow))
+              child: SvgPicture.asset(Assets.arrow)),
+          Gap(10.w),
+          Text(text, style: AppStyles.semiBold18(context)),
+          const Spacer(),
         ]),
       ),
     );

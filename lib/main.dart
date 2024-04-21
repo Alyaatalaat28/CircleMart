@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nami/app.dart';
-import 'package:nami/core/utils/constants.dart';
 import 'package:nami/injection.dart' as injection;
 import 'package:nami/providers.dart';
 
@@ -16,6 +15,12 @@ void main() async {
         supportedLocales: supportedLanguages,
         path: 'assets/translations',
         fallbackLocale: supportedLanguages[0],
+        startLocale: supportedLanguages[1],
         child: const MyApp()),
   ));
 }
+
+final supportedLanguages = <Locale>[
+  const Locale('en', 'US'),
+  const Locale('ar', 'EG')
+];

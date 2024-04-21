@@ -18,6 +18,12 @@ class CustomAppBar extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SvgPicture.asset(Assets.logo),
+            const Gap(10),
+            const WelcomeUser(),
+            const Spacer(),
+            const CustomIconButton(image: Assets.notification),
+            const Gap(8),
             CustomIconButton(
               image: Assets.cart,
               text: '1',
@@ -25,12 +31,6 @@ class CustomAppBar extends StatelessWidget {
                 push(const CartView());
               },
             ),
-            const Gap(8),
-            const CustomIconButton(image: Assets.notification),
-            const Spacer(),
-            const WelcomeUser(),
-            const Gap(10),
-            SvgPicture.asset(Assets.logo),
           ],
         ),
       ),

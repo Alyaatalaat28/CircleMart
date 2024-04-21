@@ -15,6 +15,7 @@ class ContactView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
+            surfaceTintColor: Colors.transparent,
             automaticallyImplyLeading: false,
             actions: const [ProductsAppBar(text: 'تواصل معنا')],
           ),

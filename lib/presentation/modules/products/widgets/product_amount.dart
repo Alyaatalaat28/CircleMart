@@ -5,7 +5,7 @@ import '../../../../core/resources/app_styles.dart';
 
 class ProductAmount extends StatelessWidget {
   const ProductAmount({super.key, required this.amount});
-  final int amount;
+  final double amount;
   @override
   Widget build(BuildContext context) {
     return Container(

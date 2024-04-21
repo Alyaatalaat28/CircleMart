@@ -11,7 +11,6 @@ import 'details_list_view.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(builder: (context, provider, child) {

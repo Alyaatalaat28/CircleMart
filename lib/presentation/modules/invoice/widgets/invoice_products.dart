@@ -16,7 +16,6 @@ import 'package:provider/provider.dart';
 
 class InvoiceProducts extends StatelessWidget {
   const InvoiceProducts({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Consumer<SharedPref>(
@@ -30,7 +29,7 @@ class InvoiceProducts extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child:
-                Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text('المنتجات', style: AppStyles.semiBold12(context)),
               const ProductsListView(),
               SvgPicture.asset(Assets.line, color: AppColors.kGray),

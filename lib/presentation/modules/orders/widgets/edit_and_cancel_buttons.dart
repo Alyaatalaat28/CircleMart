@@ -16,17 +16,17 @@ class EditAndCancelButtons extends StatelessWidget {
       child: Row(
         children: [
           const CustomOrderButton(
-            borderColor: AppColors.kBlack,
-            textColor: AppColors.kBlack,
-            image: Assets.cancel,
-            text: 'الغاء',
-          ),
-          Gap(8.w),
-          const CustomOrderButton(
             borderColor: AppColors.kRed,
             textColor: AppColors.kRed,
             image: Assets.edit,
             text: 'تعديل',
+          ),
+          Gap(8.w),
+          const CustomOrderButton(
+            borderColor: AppColors.kBlack,
+            textColor: AppColors.kBlack,
+            image: Assets.cancel,
+            text: 'الغاء',
           ),
         ],
       ),

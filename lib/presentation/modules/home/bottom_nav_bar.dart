@@ -14,7 +14,7 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int currentIndex = 3;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +23,26 @@ class _BottomNavBarState extends State<BottomNavBar> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              Assets.settingGray,
-              color: currentIndex == 0 ? AppColors.kRed : AppColors.kGray,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset(Assets.mapGray,
-                  color: currentIndex == 1 ? AppColors.kRed : AppColors.kGray),
+              icon: SvgPicture.asset(Assets.homeGray,
+                  color: currentIndex == 0 ? AppColors.kRed : AppColors.kGray),
               label: ''),
           BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 Assets.categoryGray,
-                color: currentIndex == 2 ? AppColors.kRed : AppColors.kGray,
+                color: currentIndex == 1 ? AppColors.kRed : AppColors.kGray,
               ),
               label: ''),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(Assets.homeGray,
-                  color: currentIndex == 3 ? AppColors.kRed : AppColors.kGray),
+              icon: SvgPicture.asset(Assets.mapGray,
+                  color: currentIndex == 2 ? AppColors.kRed : AppColors.kGray),
               label: ''),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              Assets.settingGray,
+              color: currentIndex == 3 ? AppColors.kRed : AppColors.kGray,
+            ),
+            label: '',
+          ),
         ],
         currentIndex: currentIndex,
         onTap: (index) {

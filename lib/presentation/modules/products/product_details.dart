@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -5,6 +6,7 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/data/model/body/latest_products/datum.dart';
@@ -25,23 +27,26 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(automaticallyImplyLeading: false, actions: const [
-          ProductsAppBar(text: 'تفاصيل المنتج'),
-        ]),
+        appBar: AppBar(
+            surfaceTintColor: Colors.transparent,
+            automaticallyImplyLeading: false,
+            actions: [
+              ProductsAppBar(text: tr(LocaleKeys.productDetails)),
+            ]),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Consumer<SharedPref>(
               builder: (BuildContext context, provider, child) {
             return Column(
               children: [
-                 ProductImage(
-                  product:product,
+                ProductImage(
+                  product: product,
                 ),
-                 AddToFavorite(
-                  product:product,
+                AddToFavorite(
+                  product: product,
                 ),
-                 ProductDescription(
-                   product:product,
+                ProductDescription(
+                  product: product,
                 ),
                 Gap(12.h),
                 ProductPriceAndAmount(
@@ -51,7 +56,7 @@ class ProductDetails extends StatelessWidget {
                 CustomBottomSheet(
                   width: 141,
                   height: 45,
-                  text: '${provider.counter * 280}',
+                  text: '${provider.counter * product.price!}',
                   child: InkWell(
                     onTap: () {
                       provider.addToCart(product, provider.counter);
@@ -64,7 +69,7 @@ class ProductDetails extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('اضف للسلة',
+                          Text(tr(LocaleKeys.addToCart),
                               style: AppStyles.regular14(
                                   context, AppColors.kWhite)),
                           Gap(8.w),

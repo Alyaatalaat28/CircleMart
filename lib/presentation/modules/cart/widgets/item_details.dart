@@ -20,21 +20,21 @@ class ItemDetails extends StatelessWidget {
           children: [
             Row(
               children: [
+                CachedNetworkImage(
+                  imageUrl: product.image!,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  width: 50,
+                  height: 50,
+                ),
+                ItemPrice(
+                  product: product,
+                ),
+                const Spacer(),
                 InkWell(
                     onTap: () {
                       provider.removeFromCart(product);
                     },
                     child: SvgPicture.asset(Assets.delete)),
-                const Spacer(),
-                 ItemPrice(
-                  product: product,
-                ),
-                CachedNetworkImage(
-                    imageUrl: product.image!,
-                    errorWidget: (context, url, error) =>const Icon(Icons.error),
-                    width:90,
-                    height: 90,
-                    ),                   
               ],
             ),
             ItemAmount(

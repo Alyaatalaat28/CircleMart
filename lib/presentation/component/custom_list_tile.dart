@@ -25,34 +25,31 @@ class CustomOrderListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: InkWell(
-        onTap: onPressed,
-        child: ListTile(
-          dense: true,
-          minVerticalPadding: 0.0,
-          contentPadding: const EdgeInsets.only(right: 16.0),
-          title: Text(title),
-          titleTextStyle: subTitle != null
-              ? AppStyles.regular12(context, AppColors.kGray)
-              : textStyle,
-          subtitle: subTitle != null
-              ? Text(
-                  subTitle!,
-                  style: AppStyles.regular14(context, AppColors.kBlack),
-                )
-              : null,
-          leading: SvgPicture.asset(image,
-              color: AppColors.kRed, width: 25.w, height: 25.h),
-          trailing: trailing
-              ? IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_forward_ios_rounded,
-                      color: AppColors.kBlack, size: 14),
-                )
-              : null,
-        ),
+    return InkWell(
+      onTap: onPressed,
+      child: ListTile(
+        dense: true,
+        minVerticalPadding: 0.0,
+        contentPadding: const EdgeInsets.only(right: 16.0),
+        title: Text(title),
+        titleTextStyle: subTitle != null
+            ? AppStyles.regular12(context, AppColors.kGray)
+            : textStyle,
+        subtitle: subTitle != null
+            ? Text(
+                subTitle!,
+                style: AppStyles.regular14(context, AppColors.kBlack),
+              )
+            : null,
+        leading: SvgPicture.asset(image,
+            color: AppColors.kRed, width: 25.w, height: 25.h),
+        trailing: trailing
+            ? IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.arrow_forward_ios_rounded,
+                    color: AppColors.kBlack, size: 14),
+              )
+            : null,
       ),
     );
   }

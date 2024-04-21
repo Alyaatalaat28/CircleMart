@@ -18,10 +18,6 @@ class ShoppingBagRow extends StatelessWidget {
         padding: const EdgeInsets.only(top: 22.0, right: 22.0),
         child: Row(
           children: [
-            const Spacer(),
-            Text('تم استلام طلبك',
-                style: AppStyles.regular14(context, AppColors.kGray)),
-            Gap(8.w),
             InkWell(
               onTap: () => provider.sliderIncrement(),
               child: CircleAvatar(
@@ -30,6 +26,10 @@ class ShoppingBagRow extends StatelessWidget {
                 child: SvgPicture.asset(Assets.bag),
               ),
             ),
+            Gap(8.w),
+            Text('تم استلام طلبك',
+                style: AppStyles.regular14(context, AppColors.kGray)),
+            const Spacer(),
           ],
         ),
       ),

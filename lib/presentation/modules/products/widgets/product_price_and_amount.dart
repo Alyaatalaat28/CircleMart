@@ -37,17 +37,17 @@ class ProductPriceAndAmount extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               GestureDetector(
                   onTap: () {
-                    provider.increaseQuantity();
+                    provider.decreaseQuantity();
                   },
-                  child: SvgPicture.asset(Assets.plus)),
+                  child: SvgPicture.asset(Assets.minus)),
               ProductAmount(
                 amount: provider.counter,
               ),
               GestureDetector(
                   onTap: () {
-                    provider.decreaseQuantity();
+                    provider.increaseQuantity();
                   },
-                  child: SvgPicture.asset(Assets.minus))
+                  child: SvgPicture.asset(Assets.plus)),
             ]),
           ]),
         ),

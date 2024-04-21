@@ -20,14 +20,10 @@ class ItemAmount extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
           children: [
-            TotalPrice(
-              product: product,
-            ),
-            const Spacer(),
             CustomIconButton(
-              image: Assets.plus,
+              image: Assets.minus,
               onTap: () {
-                provider.increaseProductQuantity(product);
+                provider.decreaseProductQuantity(product);
               },
             ),
             Gap(8.w),
@@ -47,10 +43,14 @@ class ItemAmount extends StatelessWidget {
             ),
             Gap(8.w),
             CustomIconButton(
-              image: Assets.minus,
+              image: Assets.plus,
               onTap: () {
-                provider.decreaseProductQuantity(product);
+                provider.increaseProductQuantity(product);
               },
+            ),
+            const Spacer(),
+            TotalPrice(
+              product: product,
             ),
           ],
         ),

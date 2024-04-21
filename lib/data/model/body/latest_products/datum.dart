@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 
 import 'category.dart';
@@ -15,20 +14,20 @@ class Datam extends Equatable {
   final SubCategory? subCategory;
   final String? details;
   final dynamic salesLimit;
-  final int? price;
+  final num? price;
   final String? unit;
-  int? weightUnit;
-  final int? priceWeightUnit;
+  num? weightUnit;
+  final num? priceWeightUnit;
   final bool? isOffer;
   final int? isActive;
   final dynamic offerType;
-  final int? offerValue;
+  final num? offerValue;
   final String? offerStartDate;
   final String? offerEndDate;
-  final int? oldPrice;
-  final bool? isFavorite;
+  final num? oldPrice;
+  bool? isFavorite;
 
-   Datam({
+  Datam({
     this.id,
     this.title,
     this.image,
@@ -40,7 +39,7 @@ class Datam extends Equatable {
     this.salesLimit,
     this.price,
     this.unit,
-    this.weightUnit=1,
+    this.weightUnit = 1,
     this.priceWeightUnit,
     this.isOffer,
     this.isActive,
@@ -66,17 +65,17 @@ class Datam extends Equatable {
             : SubCategory.fromMap(data['sub_category'] as Map<String, dynamic>),
         details: data['details'] as String?,
         salesLimit: data['sales_limit'] as dynamic,
-        price: data['price'] as int?,
+        price: data['price'] as num?,
         unit: data['unit'] as String?,
-        weightUnit: data['weight_unit'] as int?,
-        priceWeightUnit: data['price_weight_unit'] as int?,
+        weightUnit: data['weight_unit'] as num?,
+        priceWeightUnit: data['price_weight_unit'] as num?,
         isOffer: data['is_offer'] as bool?,
         isActive: data['is_active'] as int?,
         offerType: data['offer_type'] as dynamic,
         offerValue: data['offer_value'] as int?,
         offerStartDate: data['offer_start_date'] as String?,
         offerEndDate: data['offer_end_date'] as String?,
-        oldPrice: data['old_price'] as int?,
+        oldPrice: data['old_price'] as num?,
         isFavorite: data['is_favorite'] as bool?,
       );
 
@@ -103,7 +102,6 @@ class Datam extends Equatable {
         'old_price': oldPrice,
         'is_favorite': isFavorite,
       };
-
 
   @override
   List<Object?> get props {

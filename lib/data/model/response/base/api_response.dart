@@ -13,5 +13,4 @@ class ApiResponse {
   ApiResponse.withSuccess(Response responseValue)
       : response = responseValue,
         error = null;
-
 }

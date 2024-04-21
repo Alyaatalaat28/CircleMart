@@ -19,7 +19,7 @@ class CategorisListItem extends StatelessWidget {
           ),
         ),
         child: Align(
-            alignment: AlignmentDirectional.centerEnd,
+            alignment: AlignmentDirectional.centerStart,
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Text(

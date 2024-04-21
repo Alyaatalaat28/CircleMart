@@ -7,6 +7,8 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/presentation/component/inputs/custom_text_field.dart';
+import 'package:nami/presentation/modules/auth/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 class PhoneNumber extends StatelessWidget {
   const PhoneNumber({super.key});
@@ -23,18 +25,31 @@ class PhoneNumber extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
           children: [
-            const Spacer(),
-            const Expanded(
-              child: CustomTextField(
-                label: 'رقم الجوال',
-                color: AppColors.kBlack,
-                keyboardType: TextInputType.phone,
-              ),
-            ),
-            Gap(8.5.w),
             SvgPicture.asset(
               Assets.phone,
-            )
+            ),
+            Gap(8.5.w),
+            Consumer<AuthProvider>(
+              builder: (context, provider, child) => Expanded(
+                child: CustomTextField(
+                  controller: provider.loginPhoneController,
+                  validator: (value) {
+                    if (value == null ||
+                        value.isEmpty ||
+                        value.length < 10 ||
+                        value.length > 11) {
+                      return ('الرقم غير صحيح');
+                    }
+                    return null;
+                  },
+                  formKey: provider.loginPhoneFormKey,
+                  label: 'رقم الجوال',
+                  color: AppColors.kBlack,
+                  keyboardType: TextInputType.phone,
+                ),
+              ),
+            ),
+            const Spacer(),
           ],
         ),
       ),

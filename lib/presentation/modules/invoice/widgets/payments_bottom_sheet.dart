@@ -18,11 +18,11 @@ class PaymentsBottomSheet extends StatelessWidget {
         padding: const EdgeInsets.all(24.0),
         child: Column(children: [
           Row(children: [
+            Text('طريقة الدفع', style: AppStyles.semiBold18(context)),
+            const Spacer(),
             InkWell(
                 onTap: () => Navigator.pop(context),
                 child: SvgPicture.asset(Assets.x)),
-            const Spacer(),
-            Text('طريقة الدفع', style: AppStyles.semiBold18(context)),
           ]),
           Gap(32.h),
           const PaymentMethodList(),

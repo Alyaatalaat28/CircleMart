@@ -25,18 +25,18 @@ class CountryFlag extends StatelessWidget {
         child: Row(
           children: [
             SvgPicture.asset(
-              Assets.dropDownMenu,
-              color: AppColors.kRed,
+              Assets.egFlag,
             ),
-            const Spacer(),
+            Gap(12.w),
             Text(
               'مصر',
               style: AppStyles.regular14(context, AppColors.kBlack),
             ),
-            Gap(12.w),
+            const Spacer(),
             SvgPicture.asset(
-              Assets.egFlag,
-            )
+              Assets.dropDownMenu,
+              color: AppColors.kRed,
+            ),
           ],
         ),
       ),

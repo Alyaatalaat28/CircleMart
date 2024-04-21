@@ -5,10 +5,9 @@ class ErrorResponse {
 
   List<Errors>? get errors => _errors;
 
-  ErrorResponse({
-      required List<Errors> errors}){
+  ErrorResponse({required List<Errors> errors}) {
     _errors = errors;
-}
+  }
 
   ErrorResponse.fromJson(dynamic json) {
     if (json["errors"] != null) {
@@ -26,7 +25,6 @@ class ErrorResponse {
     }
     return map;
   }
-
 }
 
 /// code : "l_name"
@@ -39,12 +37,10 @@ class Errors {
   String? get code => _code;
   String? get message => _message;
 
-  Errors({
-      String? code,
-      String? message}){
+  Errors({String? code, String? message}) {
     _code = code;
     _message = message;
-}
+  }
 
   Errors.fromJson(dynamic json) {
     _code = json["code"];
@@ -57,10 +53,7 @@ class Errors {
     map["message"] = _message;
     return map;
   }
-
 }
-
-
 
 /// {
 /// "code": 422,
@@ -78,17 +71,18 @@ class Error422Response {
     this.message,
   });
 
-  factory Error422Response.fromJson(Map<String, dynamic> json) => Error422Response(
-    code: json["code"],
-    // data: json["data"] == null ? [] : List<String>.from(json["data"]!.map((x) => x)),
-    message: json["message"],
-  );
+  factory Error422Response.fromJson(Map<String, dynamic> json) =>
+      Error422Response(
+        code: json["code"],
+        // data: json["data"] == null ? [] : List<String>.from(json["data"]!.map((x) => x)),
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "code": code,
-    // "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x)),
-    "message": message,
-  };
+        "code": code,
+        // "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x)),
+        "message": message,
+      };
 }
 
 class Error401Response {
@@ -102,15 +96,16 @@ class Error401Response {
     this.message,
   });
 
-  factory Error401Response.fromJson(Map<String, dynamic> json) => Error401Response(
-    code: json["code"],
-    // data: json["data"] == null ? [] : List<String>.from(json["data"]!.map((x) => x)),
-    message: json["message"],
-  );
+  factory Error401Response.fromJson(Map<String, dynamic> json) =>
+      Error401Response(
+        code: json["code"],
+        // data: json["data"] == null ? [] : List<String>.from(json["data"]!.map((x) => x)),
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "code": code,
-    // "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x)),
-    "message": message,
-  };
+        "code": code,
+        // "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x)),
+        "message": message,
+      };
 }

@@ -11,16 +11,19 @@ class OrdersView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(automaticallyImplyLeading: false, actions: [
-        ProductsAppBar(
-          text: 'طلباتي',
-          onTap: () {
-            isFromHome
-                ? pushAndRemoveUntil(const BottomNavBar())
-                : Navigator.pop(context);
-          },
-        ),
-      ]),
+      appBar: AppBar(
+          surfaceTintColor: Colors.transparent,
+          automaticallyImplyLeading: false,
+          actions: [
+            ProductsAppBar(
+              text: 'طلباتي',
+              onTap: () {
+                isFromHome
+                    ? pushAndRemoveUntil(const BottomNavBar())
+                    : Navigator.pop(context);
+              },
+            ),
+          ]),
       body: const OrdersViewBody(),
     ));
   }

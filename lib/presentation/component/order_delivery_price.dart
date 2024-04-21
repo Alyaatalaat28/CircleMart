@@ -11,14 +11,14 @@ class OrderDeliveryPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('ج.م', style: AppStyles.regular12(context, AppColors.kGray)),
-        Gap(3.w),
+        Text('التوصيل', style: AppStyles.regular12(context, AppColors.kBlack)),
+        const Spacer(),
         Text(price,
             style: AppStyles.semiBold16(
               context,
             )),
-        const Spacer(),
-        Text('التوصيل', style: AppStyles.regular12(context, AppColors.kBlack)),
+        Gap(3.w),
+        Text('ج.م', style: AppStyles.regular12(context, AppColors.kGray)),
       ],
     );
   }

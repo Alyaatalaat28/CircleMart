@@ -16,9 +16,9 @@ class CategoryViewBody extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CategorisList(),
-              Gap(12),
               Categoris(),
+              Gap(12),
+              CategorisList(),
             ],
           ),
         ]),

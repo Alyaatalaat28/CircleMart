@@ -18,15 +18,15 @@ class OrderPrice extends StatelessWidget {
           Gap(30.h),
           Row(
             children: [
-              Text('ج.م', style: AppStyles.regular12(context, AppColors.kRed)),
+              Text(': الاجمالي',
+                  style: AppStyles.regular12(context, AppColors.kBlack)),
               Gap(4.5.w),
               Text('${provider.totalPriceForSingleProduct(product)}',
-                  style: AppStyles.semiBold18(context).copyWith(
+                  style: AppStyles.semiBold16(context).copyWith(
                     color: AppColors.kRed,
                   )),
               Gap(4.5.w),
-              Text(': الاجمالي',
-                  style: AppStyles.regular12(context, AppColors.kBlack)),
+              Text('ج.م', style: AppStyles.regular12(context, AppColors.kRed)),
             ],
           ),
         ],

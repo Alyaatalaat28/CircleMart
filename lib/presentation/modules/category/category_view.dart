@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nami/core/resources/app_styles.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'widgets/cactegory_view_body.dart';
 
 class CategoryView extends StatelessWidget {
@@ -9,12 +11,15 @@ class CategoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(automaticallyImplyLeading: false, actions: [
-        Padding(
+      appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+        automaticallyImplyLeading: false,
+        title: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: Text('الاقسام', style: AppStyles.semiBold18(context)),
+          child: Text(tr(LocaleKeys.sections),
+              style: AppStyles.semiBold18(context)),
         ),
-      ]),
+      ),
       body: const CategoryViewBody(),
     ));
   }

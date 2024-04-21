@@ -8,7 +8,7 @@ class AvatarImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: AlignmentDirectional.bottomEnd,
+      alignment: AlignmentDirectional.bottomStart,
       children: [
         const Image(
           image: AssetImage(Assets.avatarImage),

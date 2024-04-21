@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +18,7 @@ class TotalPrice extends StatelessWidget {
       builder: (context, provider, child) => Column(
         children: [
           Text(
-            ': الاجمالي',
+            tr(LocaleKeys.total),
             style: AppStyles.regular12(context, AppColors.kBlack),
           ),
           Gap(4.h),

@@ -19,22 +19,22 @@ class SettingItem extends StatelessWidget {
         onTap: onPressed,
         child: Row(
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.arrow_back_ios_new_rounded,
-                color: AppColors.kGray,
-                size: 15.w,
-              ),
+            SvgPicture.asset(
+              image,
             ),
-            const Spacer(),
+            Gap(7.w),
             Text(
               text,
               style: AppStyles.regular14(context, AppColors.kBlack),
             ),
-            Gap(7.w),
-            SvgPicture.asset(
-              image,
+            const Spacer(),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.arrow_forward_ios_outlined,
+                color: AppColors.kGray,
+                size: 15.w,
+              ),
             ),
           ],
         ),

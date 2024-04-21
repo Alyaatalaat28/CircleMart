@@ -19,15 +19,6 @@ class _PointsOptionState extends State<PointsOption> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('ج.م', style: AppStyles.regular12(context, AppColors.kGray)),
-        Gap(3.w),
-        Text('13 -',
-            style: AppStyles.semiBold16(
-              context,
-            )),
-        const Spacer(),
-        const UsePoints(),
-        Gap(12.w),
         Checkbox(
             activeColor: AppColors.kRed,
             value: isChecked,
@@ -39,7 +30,16 @@ class _PointsOptionState extends State<PointsOption> {
               setState(() {
                 isChecked = value!;
               });
-            })
+            }),
+        Gap(12.w),
+        const UsePoints(),
+        const Spacer(),
+        Text('13 -',
+            style: AppStyles.semiBold16(
+              context,
+            )),
+        Gap(3.w),
+        Text('ج.م', style: AppStyles.regular12(context, AppColors.kGray)),
       ],
     );
   }

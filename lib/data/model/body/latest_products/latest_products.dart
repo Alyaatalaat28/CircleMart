@@ -1,7 +1,5 @@
-
 import 'package:equatable/equatable.dart';
 import 'package:nami/data/model/body/latest_products/datum.dart';
-
 
 class LatestProducts extends Equatable {
   final List<Datam>? data;
@@ -25,7 +23,6 @@ class LatestProducts extends Equatable {
         'message': message,
         'code': code,
       };
-
 
   @override
   List<Object?> get props => [data, message, code];

@@ -41,12 +41,12 @@ class PaymentMethodItem extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: Row(
               children: [
-                SvgPicture.asset(image),
-                const Spacer(),
                 Text(
                   text,
                   style: AppStyles.regular14(context, AppColors.kBlack),
-                )
+                ),
+                const Spacer(),
+                SvgPicture.asset(image),
               ],
             ),
           ),

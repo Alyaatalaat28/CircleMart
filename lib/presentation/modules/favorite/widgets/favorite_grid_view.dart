@@ -1,30 +1,72 @@
 import 'package:flutter/material.dart';
-import 'package:nami/core/resources/assets.dart';
-import 'package:nami/presentation/modules/favorite/model/product_model.dart';
-import 'package:nami/presentation/modules/favorite/widgets/favorite_item.dart';
+import 'package:nami/core/extensions/num_extension.dart';
+import 'package:gap/gap.dart';
+import 'package:nami/core/resources/app_styles.dart';
+import 'package:nami/core/resources/colors.dart';
+import 'package:nami/presentation/component/product_item.dart';
+import 'package:nami/presentation/component/shimmer.dart';
+import 'package:nami/presentation/modules/home/home_provider.dart';
+import 'package:provider/provider.dart';
 
-class FavoriteGridView extends StatelessWidget {
+class FavoriteGridView extends StatefulWidget {
   const FavoriteGridView({super.key});
 
   @override
+  State<FavoriteGridView> createState() => _FavoriteGridViewState();
+}
+
+class _FavoriteGridViewState extends State<FavoriteGridView> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<HomeProvider>(context, listen: false).getLatestProducts();
+      _addRouteChangeListener();
+    });
+  }
+
+  void _addRouteChangeListener() {
+    ModalRoute.of(context)!.addScopedWillPopCallback(() async {
+      Provider.of<HomeProvider>(context, listen: false).getLatestProducts();
+      return true;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      crossAxisCount: 2,
-      childAspectRatio: 1 / 1.2,
-      mainAxisSpacing: 10.0,
-      crossAxisSpacing: 8.0,
-      children: List.generate(
-          2,
-          (index) => ProductItem(
-                iconColor: Colors.red,
-                product: Product(
-                  name: 'جمبري',
-                  image: Assets.shrimp,
-                  price: 280,
+    return Consumer<HomeProvider>(
+      builder: (context, provider, child) {
+        if (provider.favoriteList!.isNotEmpty) {
+          return GridView.count(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            crossAxisCount: 2,
+            childAspectRatio: 1 / 1.45,
+            mainAxisSpacing: 10.0,
+            crossAxisSpacing: 8.0,
+            children: provider.isLoadingGetFavorite
+                ? List.generate(8, (index) => const ShimmerWidget())
+                : List.generate(
+                    provider.favoriteList!.length,
+                    (index) => ProductItem(
+                      product: provider.favoriteList![index],
+                    ),
+                  ),
+          );
+        } else {
+          return Center(
+            child: Column(
+              children: [
+                Gap(260.h),
+                Text(
+                  'المفضلة فارغه',
+                  style: AppStyles.regular16(context, AppColors.kGray),
                 ),
-              )),
+              ],
+            ),
+          );
+        }
+      },
     );
   }
 }

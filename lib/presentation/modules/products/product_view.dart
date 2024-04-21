@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'widgets/product_view_body.dart';
 
@@ -9,12 +11,15 @@ class ProductView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(automaticallyImplyLeading: false, actions: const [
-          ProductsAppBar(
-            text: 'المنتجات',
-          ),
-        ]),
-        body: ProductViewBody(),
+        appBar: AppBar(
+            surfaceTintColor: Colors.transparent,
+            automaticallyImplyLeading: false,
+            actions: [
+              ProductsAppBar(
+                text: tr(LocaleKeys.products),
+              ),
+            ]),
+        body: const ProductViewBody(),
       ),
     );
   }

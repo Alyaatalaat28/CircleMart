@@ -9,24 +9,29 @@ class CategoryGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(
-      builder: (context, provider, child) {
-        return GridView.count(
+    return Consumer<HomeProvider>(builder: (context, provider, child) {
+      return GridView.count(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         crossAxisCount: 4,
         childAspectRatio: 1 / 1.8,
         mainAxisSpacing: 8.0,
         crossAxisSpacing: 7.0,
-        children:provider.isLoading?List.generate(8, (index) =>const ShimmerWidget()):
-         (provider.categoris?.data?.take(8) ?? []).map((category) {
-                  return CategoryItem(
-                    title: category.title ?? '',
-                    image: category.image ?? '',
-                  );
-                }).toList(),
+        children: provider.isLoading
+            ? List.generate(8, (index) => const ShimmerWidget())
+            : (provider.categoris?.data?.take(8) ?? [])
+                .toList()
+                .asMap()
+                .entries
+                .map((entry) {
+                final index = entry.key;
+                final category = entry.value;
+                return CategoryItem(
+                  index: index,
+                  category: category,
+                );
+              }).toList(),
       );
-      }
-    );
+    });
   }
 }

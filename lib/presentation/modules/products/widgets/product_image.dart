@@ -13,10 +13,10 @@ class ProductImage extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height: 234.h,
-        child:CachedNetworkImage(
-                    imageUrl: product.image!,
-                    errorWidget: (context, url, error) =>const Icon(Icons.error),
-                    ),    
+        child: CachedNetworkImage(
+          imageUrl: product.image!,
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        ),
       ),
     );
   }

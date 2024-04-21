@@ -10,6 +10,7 @@ class HomeView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          surfaceTintColor: Colors.transparent,
           actions: const [
             CustomAppBar(),
           ],

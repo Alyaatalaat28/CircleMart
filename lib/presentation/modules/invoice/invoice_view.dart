@@ -12,17 +12,20 @@ class InvoiceView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: AppBar(automaticallyImplyLeading: false, actions: const [
-              ProductsAppBar(text: 'الفاتورة'),
-            ]),
+            appBar: AppBar(
+                surfaceTintColor: Colors.transparent,
+                automaticallyImplyLeading: false,
+                actions: const [
+                  ProductsAppBar(text: 'الفاتورة'),
+                ]),
             body: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(6.5),
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Column(children: [
                   const InvoiceDetails(),
                   Gap(12.h),
-                  const InvoiceProducts(),
+                  InvoiceProducts(),
                   Gap(90.h),
                   const DoneDialog(),
                 ]),

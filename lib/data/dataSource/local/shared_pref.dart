@@ -4,13 +4,13 @@ import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref with ChangeNotifier {
-  final int _currentQuentity = 1;
-  final int _initialQuentity = 1;
-  int _counter = 1;
+  final double _currentQuentity = 1;
+  final double _initialQuentity = 1;
+  double _counter = 1;
 
-  int get currentQuentity => _currentQuentity;
-  int get initialQuentity => _initialQuentity;
-  int get counter => _counter;
+  double get currentQuentity => _currentQuentity;
+  double get initialQuentity => _initialQuentity;
+  double get counter => _counter;
 
 //cart
   List<Datam> _cart = [];
@@ -37,11 +37,11 @@ class SharedPref with ChangeNotifier {
   }
 
 //add to cart
-  void addToCart(Datam product, int currentQuentity) {
-    int productExist =
-        _cart.indexWhere((element) => element.id == product.id);
+  void addToCart(Datam product, double currentQuentity) {
+    int productExist = _cart.indexWhere((element) => element.id == product.id);
     if (productExist != -1) {
-      _cart[productExist].weightUnit =_cart[productExist].weightUnit!+currentQuentity;
+      _cart[productExist].weightUnit =
+          _cart[productExist].weightUnit! + currentQuentity;
     } else {
       product.weightUnit = currentQuentity;
       _cart.add(product);
@@ -69,7 +69,7 @@ class SharedPref with ChangeNotifier {
   void increaseProductQuantity(Datam product) {
     int productIndex = _cart.indexOf(product);
     if (productIndex != -1) {
-      _cart[productIndex].weightUnit =_cart[productIndex].weightUnit! + 1;
+      _cart[productIndex].weightUnit = _cart[productIndex].weightUnit! + 1;
       saveCart();
       notifyListeners();
     }
@@ -86,13 +86,13 @@ class SharedPref with ChangeNotifier {
   }
 
 //total price for single product
-  int totalPriceForSingleProduct(Datam product) {
+  num totalPriceForSingleProduct(Datam product) {
     return product.price! * product.weightUnit!;
   }
 
 //total price for all cart products
-  double totalPriceForCartProuducts() {
-    double total = 0.0;
+  num totalPriceForCartProuducts() {
+    num total = 0.0;
     for (Datam product in _cart) {
       total += totalPriceForSingleProduct(product);
     }
