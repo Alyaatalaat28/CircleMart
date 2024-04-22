@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'package:nami/presentation/modules/invoice/invoice_view_model.dart';
+import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:provider/provider.dart';
 
 class PaymentMethodItem extends StatelessWidget {
@@ -19,7 +19,7 @@ class PaymentMethodItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<InvoiceViewModel>(
+    return Consumer<OrdersProvider>(
       builder: (BuildContext context, provider, child) => GestureDetector(
         onTap: () => provider.updateSelectedIndex(index),
         child: Container(

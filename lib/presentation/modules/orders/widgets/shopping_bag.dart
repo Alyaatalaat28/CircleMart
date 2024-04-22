@@ -5,7 +5,7 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'package:nami/presentation/modules/orders/orders_view_model.dart';
+import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:provider/provider.dart';
 
 class ShoppingBagRow extends StatelessWidget {
@@ -13,7 +13,7 @@ class ShoppingBagRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<OrdersViewModel>(
+    return Consumer<OrdersProvider>(
       builder: (context, provider, child) => Padding(
         padding: const EdgeInsets.only(top: 22.0, right: 22.0),
         child: Row(

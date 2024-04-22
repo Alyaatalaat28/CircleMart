@@ -25,7 +25,7 @@ class InvoiceView extends StatelessWidget {
                 child: Column(children: [
                   const InvoiceDetails(),
                   Gap(12.h),
-                  InvoiceProducts(),
+                  const InvoiceProducts(),
                   Gap(90.h),
                   const DoneDialog(),
                 ]),

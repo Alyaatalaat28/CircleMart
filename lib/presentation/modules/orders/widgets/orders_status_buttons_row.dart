@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'package:nami/presentation/modules/orders/orders_view_model.dart';
+import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:provider/provider.dart';
 import 'orders_status_button.dart';
 
@@ -11,7 +11,7 @@ class OrdersStatusButtonsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<OrdersViewModel>(
+    return Consumer<OrdersProvider>(
         builder: (BuildContext context, provider, child) {
       return Row(
         children: [

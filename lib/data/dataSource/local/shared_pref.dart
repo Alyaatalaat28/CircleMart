@@ -19,10 +19,10 @@ class SharedPref with ChangeNotifier {
 //load cart
   void loadCart() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String>? cartList = prefs.getStringList('cart');
-
-    if (cartList != null) {
-      _cart = cartList
+    String? cartJson = prefs.getString('cart');
+    if (cartJson != null) {
+      List<dynamic> cartData = jsonDecode(cartJson);
+      _cart = cartData
           .map((e) => Datam.fromMap(e as Map<String, dynamic>))
           .toList();
       notifyListeners();
@@ -32,8 +32,9 @@ class SharedPref with ChangeNotifier {
 //save cart
   void saveCart() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> cart = _cart.map((e) => jsonEncode(e)).toList();
-    prefs.setStringList('cart', cart);
+    List<Map<String, dynamic>> cartData = _cart.map((e) => e.toMap()).toList();
+    String cartJson = jsonEncode(cartData);
+    prefs.setString('cart', cartJson);
   }
 
 //add to cart

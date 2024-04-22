@@ -7,10 +7,14 @@ import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/locale_keys.g.dart';
+import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/data/model/body/latest_products/datum.dart';
 import 'package:nami/presentation/component/dialog/snack_bar.dart';
+import 'package:nami/presentation/modules/auth/login/login_view.dart';
 import 'package:provider/provider.dart';
+
+import '../../auth/auth_provider.dart';
 
 class ProductPriceAndCart extends StatelessWidget {
   const ProductPriceAndCart({super.key, required this.product});
@@ -25,10 +29,15 @@ class ProductPriceAndCart extends StatelessWidget {
               const Spacer(),
               InkWell(
                   onTap: () {
+                     if (Provider.of<AuthProvider>(context, listen: false)
+                              .saveUserData
+                              .getUserToken() =='') {
+                        push(const LoginView());
+                      } else {
                     provider.addToCart(product, provider.currentQuentity);
                     ScaffoldMessenger.of(context)
                         .showSnackBar(showSnack(context));
-                  },
+                  }},
                   child: SizedBox(
                     width: 32.w,
                     height: 32.h,

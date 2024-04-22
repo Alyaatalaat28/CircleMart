@@ -5,10 +5,10 @@ import 'package:nami/data/dataSource/remote/dio/dio_client.dart';
 import 'package:nami/data/repository/auth/auth_repo_impl.dart';
 import 'package:nami/data/repository/auth/save_user_data.dart';
 import 'package:nami/data/repository/home/home_repo_impl.dart';
+import 'package:nami/data/repository/orders/orders_repo_impl.dart';
 import 'package:nami/presentation/modules/auth/auth_provider.dart';
 import 'package:nami/presentation/modules/home/home_provider.dart';
-import 'package:nami/presentation/modules/invoice/invoice_view_model.dart';
-import 'package:nami/presentation/modules/orders/orders_view_model.dart';
+import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
@@ -20,6 +20,7 @@ Future<void> init() async {
   //repository
   getIt.registerLazySingleton(() => HomeRepoImpl(dioClient: getIt()));
   getIt.registerLazySingleton(() => AuthRepoImpl(dioClient: getIt()));
+  getIt.registerLazySingleton(() => OrdersRepoImpl(dioClient: getIt()));
 
   // Providers
   getIt.registerLazySingleton(
@@ -27,8 +28,8 @@ Future<void> init() async {
   getIt.registerLazySingleton(() =>
       AuthProvider(authRepo: getIt<AuthRepoImpl>(), saveUserData: getIt()));
 
-  getIt.registerLazySingleton(() => OrdersViewModel());
-  getIt.registerLazySingleton(() => InvoiceViewModel());
+  getIt.registerLazySingleton(
+      () => OrdersProvider(ordersRepo: getIt<OrdersRepoImpl>()));
   getIt.registerLazySingleton(() => SharedPref());
 
   /// External

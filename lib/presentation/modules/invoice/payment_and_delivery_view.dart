@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
-import 'package:nami/core/resources/app_styles.dart';
-import 'package:nami/core/resources/colors.dart';
-import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/component/appbars/products_app_bar.dart';
-import 'package:nami/presentation/modules/invoice/invoice_view.dart';
+import 'package:nami/presentation/modules/invoice/widgets/confirm_order.dart';
 import 'package:nami/presentation/modules/invoice/widgets/orders_items_list_view.dart';
 import 'package:nami/presentation/sheet/bottom_sheet.dart';
 import 'package:provider/provider.dart';
@@ -41,18 +38,7 @@ class PaymentAndDelivery extends StatelessWidget {
                       width: 79,
                       height: 45,
                       text: '${provider.totalPriceForCartProuducts()}',
-                      child: Center(
-                        child: InkWell(
-                          onTap: () {
-                            push(
-                              InvoiceView(),
-                            );
-                          },
-                          child: Text('تأكيد',
-                              style: AppStyles.regular14(
-                                  context, AppColors.kWhite)),
-                        ),
-                      ),
+                      child: const ConfirmOrder(),
                     )
                   ]),
                 ),

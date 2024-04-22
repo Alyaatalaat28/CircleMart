@@ -11,6 +11,6 @@ class AppURL {
   static const String kGetCity = 'cities';
   static const String kFavoriteItem = 'user/profile/myFavorites';
   static const String kAddAndRemoveFavorites = 'user/home/add-remove-favorites';
-  static const String kCalculateOrderCost = 'orders/calculateOrderCost';
-  static const String kStoreOrder = 'orders';
+  static const String kCalculateOrderCost = 'user/orders/calculateOrderCost';
+  static const String kStoreOrder = 'user/orders';
 }

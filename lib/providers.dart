@@ -3,8 +3,7 @@ import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/injection.dart';
 import 'package:nami/presentation/modules/auth/auth_provider.dart';
 import 'package:nami/presentation/modules/home/home_provider.dart';
-import 'package:nami/presentation/modules/invoice/invoice_view_model.dart';
-import 'package:nami/presentation/modules/orders/orders_view_model.dart';
+import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:provider/provider.dart';
 
 class AppMultiProvider extends StatelessWidget {
@@ -21,10 +20,7 @@ class AppMultiProvider extends StatelessWidget {
               ..getLatestProducts()
               ..getFavorite()),
         ChangeNotifierProvider(
-          create: (BuildContext context) => getIt<OrdersViewModel>(),
-        ),
-        ChangeNotifierProvider(
-          create: (BuildContext context) => getIt<InvoiceViewModel>(),
+          create: (BuildContext context) => getIt<OrdersProvider>(),
         ),
         ChangeNotifierProvider(
           create: (BuildContext context) => getIt<SharedPref>()..loadCart(),

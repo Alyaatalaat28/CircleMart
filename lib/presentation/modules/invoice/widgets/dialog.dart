@@ -7,6 +7,8 @@ import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
+import 'package:nami/data/model/response/body/store_order.dart';
+import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:nami/presentation/modules/orders/orders_view.dart';
 import 'package:provider/provider.dart';
 import '../../../component/buttons/custom_text_button.dart';
@@ -35,16 +37,33 @@ class _DoneDialogState extends State<DoneDialog>
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SharedPref>(
+    return Consumer<OrdersProvider>(
       builder: (context, provider, child) => CustomTextButton(
           text: 'ارسال الطلب',
           width: double.infinity,
           height: 50,
           radius: 12,
           onPressed: () {
-            _showContentDialog();
-            provider.clearCart();
-            _navigateToOrdersScreen();
+List<Detail> detail=details(context);
+ provider.storOrder(
+   StoreOrder(
+    address:"شارع الحريه",
+    latitude:30.599618,
+    longitude:30.966453,
+    isPoints:false,
+    delivery:provider.orderCost?.data!.deliveryPrice!,
+    taxValue:provider.orderCost?.data!.taxValue,
+    grandTotal:provider.orderCost?.data!.grandTotal,
+    notes:provider.noteController.text,
+    payType:"cash",
+    netTotal:provider.orderCost?.data!.netTotal,
+    details:detail,
+ ) 
+           ).then((value) {
+             _showContentDialog();
+             _navigateToOrdersScreen();
+             Provider.of<SharedPref>(context,listen:false).clearCart();
+           });
           }),
     );
   }
@@ -96,4 +115,13 @@ class _DoneDialogState extends State<DoneDialog>
       },
     );
   }
+   List<Detail>  details(context){
+    return  Provider.of<SharedPref>(context,listen:false).cart.map((product) {
+    return Detail(
+      productId: product.id,
+      qty: product.weightUnit!,
+      netCost:product.price!,
+    );
+  }).toList();
+ }
 }

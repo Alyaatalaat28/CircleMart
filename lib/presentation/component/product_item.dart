@@ -40,8 +40,7 @@ class ProductItem extends StatelessWidget {
                     onTap: () {
                       if (Provider.of<AuthProvider>(context, listen: false)
                               .saveUserData
-                              .getUserToken() ==
-                          '') {
+                              .getUserToken() =='') {
                         push(const LoginView());
                       } else {
                         product.isFavorite = !product.isFavorite!;

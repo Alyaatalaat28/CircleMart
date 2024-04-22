@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'package:nami/presentation/modules/orders/orders_view_model.dart';
+import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:provider/provider.dart';
 
 class CustomStepper extends StatelessWidget {
@@ -8,7 +8,7 @@ class CustomStepper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<OrdersViewModel>(
+    return Consumer<OrdersProvider>(
       builder: (context, provider, child) => Directionality(
         textDirection: TextDirection.rtl,
         child: SliderTheme(
