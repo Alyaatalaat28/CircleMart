@@ -22,7 +22,7 @@ class ProductGridView extends StatelessWidget {
           crossAxisSpacing: 8.0,
           children: provider.isLoading
               ? List.generate(8, (index) => const ShimmerWidget())
-              : (provider.latestProducts?.data ?? []).map((product) {
+              : (provider.latestProductsList ?? []).map((product) {
                   return InkWell(
                     onTap: () {
                       push(ProductDetails(

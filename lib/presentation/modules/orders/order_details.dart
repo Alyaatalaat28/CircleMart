@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
+import 'package:nami/data/model/body/my_orders/my_orders.dart';
 import 'package:nami/presentation/modules/orders/widgets/edit_and_cancel_buttons.dart';
 import 'package:nami/presentation/modules/orders/widgets/products_order.dart';
 import 'package:nami/presentation/modules/orders/widgets/custom_stepper.dart';
@@ -10,8 +11,9 @@ import 'widgets/details_container.dart';
 import 'widgets/shopping_bag.dart';
 
 class OrderDetails extends StatelessWidget {
-  const OrderDetails({super.key});
-
+  const OrderDetails({super.key, required this.myOrder, required this.index});
+  final MyOrders myOrder;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,9 +37,15 @@ class OrderDetails extends StatelessWidget {
                     Gap(22.h),
                     const EditAndCancelButtons(),
                     Gap(31.h),
-                    const OrderDetailsContainer(),
+                      OrderDetailsContainer(
+                      myOrder: myOrder,
+                       index: index,
+                       ),
                     Gap(12.h),
-                    const ProductsOrderAmount(),
+                     ProductsOrderAmount(
+                      myOrder: myOrder, 
+                      index: index,
+                      ),
                   ],
                 ),
               ))),

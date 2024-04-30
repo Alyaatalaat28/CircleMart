@@ -44,26 +44,35 @@ class _DoneDialogState extends State<DoneDialog>
           height: 50,
           radius: 12,
           onPressed: () {
-List<Detail> detail=details(context);
- provider.storOrder(
-   StoreOrder(
-    address:"شارع الحريه",
-    latitude:30.599618,
-    longitude:30.966453,
-    isPoints:false,
-    delivery:provider.orderCost?.data!.deliveryPrice!,
-    taxValue:provider.orderCost?.data!.taxValue,
-    grandTotal:provider.orderCost?.data!.grandTotal,
-    notes:provider.noteController.text,
-    payType:"cash",
-    netTotal:provider.orderCost?.data!.netTotal,
-    details:detail,
- ) 
-           ).then((value) {
-             _showContentDialog();
-             _navigateToOrdersScreen();
-             Provider.of<SharedPref>(context,listen:false).clearCart();
-           });
+            List<Detail> detail = details(context);
+            provider
+                .storOrder(StoreOrder(
+              address: "شارع الحريه",
+              latitude: 30.599618,
+              longitude: 30.966453,
+              isPoints: provider.pointsCheck,
+              pointsCount: provider.orderCost!.data!.totalPoints,
+              pointsValue: provider.orderCost!.data!.points,
+              delivery: provider.orderCost?.data!.deliveryPrice!,
+              taxValue: provider.orderCost?.data!.taxValue,
+              grandTotal: !provider.pointsCheck
+                  ? provider.orderCost?.data!.grandTotal
+                  : provider.grandTotalWithPoints(
+                      provider.orderCost?.data!.grandTotal,
+                      provider.orderCost!.data!.totalPoints!),
+              notes: provider.noteController.text,
+              payType: "cash",
+              netTotal: provider.orderCost?.data!.netTotal,
+              details: detail,
+            ))
+                .then((value) {
+              _showContentDialog();
+              _navigateToOrdersScreen();
+              Provider.of<SharedPref>(context, listen: false).clearCart();
+              provider.noteController.clear();
+              provider.paymentController.clear();
+              provider.getMyOrders();
+            });
           }),
     );
   }
@@ -115,13 +124,14 @@ List<Detail> detail=details(context);
       },
     );
   }
-   List<Detail>  details(context){
-    return  Provider.of<SharedPref>(context,listen:false).cart.map((product) {
-    return Detail(
-      productId: product.id,
-      qty: product.weightUnit!,
-      netCost:product.price!,
-    );
-  }).toList();
- }
+
+  List<Detail> details(context) {
+    return Provider.of<SharedPref>(context, listen: false).cart.map((product) {
+      return Detail(
+        productId: product.id,
+        qty: product.weightUnit!,
+        netCost: product.price!,
+      );
+    }).toList();
+  }
 }

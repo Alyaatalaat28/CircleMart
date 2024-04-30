@@ -36,4 +36,17 @@ class OrdersRepoImpl implements OrdersRepo {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
     }
   }
+  
+  @override
+  Future<ApiResponse> myOrders({String? type})async{
+   try {
+      Response response = await dioClient.get(
+        AppURL.myOrders,
+        queryParameters: {'type':type??'new'}
+      );
+      return ApiResponse.withSuccess(response);
+    } catch (e) {
+      return ApiResponse.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
 }

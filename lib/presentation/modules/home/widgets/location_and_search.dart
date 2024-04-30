@@ -21,6 +21,8 @@ class LocationAndSearch extends StatelessWidget {
         SearchField(
             controller: searchController,
             onTap: () {
+              provider.updateSubAndCategorisSelectedIndex();
+              provider.searchProductsController.clear();
               provider.getProducts(queryParams: null);
               push(const ProductView());
             }),

@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 import '../modules/home/widgets/product_price_and_cart.dart';
 import '../modules/home/widgets/product_stack.dart';
 
-class ProductItem extends StatelessWidget {
+class ProductItem extends StatefulWidget {
   const ProductItem({
     super.key,
     required this.product,
@@ -19,9 +19,13 @@ class ProductItem extends StatelessWidget {
   final Datam product;
 
   @override
+  State<ProductItem> createState() => _ProductItemState();
+}
+
+class _ProductItemState extends State<ProductItem> {
+  @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(
-      builder: (context, provider, child) => ConstrainedBox(
+    return  ConstrainedBox(
         constraints: const BoxConstraints(
           maxWidth: double.infinity,
           maxHeight: double.infinity,
@@ -36,39 +40,39 @@ class ProductItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ProductStack(
-                    product: product,
+                    product: widget.product,
                     onTap: () {
                       if (Provider.of<AuthProvider>(context, listen: false)
                               .saveUserData
                               .getUserToken() =='') {
                         push(const LoginView());
                       } else {
-                        product.isFavorite = !product.isFavorite!;
-                        provider.addOrRemoveFavorite(product.id!);
-                        provider.updateFavoriteStatus(product.id!);
+                         setState(() {
+                          widget.product.isFavorite =
+                              !widget.product.isFavorite!;
+                        });
+                        Provider.of<HomeProvider>(context,listen:false).addOrRemoveFavorite(widget.product.id!);
+                         widget.product.isFavorite =widget.product.isFavorite!;
+                        Provider.of<HomeProvider>(context,listen:false).updateFavoriteStatus(widget.product.id!, widget.product.isFavorite!);
+                        Provider.of<HomeProvider>(context,listen:false).updateFavoriteStatusFav(widget.product.id!, widget.product.isFavorite!);
                       }
                     },
                   ),
                   const Spacer(),
-                  Text(product.title!,
+                  Text(widget.product.title!,
                       textAlign: TextAlign.start,
                       maxLines: 2,
                       style: AppStyles.regular14(context, AppColors.kBlack)),
                   const Gap(8),
                   ProductPriceAndCart(
-                    product: product,
-                    // onTap: () {
-                    //   provider.addToCart(product, provider.currentQuentity);
-                    //   ScaffoldMessenger.of(context)
-                    //       .showSnackBar(showSnack(context));
-                    // },
+                    product: widget.product,
                   ),
                 ],
               ),
             ),
           ),
         ),
-      ),
+      
     );
   }
 }

@@ -18,19 +18,16 @@ class ProductBranchItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
         builder: (BuildContext context, provider, child) {
-      // final subCategoryIndex = provider.subCategorisSelectedIndex;
-      // final categoryIndex = provider.categorisSelectedIndex;
       return GestureDetector(
         onTap: () {
           provider.updateSubCategorisSelectedIndex(index);
           provider.getProducts(
             queryParams: ProductQueryParameters(
-              // categoryId:categoryIndex>-1?category.id:null,
               subCategoryId: category
                   .subCategories![provider.subCategorisSelectedIndex].id,
-              //title:provider.searchProductsController.text ,
             ),
           );
+          provider.searchProductsController.clear();
         },
         child: Container(
           height: 50.h,

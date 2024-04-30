@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/core/utils/show_toast.dart';
+import 'package:nami/data/model/body/my_orders/my_orders.dart';
 import 'package:nami/data/model/response/base/api_response.dart';
 import 'package:nami/data/model/response/body/order_cost.dart';
 import 'package:nami/data/model/response/body/store_order.dart';
@@ -17,21 +18,28 @@ class OrdersProvider with ChangeNotifier {
   TextEditingController paymentController = TextEditingController();
 
   ////variables
-  bool showCurrentOrders = true;
+  bool _showCurrentOrders = true;
   double _activeStep = 1;
   OrderModel? _orderCost;
   OrderModel? _storeOrder;
+  MyOrders?_myOrders;
   bool _isLoadingCost = false;
   bool _isLoadingStore = false;
+  bool _isLoadingorders= false;
   int _selectedIndex = -1;
-
+   bool _pointsCheck = false;
+ 
   ////getter
+  bool get showCurrentOrders => _showCurrentOrders;
   double get activeStep => _activeStep;
   OrderModel? get orderCost => _orderCost;
   OrderModel? get storeOrder => _storeOrder;
+  MyOrders? get myOrders=>_myOrders;
   bool get isLoadingCost => _isLoadingCost;
   bool get isLoadingStore => _isLoadingStore;
+  bool get isLoadingorders => _isLoadingorders;
   int get selectedIndex => _selectedIndex;
+  bool get pointsCheck => _pointsCheck;
 
   ////orders
   Future<ApiResponse> calculateOrderCost(OrderCost orderCost) async {
@@ -77,8 +85,34 @@ class OrdersProvider with ChangeNotifier {
     return response;
   }
 
+   Future<ApiResponse> getMyOrders({String ?type}) async {
+    _isLoadingorders = true;
+    notifyListeners();
+    ApiResponse response = await ordersRepo.myOrders(type: type);
+    if (response.response != null && response.response?.statusCode == 200) {
+      _isLoadingorders = false;
+      print("Response data: ${response.response?.data}");
+      _myOrders = MyOrders.fromMap(response.response?.data);
+    } else if (_myOrders?.code == 422) {
+      ToastUtils.showToast(response.response?.data['message']);
+    } else {
+      print("Response data: ${response.response?.data}");
+      _isLoadingorders = false;
+      notifyListeners();
+    }
+    _isLoadingorders = false;
+    notifyListeners();
+    return response;
+  }
+
+////points cost
+  num grandTotalWithPoints(num? totalPrice, num points) {
+    num discountAmount = points / 10;
+    return totalPrice! - discountAmount;
+  }
+
   void toggleOrdersView() {
-    showCurrentOrders = !showCurrentOrders;
+    _showCurrentOrders = !showCurrentOrders;
     notifyListeners();
   }
 
@@ -92,6 +126,11 @@ class OrdersProvider with ChangeNotifier {
 
   void updateSelectedIndex(int index) {
     _selectedIndex = index;
+    notifyListeners();
+  }
+
+  void changeCheckBoxValue(bool value) {
+    _pointsCheck= value;
     notifyListeners();
   }
 }

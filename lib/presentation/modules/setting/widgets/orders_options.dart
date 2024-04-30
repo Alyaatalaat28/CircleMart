@@ -8,6 +8,7 @@ import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/modules/auth/auth_provider.dart';
 import 'package:nami/presentation/modules/auth/login/login_view.dart';
 import 'package:nami/presentation/modules/favorite/favorite_view.dart';
+import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:nami/presentation/modules/orders/orders_view.dart';
 import 'package:nami/presentation/modules/points/points_view.dart';
 import 'package:provider/provider.dart';
@@ -41,6 +42,7 @@ class OrdersOptions extends StatelessWidget {
                           if (provider.saveUserData.getUserToken() == '') {
                             push(const LoginView());
                           } else {
+                            Provider.of<OrdersProvider>(context,listen:false).getMyOrders();
                             push(const OrdersView(
                               isFromHome: false,
                             ));

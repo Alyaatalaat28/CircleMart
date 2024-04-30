@@ -3,11 +3,13 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/data/model/body/my_orders/my_orders.dart';
 import 'package:nami/presentation/component/custom_list_tile.dart';
 
 class OrderDetailsContainer extends StatelessWidget {
-  const OrderDetailsContainer({super.key});
-
+  const OrderDetailsContainer({super.key, required this.myOrder, required this.index});
+  final MyOrders myOrder;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +24,7 @@ class OrderDetailsContainer extends StatelessWidget {
         children: [
           CustomOrderListTile(
             image: Assets.number,
-            title: '#26585',
+            title: '#${myOrder.data![index].id!}',
             trailing: false,
             textStyle: AppStyles.semiBold18(context).copyWith(
               color: AppColors.kRed,
@@ -30,35 +32,35 @@ class OrderDetailsContainer extends StatelessWidget {
           ),
           CustomOrderListTile(
             image: Assets.calender,
-            title: '28/08/2023 - 03:23 م',
+            title: '#${myOrder.data![index].date!+myOrder.data![index].time!}',
             trailing: false,
             textStyle: AppStyles.regular14(
               context,
               AppColors.kBlack,
             ),
           ),
-          const CustomOrderListTile(
+           CustomOrderListTile(
             trailing: false,
             image: Assets.branch,
             title: 'الفرع',
-            subTitle: 'شارع الحرية',
+            subTitle:  '${myOrder.data![index].address}',
           ),
-          const CustomOrderListTile(
+           CustomOrderListTile(
             image: Assets.location,
             title: 'عنوان التوصيل',
-            subTitle: 'شارع الحرية - الجيزة',
+            subTitle:'${myOrder.data![index].address}',
             trailing: false,
           ),
-          const CustomOrderListTile(
+           CustomOrderListTile(
             image: Assets.payment,
             title: 'طريقة الدفع',
-            subTitle: 'كاش',
+            subTitle: '${myOrder.data![index].payType}',
             trailing: false,
           ),
-          const CustomOrderListTile(
+           CustomOrderListTile(
             image: Assets.note,
             title: 'ملاحظات',
-            subTitle: 'هات الجمبري طازة',
+            subTitle: '${myOrder.data![index].notes}',
             trailing: false,
           ),
         ],

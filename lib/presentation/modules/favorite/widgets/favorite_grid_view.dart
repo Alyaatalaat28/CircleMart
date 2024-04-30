@@ -3,9 +3,11 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/component/product_item.dart';
 import 'package:nami/presentation/component/shimmer.dart';
 import 'package:nami/presentation/modules/home/home_provider.dart';
+import 'package:nami/presentation/modules/products/product_details.dart';
 import 'package:provider/provider.dart';
 
 class FavoriteGridView extends StatefulWidget {
@@ -20,7 +22,7 @@ class _FavoriteGridViewState extends State<FavoriteGridView> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<HomeProvider>(context, listen: false).getLatestProducts();
+      Provider.of<HomeProvider>(context, listen: false).getFavorite();
       _addRouteChangeListener();
     });
   }
@@ -48,9 +50,15 @@ class _FavoriteGridViewState extends State<FavoriteGridView> {
                 ? List.generate(8, (index) => const ShimmerWidget())
                 : List.generate(
                     provider.favoriteList!.length,
-                    (index) => ProductItem(
-                      product: provider.favoriteList![index],
-                    ),
+                    (index) => InkWell(
+                        onTap: () {
+                          push(ProductDetails(
+                            product: provider.favoriteList![index],
+                          ));
+                        },
+                        child: ProductItem(
+                          product: provider.favoriteList![index],
+                        )),
                   ),
           );
         } else {

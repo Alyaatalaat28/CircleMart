@@ -7,18 +7,18 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
-import 'package:nami/data/dataSource/local/shared_pref.dart';
-import 'package:nami/presentation/component/all_order_products_list_view.dart';
 import 'package:nami/presentation/component/order_delivery_price.dart';
 import 'package:nami/presentation/component/order_total_price.dart';
+import 'package:nami/presentation/modules/invoice/widgets/all_invoice_products_list_view.dart';
 import 'package:nami/presentation/modules/invoice/widgets/points_option.dart';
+import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:provider/provider.dart';
 
 class InvoiceProducts extends StatelessWidget {
   const InvoiceProducts({super.key});
   @override
   Widget build(BuildContext context) {
-    return Consumer<SharedPref>(
+    return Consumer<OrdersProvider>(
       builder: (context, provider, child) => Container(
           width: double.infinity,
           decoration: ShapeDecoration(
@@ -31,11 +31,14 @@ class InvoiceProducts extends StatelessWidget {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text('المنتجات', style: AppStyles.semiBold12(context)),
-              const ProductsListView(),
+                 const InvoiceProductsListView(),
               SvgPicture.asset(Assets.line, color: AppColors.kGray),
               Gap(12.h),
-              const OrderDeliveryPrice(
-                price: '20',
+              OrderDeliveryPrice(
+                price:provider.orderCost!
+                    .data!
+                    .deliveryPrice!
+                    .toString(),
               ),
               Gap(12.h),
               SvgPicture.asset(Assets.line, color: AppColors.kGray),
@@ -45,7 +48,10 @@ class InvoiceProducts extends StatelessWidget {
               SvgPicture.asset(Assets.line, color: AppColors.kGray),
               Gap(12.h),
               OrderTotalPrice(
-                price: '${provider.totalPriceForCartProuducts()}',
+                price:provider.orderCost!
+                    .data!
+                    .grandTotal!
+                    .toString(),
               ),
             ]),
           )),

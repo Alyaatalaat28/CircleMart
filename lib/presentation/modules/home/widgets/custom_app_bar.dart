@@ -3,7 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/routing/app_route.dart';
+import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/modules/cart/cart_view.dart';
+import 'package:provider/provider.dart';
 import 'custom_icon_button.dart';
 import 'welcome_user.dart';
 
@@ -26,7 +28,7 @@ class CustomAppBar extends StatelessWidget {
             const Gap(8),
             CustomIconButton(
               image: Assets.cart,
-              text: '1',
+              text: Provider.of<SharedPref>(context).cart.length.toString(),
               onTap: () {
                 push(const CartView());
               },

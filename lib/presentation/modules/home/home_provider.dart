@@ -19,7 +19,8 @@ class HomeProvider with ChangeNotifier {
   LatestProducts? _latestProducts;
   LatestProducts? _products;
   LatestProducts? _favoriteModel;
-  List<Datam>? _favoriteList = [];
+   List<Datam>? _favoriteList = [];
+  List<Datam>? _latestProductsList = [];
   LatestProducts? _favoriteItem;
   bool _isLoading = false;
   bool _isLoadingFavorite = false;
@@ -37,6 +38,7 @@ class HomeProvider with ChangeNotifier {
   LatestProducts? get favoriteItem => _favoriteItem;
   List<Datam>? get favoriteList => _favoriteList;
   LatestProducts? get favoriteModel => _favoriteModel;
+  List<Datam>? get latestProductsList => _latestProductsList;
   bool get isLoading => _isLoading;
   bool get isLoadingProducts => _isLoadingProducts;
   bool get isLoadingFavorite => _isLoadingFavorite;
@@ -81,11 +83,17 @@ class HomeProvider with ChangeNotifier {
 
   //latest products
   Future<ApiResponse> getLatestProducts() async {
+    _latestProductsList?.clear();
+    notifyListeners();
     _isLoading = true;
+    notifyListeners();
     ApiResponse response = await homeRepo.getLatestProducts();
     _isLoading = false;
     if (response.response != null && response.response?.statusCode == 200) {
       _latestProducts = LatestProducts.fromMap(response.response?.data);
+      if (_latestProducts!.code == 200) {
+        _latestProductsList!.addAll(_latestProducts!.data!);
+      }
     } else {
       ApiChecker.checkApi(response);
     }
@@ -117,7 +125,6 @@ class HomeProvider with ChangeNotifier {
     if (response.response != null && response.response?.statusCode == 200) {
       _isLoadingFavorite = false;
       _favoriteModel = LatestProducts.fromMap(response.response?.data);
-      getFavorite();
     } else {
       _isLoadingFavorite = false;
       notifyListeners();
@@ -147,17 +154,22 @@ class HomeProvider with ChangeNotifier {
     return response;
   }
 
-  void updateFavoriteStatus(int productId) {
-    Datam product = _favoriteList!.firstWhere((p) => p.id == productId,
-        orElse: () => Datam(id: productId));
-    if (_favoriteList!.contains(product)) {
-      _favoriteList!.remove(product);
-    } else {
-      _favoriteList!.add(product);
-    }
-    notifyListeners();
+  void updateFavoriteStatus(int productId, bool isFavorite) {
+    int productIndex =_latestProductsList!.indexWhere((product) => product.id == productId);
+    if (productIndex != -1) {
+      _latestProductsList![productIndex].isFavorite = isFavorite;
+      notifyListeners();
   }
-
+  }
+  
+   void updateFavoriteStatusFav(int productId, bool isFavorite) {
+    int productIndex =_favoriteList!.indexWhere((product) => product.id == productId);
+    if (productIndex != -1) {
+      _favoriteList![productIndex].isFavorite = isFavorite;
+      notifyListeners();
+  }
+  }
+     
   ///update index of categoris
   void updateSelectedIndex(int index) {
     _selectedIndex = index;
@@ -172,6 +184,12 @@ class HomeProvider with ChangeNotifier {
 
   void updateSubCategorisSelectedIndex(int index) {
     _subCategorisSelectedIndex = index;
+    notifyListeners();
+  }
+
+  void updateSubAndCategorisSelectedIndex() {
+    _subCategorisSelectedIndex = -1;
+    _categorisSelectedIndex = -1;
     notifyListeners();
   }
 }

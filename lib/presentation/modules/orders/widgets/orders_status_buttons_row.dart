@@ -23,7 +23,10 @@ class OrdersStatusButtonsRow extends StatelessWidget {
             textColor:
                 provider.showCurrentOrders ? AppColors.kWhite : AppColors.kGray,
             onTap: () {
-              provider.toggleOrdersView();
+              if (!provider.showCurrentOrders) {
+                provider.toggleOrdersView();
+                provider.getMyOrders(type: 'new');
+              }
             },
           ),
           Gap(10.w),
@@ -35,7 +38,10 @@ class OrdersStatusButtonsRow extends StatelessWidget {
             textColor:
                 provider.showCurrentOrders ? AppColors.kGray : AppColors.kWhite,
             onTap: () {
-              provider.toggleOrdersView();
+              if (provider.showCurrentOrders) {
+                provider.toggleOrdersView();
+                provider.getMyOrders(type: 'old');
+              }
             },
           ),
         ],

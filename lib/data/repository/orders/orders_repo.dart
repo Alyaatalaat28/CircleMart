@@ -5,4 +5,6 @@ import 'package:nami/data/model/response/body/store_order.dart';
 abstract class OrdersRepo {
   Future<ApiResponse> calculateOrderCost(OrderCost orderCost);
   Future<ApiResponse> storeOrder(StoreOrder storeOrder);
+  Future<ApiResponse> myOrders({String? type});
+
 }

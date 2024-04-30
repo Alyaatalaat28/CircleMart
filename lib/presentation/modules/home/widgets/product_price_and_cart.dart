@@ -29,15 +29,17 @@ class ProductPriceAndCart extends StatelessWidget {
               const Spacer(),
               InkWell(
                   onTap: () {
-                     if (Provider.of<AuthProvider>(context, listen: false)
-                              .saveUserData
-                              .getUserToken() =='') {
-                        push(const LoginView());
-                      } else {
-                    provider.addToCart(product, provider.currentQuentity);
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(showSnack(context));
-                  }},
+                    if (Provider.of<AuthProvider>(context, listen: false)
+                            .saveUserData
+                            .getUserToken() ==
+                        '') {
+                      push(const LoginView());
+                    } else {
+                      provider.addToCart(product, provider.currentQuentity);
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(showSnack(context));
+                    }
+                  },
                   child: SizedBox(
                     width: 32.w,
                     height: 32.h,

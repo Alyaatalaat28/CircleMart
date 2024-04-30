@@ -21,17 +21,15 @@ class ProductSectionsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
         builder: (BuildContext context, provider, child) {
-      // final subCategoryIndex = provider.subCategorisSelectedIndex;
       return GestureDetector(
         onTap: () {
           provider.updateCategorisSelectedIndex(index);
           provider.getProducts(
             queryParams: ProductQueryParameters(
               categoryId: category.id,
-              //  subCategoryId:subCategoryIndex>-1?category.subCategories![provider.subCategorisSelectedIndex].id:null ,
-              //  title:provider.searchProductsController.text.isNotEmpty?provider.searchProductsController.text:null ,
             ),
           );
+          provider.searchProductsController.clear();
         },
         child: Container(
           height: 40.h,

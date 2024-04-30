@@ -80,8 +80,7 @@ class RegisterView extends StatelessWidget {
                                       lastName:
                                           provider.lastNameController.text,
                                       phone: provider.registerPhoneController
-                                                  .text.length ==
-                                              11
+                                        .text.length ==11
                                           ? provider
                                               .registerPhoneController.text
                                               .substring(1)
@@ -94,6 +93,9 @@ class RegisterView extends StatelessWidget {
                                   );
                                 }
                               }),
-                        ]))))));
+                        ]))
+                        )
+                        ))
+                        );
   }
 }
