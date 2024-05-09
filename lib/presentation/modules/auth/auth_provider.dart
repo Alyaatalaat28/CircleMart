@@ -15,26 +15,32 @@ import 'package:nami/presentation/modules/home/bottom_nav_bar.dart';
 class AuthProvider with ChangeNotifier {
   final AuthRepo authRepo;
   final SaveUserData saveUserData;
-  AuthProvider({required this.authRepo, required this.saveUserData});
+  AuthProvider({required this.authRepo, required this.saveUserData,});
 
   ///  TextEditingControllers
   TextEditingController loginPhoneController = TextEditingController();
   TextEditingController registerPhoneController = TextEditingController();
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
+  TextEditingController firstNameEditController = TextEditingController();
+  TextEditingController lastNameEditController = TextEditingController();
 
   ////form keys
   final loginPhoneFormKey = GlobalKey<FormState>();
   final registerPhoneFormKey = GlobalKey<FormState>();
   final firstNameFormKey = GlobalKey<FormState>();
   final lastNameFormKey = GlobalKey<FormState>();
+  final firstNameEditFormKey = GlobalKey<FormState>();
+  final lastNameEditFormKey = GlobalKey<FormState>();
 
   ///variables
   bool _isLoadingLogin = false;
   bool _isLoadingRegister = false;
+  bool _isLoadingEditProfile = false;
   bool _isLoadingCity = false;
   LoginBody? _userModel;
   LoginBody? _registerBody;
+  LoginBody? _editProfileBody;
   int? cityId;
   final List<CityModel> cities = [];
   GetCityModel? _cityModel;
@@ -42,9 +48,11 @@ class AuthProvider with ChangeNotifier {
   ///getters
   bool get isLoadingLogin => _isLoadingLogin;
   bool get isLoadingRegister => _isLoadingRegister;
+  bool get isLoadingEditProfile => _isLoadingEditProfile;
   bool get isLoadingCity => _isLoadingCity;
   LoginBody? get userModel => _userModel;
   LoginBody? get registerBody => _registerBody;
+  LoginBody? get editProfileBody => _editProfileBody;
   GetCityModel? get cityModel => _cityModel;
 
   ///login
@@ -110,9 +118,37 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     return response;
   }
+/////edit profile
+  Future<ApiResponse> editProfile(RegisterRequestBody body) async {
+    _isLoadingEditProfile = true;
+    notifyListeners();
+    ApiResponse response = await authRepo.editProfile(body);
+    if (response.response != null && response.response?.statusCode == 200) {
+      _isLoadingEditProfile = false;
+      print("Response data: ${response.response?.data}");
+      _editProfileBody = LoginBody.fromJson(response.response?.data);
+      if (_editProfileBody != null && _editProfileBody?.code == 200) {
+        saveUserData.saveUserData(_editProfileBody!);
+        saveUserData.saveUserToken(_editProfileBody!.data?.auth?.token ?? '');
+        firstNameEditController.clear();
+        lastNameEditController.clear();
+        pop();
+      } else if (_registerBody?.code == 422) {
+        ToastUtils.showToast(response.response?.data['message']);
+      }
+    } else {
+      _isLoadingEditProfile = false;
+      print("Error: Registration response data is null");
+      print("Response data: ${response.response?.data}");
+      ToastUtils.showToast(response.response?.data['message']);
+      notifyListeners();
+    }
+    _isLoadingEditProfile = false;
+    notifyListeners();
+    return response;
+  }
 
   ///city
-
   Future<ApiResponse> getCity() async {
     cities.clear();
     _isLoadingCity = true;
@@ -133,6 +169,7 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     return response;
   }
+
 
 ////profile photo
   XFile? profileImage;

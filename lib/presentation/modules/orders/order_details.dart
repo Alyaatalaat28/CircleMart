@@ -37,15 +37,15 @@ class OrderDetails extends StatelessWidget {
                     Gap(22.h),
                     const EditAndCancelButtons(),
                     Gap(31.h),
-                      OrderDetailsContainer(
+                    OrderDetailsContainer(
                       myOrder: myOrder,
-                       index: index,
-                       ),
-                    Gap(12.h),
-                     ProductsOrderAmount(
-                      myOrder: myOrder, 
                       index: index,
-                      ),
+                    ),
+                    Gap(12.h),
+                    ProductsOrderAmount(
+                      myOrder: myOrder,
+                      index: index,
+                    ),
                   ],
                 ),
               ))),

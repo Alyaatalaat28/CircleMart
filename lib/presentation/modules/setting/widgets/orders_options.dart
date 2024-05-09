@@ -42,7 +42,8 @@ class OrdersOptions extends StatelessWidget {
                           if (provider.saveUserData.getUserToken() == '') {
                             push(const LoginView());
                           } else {
-                            Provider.of<OrdersProvider>(context,listen:false).getMyOrders();
+                            Provider.of<OrdersProvider>(context, listen: false)
+                                .getMyOrders();
                             push(const OrdersView(
                               isFromHome: false,
                             ));

@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 
 import 'category.dart';
@@ -102,7 +101,6 @@ class Product extends Equatable {
         'old_price': oldPrice,
         'is_favorite': isFavorite,
       };
-
 
   @override
   List<Object?> get props {

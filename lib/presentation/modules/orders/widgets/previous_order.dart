@@ -12,8 +12,8 @@ import 'previous_order_button.dart';
 
 class PreviousOrder extends StatelessWidget {
   const PreviousOrder({super.key, required this.myOrder, required this.index});
- final MyOrders myOrder;
- final int index;
+  final MyOrders myOrder;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,22 +28,23 @@ class PreviousOrder extends StatelessWidget {
       ),
       child: Column(
         children: [
-           OrderNumber(
+          OrderNumber(
             orderNumber: '#${myOrder.data![index].id!}',
-             onTap: () {
-                push(OrderDetails(
-                  myOrder: myOrder,
-                   index: index,));
-              },
+            onTap: () {
+              push(OrderDetails(
+                myOrder: myOrder,
+                index: index,
+              ));
+            },
           ),
           Gap(16.h),
-           OrderDateAndTime(
+          OrderDateAndTime(
             time: '${myOrder.data![index].time}',
             date: '${myOrder.data![index].date}',
           ),
           Gap(16.h),
-           OrderLocation(
-            location:'${myOrder.data![index].address}',
+          OrderLocation(
+            location: '${myOrder.data![index].address}',
           ),
           Gap(16.h),
           const PreviousOrderButton(),

@@ -39,7 +39,6 @@ class Detail extends Equatable {
         'total': total,
       };
 
-
   @override
   List<Object?> get props {
     return [

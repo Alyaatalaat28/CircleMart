@@ -6,6 +6,7 @@ import 'package:nami/data/model/response/base/api_response.dart';
 import 'package:nami/data/model/response/body/order_cost.dart';
 import 'package:nami/data/model/response/body/store_order.dart';
 import 'package:nami/data/model/response/order_model.dart';
+import 'package:nami/data/model/response/points.dart';
 import 'package:nami/data/repository/orders/orders_repo.dart';
 import 'package:nami/presentation/modules/invoice/invoice_view.dart';
 
@@ -22,19 +23,21 @@ class OrdersProvider with ChangeNotifier {
   double _activeStep = 1;
   OrderModel? _orderCost;
   OrderModel? _storeOrder;
-  MyOrders?_myOrders;
+  MyOrders? _myOrders;
+  Points?_points;
   bool _isLoadingCost = false;
   bool _isLoadingStore = false;
-  bool _isLoadingorders= false;
+  bool _isLoadingorders = false;
   int _selectedIndex = -1;
-   bool _pointsCheck = false;
- 
+  bool _pointsCheck = false;
+
   ////getter
   bool get showCurrentOrders => _showCurrentOrders;
   double get activeStep => _activeStep;
   OrderModel? get orderCost => _orderCost;
   OrderModel? get storeOrder => _storeOrder;
-  MyOrders? get myOrders=>_myOrders;
+  MyOrders? get myOrders => _myOrders;
+  Points? get points=>_points;
   bool get isLoadingCost => _isLoadingCost;
   bool get isLoadingStore => _isLoadingStore;
   bool get isLoadingorders => _isLoadingorders;
@@ -85,7 +88,7 @@ class OrdersProvider with ChangeNotifier {
     return response;
   }
 
-   Future<ApiResponse> getMyOrders({String ?type}) async {
+  Future<ApiResponse> getMyOrders({String? type}) async {
     _isLoadingorders = true;
     notifyListeners();
     ApiResponse response = await ordersRepo.myOrders(type: type);
@@ -130,7 +133,7 @@ class OrdersProvider with ChangeNotifier {
   }
 
   void changeCheckBoxValue(bool value) {
-    _pointsCheck= value;
+    _pointsCheck = value;
     notifyListeners();
   }
 }

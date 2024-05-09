@@ -14,5 +14,8 @@ class AppURL {
   static const String kCalculateOrderCost = 'user/orders/calculateOrderCost';
   static const String kStoreOrder = 'user/orders';
   static const String myOrders = 'user/orders';
+  static const String contactUs = 'contact-us';
+  static const String points='user/profile/pointsHistory';
+  static const String editProfile='user/profile/updateProfile';
 
 }

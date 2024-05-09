@@ -7,7 +7,8 @@ import 'package:nami/data/model/body/my_orders/my_orders.dart';
 import 'package:nami/presentation/component/custom_list_tile.dart';
 
 class OrderDetailsContainer extends StatelessWidget {
-  const OrderDetailsContainer({super.key, required this.myOrder, required this.index});
+  const OrderDetailsContainer(
+      {super.key, required this.myOrder, required this.index});
   final MyOrders myOrder;
   final int index;
   @override
@@ -32,32 +33,33 @@ class OrderDetailsContainer extends StatelessWidget {
           ),
           CustomOrderListTile(
             image: Assets.calender,
-            title: '#${myOrder.data![index].date!+myOrder.data![index].time!}',
+            title:
+                '#${myOrder.data![index].date! + myOrder.data![index].time!}',
             trailing: false,
             textStyle: AppStyles.regular14(
               context,
               AppColors.kBlack,
             ),
           ),
-           CustomOrderListTile(
+          CustomOrderListTile(
             trailing: false,
             image: Assets.branch,
             title: 'الفرع',
-            subTitle:  '${myOrder.data![index].address}',
+            subTitle: '${myOrder.data![index].address}',
           ),
-           CustomOrderListTile(
+          CustomOrderListTile(
             image: Assets.location,
             title: 'عنوان التوصيل',
-            subTitle:'${myOrder.data![index].address}',
+            subTitle: '${myOrder.data![index].address}',
             trailing: false,
           ),
-           CustomOrderListTile(
+          CustomOrderListTile(
             image: Assets.payment,
             title: 'طريقة الدفع',
             subTitle: '${myOrder.data![index].payType}',
             trailing: false,
           ),
-           CustomOrderListTile(
+          CustomOrderListTile(
             image: Assets.note,
             title: 'ملاحظات',
             subTitle: '${myOrder.data![index].notes}',

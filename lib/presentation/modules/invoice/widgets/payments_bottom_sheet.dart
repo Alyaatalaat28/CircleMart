@@ -20,16 +20,15 @@ class PaymentsBottomSheet extends StatelessWidget {
         height: 388.h,
         child: Padding(
           padding: const EdgeInsets.all(24.0),
-          child: Column(
-            children: [
+          child: Column(children: [
             Row(children: [
               Text('طريقة الدفع', style: AppStyles.semiBold18(context)),
               const Spacer(),
               InkWell(
                   onTap: () {
-                     Navigator.pop(context);
-                     provider.updateSelectedIndex(-1);
-                     },
+                    Navigator.pop(context);
+                    provider.updateSelectedIndex(-1);
+                  },
                   child: SvgPicture.asset(Assets.x)),
             ]),
             Gap(32.h),
@@ -41,8 +40,9 @@ class PaymentsBottomSheet extends StatelessWidget {
                 text: 'تأكيد',
                 radius: 16,
                 onPressed: () {
-                    provider.paymentController.text =paymentMethods[provider.selectedIndex].text;
-                   provider.updateSelectedIndex(-1);
+                  provider.paymentController.text =
+                      paymentMethods[provider.selectedIndex].text;
+                  provider.updateSelectedIndex(-1);
                   Navigator.pop(context);
                 }),
           ]),

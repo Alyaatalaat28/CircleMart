@@ -9,30 +9,28 @@ class CurrentOrderListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<OrdersProvider>(
-      builder:(context,provider,child){
-      if(provider.isLoadingorders) {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: AppColors.kRed,
-            ),
-          );
-      }
-       else{
-         return Expanded(
-        child: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (BuildContext context, int index) =>Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: CurrentOrder(
-              myOrder: provider.myOrders!, 
-              index:index,
-              ),
+    return Consumer<OrdersProvider>(builder: (context, provider, child) {
+      if (provider.isLoadingorders) {
+        return const Center(
+          child: CircularProgressIndicator(
+            color: AppColors.kRed,
           ),
-          itemCount:provider.myOrders!.data!.length,
-        ),
-      );}
+        );
+      } else {
+        return Expanded(
+          child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            itemBuilder: (BuildContext context, int index) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: CurrentOrder(
+                myOrder: provider.myOrders!,
+                index: index,
+              ),
+            ),
+            itemCount: provider.myOrders!.data!.length,
+          ),
+        );
       }
-    );
+    });
   }
 }

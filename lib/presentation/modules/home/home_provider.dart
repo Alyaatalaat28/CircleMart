@@ -19,7 +19,7 @@ class HomeProvider with ChangeNotifier {
   LatestProducts? _latestProducts;
   LatestProducts? _products;
   LatestProducts? _favoriteModel;
-   List<Datam>? _favoriteList = [];
+  List<Datam>? _favoriteList = [];
   List<Datam>? _latestProductsList = [];
   LatestProducts? _favoriteItem;
   bool _isLoading = false;
@@ -155,21 +155,23 @@ class HomeProvider with ChangeNotifier {
   }
 
   void updateFavoriteStatus(int productId, bool isFavorite) {
-    int productIndex =_latestProductsList!.indexWhere((product) => product.id == productId);
+    int productIndex =
+        _latestProductsList!.indexWhere((product) => product.id == productId);
     if (productIndex != -1) {
       _latestProductsList![productIndex].isFavorite = isFavorite;
       notifyListeners();
+    }
   }
-  }
-  
-   void updateFavoriteStatusFav(int productId, bool isFavorite) {
-    int productIndex =_favoriteList!.indexWhere((product) => product.id == productId);
+
+  void updateFavoriteStatusFav(int productId, bool isFavorite) {
+    int productIndex =
+        _favoriteList!.indexWhere((product) => product.id == productId);
     if (productIndex != -1) {
       _favoriteList![productIndex].isFavorite = isFavorite;
       notifyListeners();
+    }
   }
-  }
-     
+
   ///update index of categoris
   void updateSelectedIndex(int index) {
     _selectedIndex = index;

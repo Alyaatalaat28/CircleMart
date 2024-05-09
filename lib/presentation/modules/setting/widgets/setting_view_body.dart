@@ -15,7 +15,8 @@ class SettingViewBody extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        child: Column(children: [
+        child: Column(
+          children: [
           const Avatar(),
           Gap(20.h),
           const OrdersOptions(),

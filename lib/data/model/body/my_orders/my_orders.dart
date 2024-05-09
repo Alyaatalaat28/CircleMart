@@ -17,7 +17,6 @@ class MyOrders extends Equatable {
         code: data['code'] as int?,
       );
 
-
   Map<String, dynamic> toMap() => {
         'data': data?.map((e) => e.toMap()).toList(),
         'message': message,

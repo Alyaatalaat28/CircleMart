@@ -57,4 +57,28 @@ class AuthRepoImpl implements AuthRepo {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
     }
   }
+  
+  @override
+  Future<ApiResponse> editProfile(RegisterRequestBody registerBody)async {
+     try {
+      FormData formData = FormData.fromMap({
+        "first_name": registerBody.firstName,
+        "last_name": registerBody.lastName,
+        "phone_code": registerBody.phoneCode,
+        "phone": registerBody.phone,
+        "image": registerBody.image == null
+            ? null
+            : await MultipartFile.fromFile(registerBody.image!.path),
+        "invitation_code": registerBody.invitationCode,
+        "city_id": registerBody.cityId,
+      });
+      Response response = await dioClient.postWithImage(
+        AppURL.editProfile,
+        data: formData,
+      );
+      return ApiResponse.withSuccess(response);
+    } catch (e) {
+      return ApiResponse.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
 }

@@ -11,18 +11,18 @@ class EmptyOrders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
-            child: Column(
-              children: [
-                Gap(260.h),
-            SvgPicture.asset(Assets.emptyCat, width: 70),
-               Gap(10.h),
-                Text(
-                  'لا يوجد عناصر لعرضها',
-                  style: AppStyles.regular16(context, AppColors.kGray),
-                ),
-              ],
-            ),
-          );
+    return Center(
+      child: Column(
+        children: [
+          Gap(260.h),
+          SvgPicture.asset(Assets.emptyCat, width: 70),
+          Gap(10.h),
+          Text(
+            'لا يوجد عناصر لعرضها',
+            style: AppStyles.regular16(context, AppColors.kGray),
+          ),
+        ],
+      ),
+    );
   }
 }

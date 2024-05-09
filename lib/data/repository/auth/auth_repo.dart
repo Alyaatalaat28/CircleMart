@@ -6,4 +6,6 @@ abstract class AuthRepo {
   Future<ApiResponse> login(Login loginBody);
   Future<ApiResponse> register(RegisterRequestBody registerBody);
   Future<ApiResponse> getCity();
+  Future<ApiResponse> editProfile(RegisterRequestBody registerBody);
+
 }

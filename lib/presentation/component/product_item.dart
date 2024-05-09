@@ -25,54 +25,58 @@ class ProductItem extends StatefulWidget {
 class _ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) {
-    return  ConstrainedBox(
-        constraints: const BoxConstraints(
-          maxWidth: double.infinity,
-          maxHeight: double.infinity,
-        ),
-        child: Card(
-          color: AppColors.kWhite,
-          child: AspectRatio(
-            aspectRatio: 2 / 2.5,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ProductStack(
-                    product: widget.product,
-                    onTap: () {
-                      if (Provider.of<AuthProvider>(context, listen: false)
-                              .saveUserData
-                              .getUserToken() =='') {
-                        push(const LoginView());
-                      } else {
-                         setState(() {
-                          widget.product.isFavorite =
-                              !widget.product.isFavorite!;
-                        });
-                        Provider.of<HomeProvider>(context,listen:false).addOrRemoveFavorite(widget.product.id!);
-                         widget.product.isFavorite =widget.product.isFavorite!;
-                        Provider.of<HomeProvider>(context,listen:false).updateFavoriteStatus(widget.product.id!, widget.product.isFavorite!);
-                        Provider.of<HomeProvider>(context,listen:false).updateFavoriteStatusFav(widget.product.id!, widget.product.isFavorite!);
-                      }
-                    },
-                  ),
-                  const Spacer(),
-                  Text(widget.product.title!,
-                      textAlign: TextAlign.start,
-                      maxLines: 2,
-                      style: AppStyles.regular14(context, AppColors.kBlack)),
-                  const Gap(8),
-                  ProductPriceAndCart(
-                    product: widget.product,
-                  ),
-                ],
-              ),
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        maxWidth: double.infinity,
+        maxHeight: double.infinity,
+      ),
+      child: Card(
+        color: AppColors.kWhite,
+        child: AspectRatio(
+          aspectRatio: 2 / 2.5,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ProductStack(
+                  product: widget.product,
+                  onTap: () {
+                    if (Provider.of<AuthProvider>(context, listen: false)
+                            .saveUserData
+                            .getUserToken() ==
+                        '') {
+                      push(const LoginView());
+                    } else {
+                      setState(() {
+                        widget.product.isFavorite = !widget.product.isFavorite!;
+                      });
+                      Provider.of<HomeProvider>(context, listen: false)
+                          .addOrRemoveFavorite(widget.product.id!);
+                      widget.product.isFavorite = widget.product.isFavorite!;
+                      Provider.of<HomeProvider>(context, listen: false)
+                          .updateFavoriteStatus(
+                              widget.product.id!, widget.product.isFavorite!);
+                      Provider.of<HomeProvider>(context, listen: false)
+                          .updateFavoriteStatusFav(
+                              widget.product.id!, widget.product.isFavorite!);
+                    }
+                  },
+                ),
+                const Spacer(),
+                Text(widget.product.title!,
+                    textAlign: TextAlign.start,
+                    maxLines: 2,
+                    style: AppStyles.regular14(context, AppColors.kBlack)),
+                const Gap(8),
+                ProductPriceAndCart(
+                  product: widget.product,
+                ),
+              ],
             ),
           ),
         ),
-      
+      ),
     );
   }
 }

@@ -11,25 +11,27 @@ class AddToFavorite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
-      builder:(context,provider,child)=> Padding(
+      builder: (context, provider, child) => Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 10.0,
         ),
         child: Row(children: [
           Text('${product.title}',
-              style:
-                  AppStyles.semiBold16(context).copyWith(color: AppColors.kRed)),
+              style: AppStyles.semiBold16(context)
+                  .copyWith(color: AppColors.kRed)),
           const Spacer(),
           IconButton(
             onPressed: () {
-               product.isFavorite = !product.isFavorite!;
-                          provider.addOrRemoveFavorite(product.id!);
-                          // provider.updateFavoriteStatus(
-                          //   product.id!, product.isFavorite!);
+              product.isFavorite = !product.isFavorite!;
+              provider.addOrRemoveFavorite(product.id!);
+              // provider.updateFavoriteStatus(
+              //   product.id!, product.isFavorite!);
             },
-            icon:  Icon(
+            icon: Icon(
               Icons.favorite_rounded,
-              color: product.isFavorite!?AppColors.kRed:AppColors.kFavoriteIcon,
+              color: product.isFavorite!
+                  ? AppColors.kRed
+                  : AppColors.kFavoriteIcon,
             ),
           ),
         ]),

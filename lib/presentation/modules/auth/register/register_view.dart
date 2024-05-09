@@ -34,7 +34,8 @@ class RegisterView extends StatelessWidget {
                     padding: const EdgeInsets.all(16.0),
                     child: SingleChildScrollView(
                         physics: const BouncingScrollPhysics(),
-                        child: Column(children: [
+                        child: Column(
+                          children: [
                           provider.profileImage == null
                               ? InkWell(
                                   onTap: () {
@@ -53,7 +54,12 @@ class RegisterView extends StatelessWidget {
                                   ),
                                 ),
                           Gap(32.h),
-                          const FirstAndLastName(),
+                           FirstAndLastName(
+                            firstNameController:provider.firstNameController ,
+                            firstNameFormKey:provider.firstNameFormKey ,
+                            lastNameController:provider.lastNameController ,
+                            lastNameFormKey:provider.lastNameFormKey,
+                           ),
                           Gap(32.h),
                           const City(),
                           Gap(32.h),
@@ -80,7 +86,8 @@ class RegisterView extends StatelessWidget {
                                       lastName:
                                           provider.lastNameController.text,
                                       phone: provider.registerPhoneController
-                                        .text.length ==11
+                                                  .text.length ==
+                                              11
                                           ? provider
                                               .registerPhoneController.text
                                               .substring(1)
@@ -93,9 +100,6 @@ class RegisterView extends StatelessWidget {
                                   );
                                 }
                               }),
-                        ]))
-                        )
-                        ))
-                        );
+                        ]))))));
   }
 }

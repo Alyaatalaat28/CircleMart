@@ -14,7 +14,7 @@ class InviteFriends extends StatelessWidget {
       color: AppColors.kGray,
       borderType: BorderType.Rect,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'السجل',

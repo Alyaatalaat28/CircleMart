@@ -12,8 +12,8 @@ import 'order_number.dart';
 
 class CurrentOrder extends StatelessWidget {
   const CurrentOrder({super.key, required this.myOrder, required this.index});
- final MyOrders myOrder;
- final int index;
+  final MyOrders myOrder;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,23 +28,23 @@ class CurrentOrder extends StatelessWidget {
       ),
       child: Column(
         children: [
-           OrderNumber(
-            orderNumber: '#${myOrder.data![index].id!}', 
+          OrderNumber(
+            orderNumber: '#${myOrder.data![index].id!}',
             onTap: () {
               push(OrderDetails(
-                    myOrder: myOrder, 
-                   index: index,)
-                   );
-        },
+                myOrder: myOrder,
+                index: index,
+              ));
+            },
           ),
           Gap(16.h),
-           OrderDateAndTime(
+          OrderDateAndTime(
             time: '${myOrder.data![index].time}',
             date: '${myOrder.data![index].date}',
           ),
           Gap(16.h),
-           OrderLocation(
-            location:  '${myOrder.data![index].address}',
+          OrderLocation(
+            location: '${myOrder.data![index].address}',
           ),
         ],
       ),

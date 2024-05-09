@@ -17,12 +17,10 @@ class InviteFriendsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(children: [
-        Text(
-          '10 +',
-          style: AppStyles.semiBold18(context).copyWith(color: AppColors.kRed),
-        ),
-        const Spacer(),
+      child: Row(
+        children: [
+         SvgPicture.asset(Assets.points, width: 24.w, height: 24.h),
+        Gap(8.w),
         Column(children: [
           Text('لقد قمت بدعوة',
               style: AppStyles.regular12(
@@ -35,8 +33,11 @@ class InviteFriendsItem extends StatelessWidget {
             style: AppStyles.semiBold16(context),
           ),
         ]),
-        Gap(8.w),
-        SvgPicture.asset(Assets.points, width: 24.w, height: 24.h),
+        const Spacer(),
+        Text(
+          '+ 10',
+          style: AppStyles.semiBold18(context).copyWith(color: AppColors.kRed),
+        ),
       ]),
     );
   }

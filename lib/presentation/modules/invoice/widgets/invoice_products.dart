@@ -31,14 +31,11 @@ class InvoiceProducts extends StatelessWidget {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text('المنتجات', style: AppStyles.semiBold12(context)),
-                 const InvoiceProductsListView(),
+              const InvoiceProductsListView(),
               SvgPicture.asset(Assets.line, color: AppColors.kGray),
               Gap(12.h),
               OrderDeliveryPrice(
-                price:provider.orderCost!
-                    .data!
-                    .deliveryPrice!
-                    .toString(),
+                price: provider.orderCost!.data!.deliveryPrice!.toString(),
               ),
               Gap(12.h),
               SvgPicture.asset(Assets.line, color: AppColors.kGray),
@@ -48,10 +45,7 @@ class InvoiceProducts extends StatelessWidget {
               SvgPicture.asset(Assets.line, color: AppColors.kGray),
               Gap(12.h),
               OrderTotalPrice(
-                price:provider.orderCost!
-                    .data!
-                    .grandTotal!
-                    .toString(),
+                price: provider.orderCost!.data!.grandTotal!.toString(),
               ),
             ]),
           )),

@@ -6,6 +6,8 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:gif/gif.dart';
+import 'package:nami/presentation/modules/points/points_provider.dart';
+import 'package:provider/provider.dart';
 
 class MyPoints extends StatefulWidget {
   const MyPoints({super.key});
@@ -32,32 +34,39 @@ class _MyPointsState extends State<MyPoints>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(alignment: AlignmentDirectional.center, children: [
-      Gif(
-        image: const AssetImage(Assets.g2),
-        controller: controller,
-        autostart: Autostart.loop,
-      ),
-      Column(
-        children: [
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-              'نقاطي',
-              style: AppStyles.semiBold16(context)
-                  .copyWith(color: AppColors.kGray),
-            ),
-            Gap(8.w),
-            SvgPicture.asset(
-              Assets.points,
-              width: 32.w,
-              height: 32.h,
-            )
-          ]),
-          Gap(4.h),
-          Text('130',
-              style: AppStyles.semiBold18(context).copyWith(fontSize: 60.sp)),
-        ],
-      ),
-    ]);
+    return Consumer<PointsProvider>(
+      builder:(context,provider,child)=> Stack(
+        alignment: AlignmentDirectional.center,
+         children: [
+        Gif(
+          image: const AssetImage(Assets.g2),
+          controller: controller,
+          autostart: Autostart.loop,
+        ),
+        Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                'نقاطي',
+                style: AppStyles.semiBold16(context)
+                    .copyWith(color: AppColors.kGray),
+              ),
+              Gap(8.w),
+              SvgPicture.asset(
+                Assets.points,
+                width: 32.w,
+                height: 32.h,
+              )
+            ]),
+            Gap(4.h),
+            provider.isLoading?const CircularProgressIndicator(
+              color:AppColors.kRed,
+            ):
+            Text('${provider.points!.data!.points}',
+                style: AppStyles.semiBold18(context).copyWith(fontSize: 60.sp)),
+          ],
+        ),
+      ]),
+    );
   }
 }
