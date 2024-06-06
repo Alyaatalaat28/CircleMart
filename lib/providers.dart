@@ -4,6 +4,7 @@ import 'package:nami/injection.dart';
 import 'package:nami/presentation/modules/auth/auth_provider.dart';
 import 'package:nami/presentation/modules/contact/contact_us_provider.dart';
 import 'package:nami/presentation/modules/home/home_provider.dart';
+import 'package:nami/presentation/modules/map/location_provider.dart';
 import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:nami/presentation/modules/points/points_provider.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +36,9 @@ class AppMultiProvider extends StatelessWidget {
         ),
          ChangeNotifierProvider(
           create: (BuildContext context) => getIt<ContactUsProvider>(),
+        ),
+         ChangeNotifierProvider(
+          create: (BuildContext context) => getIt<LocationProvider>(),
         ),
       ],
       child: child,

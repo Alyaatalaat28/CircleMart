@@ -11,6 +11,7 @@ import 'package:nami/data/repository/points/points_repo_impl.dart';
 import 'package:nami/presentation/modules/auth/auth_provider.dart';
 import 'package:nami/presentation/modules/contact/contact_us_provider.dart';
 import 'package:nami/presentation/modules/home/home_provider.dart';
+import 'package:nami/presentation/modules/map/location_provider.dart';
 import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:nami/presentation/modules/points/points_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -40,6 +41,7 @@ Future<void> init() async {
 
   getIt.registerLazySingleton(() =>PointsProvider(pointsRepo:  getIt<PointsRepoImpl>()));
   getIt.registerLazySingleton(() =>ContactUsProvider(contactUsRepo:getIt<ContactUsRepoInpl>()));
+  getIt.registerLazySingleton(() =>LocationProvider());
   /// External
   final sharedPreferences = await SharedPreferences.getInstance();
   getIt.registerLazySingleton(() => sharedPreferences);
