@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/data/model/body/my_orders/my_orders.dart';
 import 'package:nami/presentation/component/order_delivery_price.dart';
 import 'package:nami/presentation/component/order_total_price.dart';
@@ -25,8 +27,11 @@ class ProductsOrderAmount extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text('المنتجات', style: AppStyles.semiBold12(context)),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start, 
+                children: [
+            Text( tr(LocaleKeys.products), 
+            style: AppStyles.semiBold12(context)),
             OrderProductsListView(
               myOrders: myOrder,
               cIndex: index,

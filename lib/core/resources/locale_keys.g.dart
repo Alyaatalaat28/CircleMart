@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const productDetails = 'productDetails';
   static const thePrice = 'thePrice';
   static const theTotal = 'theTotal';
@@ -49,9 +49,9 @@ abstract class LocaleKeys {
   static const send = 'send';
   static const cancel = 'cancel';
   static const deleteAccount = 'deleteAccount';
-  static const WhoAre = 'WhoAre';
+  static const whoAre = 'whoAre';
   static const myPoints = 'myPoints';
-  static const YouInvited = 'YouInvited';
+  static const youInvited = 'youInvited';
   static const myOrders = 'myOrders';
   static const current = 'current';
   static const Previous = 'Previous';
@@ -76,10 +76,10 @@ abstract class LocaleKeys {
   static const ourBranches = 'ourBranches';
   static const branches = 'branches';
   static const hello = 'hello';
+  static const findaProduct = 'findaProduct';
   static const sections = 'sections';
   static const viewAll = 'viewAll';
   static const latestProducts = 'latestProducts';
-  static const kg = 'kg';
   static const pound = 'pound';
   static const city = 'city';
   static const confirm = 'confirm';
@@ -91,4 +91,20 @@ abstract class LocaleKeys {
   static const enterNewPasswordTitle = 'enterNewPasswordTitle';
   static const kPassword = 'kPassword';
   static const kConfirmPassword = 'kConfirmPassword';
+  static const cart = 'cart';
+  static const egypt = 'egypt';
+  static const phone = 'phone';
+  static const inviteFriend = 'inviteFriend';
+  static const record = 'record';
+  static const emptyFavorite = 'emptyFavorite';
+  static const emptyCategory = 'emptyCategory';
+  static const emptyCart = 'emptyCart';
+  static const searchTitle = 'searchTitle';
+  static const cairo = 'cairo';
+  static const launguage = 'launguage';
+  static const invalidNumber = 'invalidNumber';
+  static const emptyFirstName = 'emptyFirstName';
+  static const emptyLastName = 'emptyLastName';
+  static const emptyOrders = 'emptyOrders';
+
 }

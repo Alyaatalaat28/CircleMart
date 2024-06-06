@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/presentation/component/buttons/custom_text_button.dart';
 import 'package:nami/presentation/modules/setting/widgets/choose_language.dart';
 
@@ -27,7 +28,8 @@ class LanguageBottomSheet extends StatelessWidget {
                   child: SvgPicture.asset(Assets.x),
                 ),
                 const Spacer(),
-                Text('اللغة', style: AppStyles.semiBold18(context)),
+                Text( tr(LocaleKeys.language), 
+                style: AppStyles.semiBold18(context)),
               ],
             ),
             ChooseLanguage(onLanguageSelected: _updateSelectedLanguage),
@@ -35,10 +37,9 @@ class LanguageBottomSheet extends StatelessWidget {
             CustomTextButton(
               width: double.infinity,
               height: 60,
-              text: 'تأكيد',
+              text:  tr(LocaleKeys.confirm),
               radius: 16,
               onPressed: () {
-                print('Changing language...');
                 _changeLanguage(context);
                 Navigator.pop(context);
               },
@@ -61,8 +62,6 @@ class LanguageBottomSheet extends StatelessWidget {
       if (easyLocalization != null) {
         easyLocalization.setLocale(_selectedLocale!);
         print('Language changed to: ${_selectedLocale!.languageCode}');
-      } else {
-        print('EasyLocalization is null');
       }
     } else {
       print('_selectedLocale is null');

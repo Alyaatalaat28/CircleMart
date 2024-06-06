@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -7,6 +8,7 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 
 class InviteFriendsItem extends StatelessWidget {
   const InviteFriendsItem({
@@ -22,14 +24,14 @@ class InviteFriendsItem extends StatelessWidget {
          SvgPicture.asset(Assets.points, width: 24.w, height: 24.h),
         Gap(8.w),
         Column(children: [
-          Text('لقد قمت بدعوة',
+          Text(tr(LocaleKeys.youInvited),
               style: AppStyles.regular12(
                 context,
                 AppColors.kGray,
               )),
           Gap(4.w),
           Text(
-            'محمد جمال',
+            'Alyaa Talaat',
             style: AppStyles.semiBold16(context),
           ),
         ]),

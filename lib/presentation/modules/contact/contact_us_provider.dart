@@ -15,6 +15,12 @@ class ContactUsProvider with ChangeNotifier {
   TextEditingController messageTitleController = TextEditingController();
   TextEditingController messageController = TextEditingController();
 
+  ////form keys
+  final nameFormKey = GlobalKey<FormState>();
+  final emailFormKey = GlobalKey<FormState>();
+  final messageTitleFormKey = GlobalKey<FormState>();
+  final messageBodyFormKey = GlobalKey<FormState>();
+
   ///variables
   EmptyModel? _contactUs;
   bool _isLoading = false;

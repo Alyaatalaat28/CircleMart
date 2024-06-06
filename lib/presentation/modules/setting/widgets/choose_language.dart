@@ -37,61 +37,58 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Column(
-        children: [
-          RadioListTile(
-            title: Text(
-              'عربي',
-              style: AppStyles.regular14(context, AppColors.kBlack),
-            ),
-            value: 0,
-            groupValue: selectedLanguage,
-            onChanged: (value) {
-              setState(() {
-                selectedLanguage = value!;
-                _saveSelectedLanguage(selectedLanguage);
-                widget.onLanguageSelected(
-                    value == 0 ? supportedLanguages[1] : supportedLanguages[0]);
-              });
-            },
-            fillColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
-                if (states.contains(MaterialState.selected)) {
-                  return AppColors.kRed;
-                }
-                return AppColors.kRed; //
-              },
-            ),
+    return Column(
+      children: [
+        RadioListTile(
+          title: Text(
+            'عربي',
+            style: AppStyles.regular14(context, AppColors.kBlack),
           ),
-          RadioListTile(
-            title: Text(
-              'English',
-              style: AppStyles.regular14(context, AppColors.kBlack),
-            ),
-            value: 1,
-            groupValue: selectedLanguage,
-            onChanged: (value) {
-              setState(() {
-                selectedLanguage = value!;
-                _saveSelectedLanguage(selectedLanguage);
-                widget.onLanguageSelected(
-                    value == 0 ? supportedLanguages[1] : supportedLanguages[0]);
-              });
+          value: 0,
+          groupValue: selectedLanguage,
+          onChanged: (value) {
+            setState(() {
+              selectedLanguage = value!;
+              _saveSelectedLanguage(selectedLanguage);
+              widget.onLanguageSelected(
+                  value == 0 ? supportedLanguages[1] : supportedLanguages[0]);
+            });
+          },
+          fillColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              if (states.contains(MaterialState.selected)) {
+                return AppColors.kRed;
+              }
+              return AppColors.kRed; //
             },
-            activeColor: AppColors.kRed,
-            fillColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
-                if (states.contains(MaterialState.selected)) {
-                  return AppColors.kRed;
-                }
-                return AppColors.kRed; //
-              },
-            ),
           ),
-        ],
-      ),
+        ),
+        RadioListTile(
+          title: Text(
+            'English',
+            style: AppStyles.regular14(context, AppColors.kBlack),
+          ),
+          value: 1,
+          groupValue: selectedLanguage,
+          onChanged: (value) {
+            setState(() {
+              selectedLanguage = value!;
+              _saveSelectedLanguage(selectedLanguage);
+              widget.onLanguageSelected(
+                  value == 0 ? supportedLanguages[1] : supportedLanguages[0]);
+            });
+          },
+          activeColor: AppColors.kRed,
+          fillColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              if (states.contains(MaterialState.selected)) {
+                return AppColors.kRed;
+              }
+              return AppColors.kRed; //
+            },
+          ),
+        ),
+      ],
     );
   }
 }

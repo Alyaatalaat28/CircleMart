@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:provider/provider.dart';
 import 'orders_status_button.dart';
@@ -16,7 +18,7 @@ class OrdersStatusButtonsRow extends StatelessWidget {
       return Row(
         children: [
           OrdersStatusButton(
-            text: 'الحالية',
+            text:tr(LocaleKeys.current ),
             buttonColor: provider.showCurrentOrders
                 ? AppColors.kRed
                 : AppColors.kLightGray,
@@ -31,7 +33,7 @@ class OrdersStatusButtonsRow extends StatelessWidget {
           ),
           Gap(10.w),
           OrdersStatusButton(
-            text: 'السابقة',
+            text:tr(LocaleKeys.Previous),
             buttonColor: provider.showCurrentOrders
                 ? AppColors.kLightGray
                 : AppColors.kRed,

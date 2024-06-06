@@ -1,7 +1,9 @@
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/data/model/response/body/register_body.dart';
 import 'package:nami/presentation/component/buttons/custom_text_button.dart';
 import 'package:nami/presentation/component/appbars/products_app_bar.dart';
@@ -20,8 +22,8 @@ class EditProfile extends StatelessWidget {
             appBar: AppBar(
                 surfaceTintColor: Colors.transparent,
                 automaticallyImplyLeading: false,
-                actions: const [
-                  ProductsAppBar(text: 'تعديل الحساب'),
+                actions:  [
+                  ProductsAppBar(text:tr(LocaleKeys.modifyTheAccount )),
                 ]),
             body: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -45,7 +47,7 @@ class EditProfile extends StatelessWidget {
                          CustomTextButton(
                           width: double.infinity,
                           height: 53,
-                          text: 'تأكيد',
+                          text:tr(LocaleKeys.confirm ),
                           radius: 12,
                           onPressed:(){
                              provider.editProfile(

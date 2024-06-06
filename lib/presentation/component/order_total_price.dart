@@ -20,7 +20,8 @@ class OrderTotalPrice extends StatelessWidget {
               context,
             ).copyWith(color: AppColors.kRed)),
         Gap(3.w),
-        Text('ج.م', style: AppStyles.regular12(context, AppColors.kRed)),
+      Text(tr(LocaleKeys.pound),
+         style: AppStyles.regular12(context, AppColors.kRed)),
       ],
     );
   }

@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 
 class InviteBySomeOneOption extends StatefulWidget {
   const InviteBySomeOneOption({super.key});
@@ -27,7 +29,7 @@ class _InviteBySomeOneOptionState extends State<InviteBySomeOneOption> {
               isChecked = value!;
             });
           }),
-      Text('مدعو بواسطة مستخدم ؟',
+      Text(tr(LocaleKeys.youInvited ),
           style: AppStyles.regular14(context, AppColors.kBlack)),
       const Spacer(),
     ]);

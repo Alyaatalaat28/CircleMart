@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nami/core/resources/assets.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/presentation/component/custom_list_tile.dart';
 import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +22,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
     return Consumer<OrdersProvider>(
       builder: (context, provider, child) => CustomContainer(
         child: CustomOrderListTile(
-          title: 'طريقة الدفع',
+          title:tr(LocaleKeys.paymentMethod),
           subTitle: provider.paymentController.text,
           image: Assets.payment,
           trailing: true,

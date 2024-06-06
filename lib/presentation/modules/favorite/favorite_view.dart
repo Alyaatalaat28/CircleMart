@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'package:nami/presentation/modules/favorite/widgets/favorite_grid_view.dart';
 import 'package:nami/presentation/modules/home/home_provider.dart';
@@ -17,7 +19,7 @@ class FavoriteView extends StatelessWidget {
             automaticallyImplyLeading: false,
             actions: [
               ProductsAppBar(
-                  text: 'المفضلة',
+                  text: tr(LocaleKeys.favorite ),
                   onTap: () {
                     Navigator.pop(context);
                     provider.getLatestProducts();

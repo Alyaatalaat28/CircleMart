@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:nami/core/resources/app_styles.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/presentation/modules/auth/auth_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,11 +16,13 @@ class LogOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AuthProvider>(
       builder: (context, provider, child) =>
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+           children: [
         Text(
             provider.saveUserData.getUserToken() != ''
-                ? 'تسجيل الخروج'
-                : 'تسجيل الدخول',
+                ?  tr(LocaleKeys.logOut)
+                :  tr(LocaleKeys.login),
             style: AppStyles.regular14(
                 context, AppColors.kLogOutButtonBorderColor)),
         const Gap(12),

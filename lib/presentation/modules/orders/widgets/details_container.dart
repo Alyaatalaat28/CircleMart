@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/data/model/body/my_orders/my_orders.dart';
 import 'package:nami/presentation/component/custom_list_tile.dart';
 
@@ -44,24 +46,24 @@ class OrderDetailsContainer extends StatelessWidget {
           CustomOrderListTile(
             trailing: false,
             image: Assets.branch,
-            title: 'الفرع',
-            subTitle: '${myOrder.data![index].address}',
+            title: tr(LocaleKeys.branch),
+            subTitle: 'الحرية',
           ),
           CustomOrderListTile(
             image: Assets.location,
-            title: 'عنوان التوصيل',
+            title: tr(LocaleKeys.deliveryAddress),
             subTitle: '${myOrder.data![index].address}',
             trailing: false,
           ),
           CustomOrderListTile(
             image: Assets.payment,
-            title: 'طريقة الدفع',
+            title:  tr(LocaleKeys.paymentMethod),
             subTitle: '${myOrder.data![index].payType}',
             trailing: false,
           ),
           CustomOrderListTile(
             image: Assets.note,
-            title: 'ملاحظات',
+            title: tr(LocaleKeys.notes),
             subTitle: '${myOrder.data![index].notes}',
             trailing: false,
           ),

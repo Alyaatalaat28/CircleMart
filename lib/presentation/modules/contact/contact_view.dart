@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/component/buttons/custom_text_button.dart';
 import 'package:nami/presentation/component/appbars/products_app_bar.dart';
@@ -22,7 +24,9 @@ class ContactView extends StatelessWidget {
           appBar: AppBar(
             surfaceTintColor: Colors.transparent,
             automaticallyImplyLeading: false,
-            actions: const [ProductsAppBar(text: 'تواصل معنا')],
+            actions:  [
+              ProductsAppBar(text:tr(LocaleKeys.connectUs))
+              ],
           ),
           body: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -38,19 +42,21 @@ class ContactView extends StatelessWidget {
                     CustomTextButton(
                       width: double.infinity,
                       height: 60,
-                      text: 'ارسال',
+                      text:tr(LocaleKeys.send),
                       radius: 16,
                       onPressed: () {
+                         if (provider.nameFormKey.currentState!.validate() &&
+                             provider.emailFormKey.currentState! .validate() &&
+                             provider.messageTitleFormKey.currentState! .validate() &&
+                             provider.messageBodyFormKey.currentState!.validate()) {
                         provider.contactUsMethod(
                           ContactUs(
                           name: provider.nameController.text,
                           email: provider.emailController.text,
                           message: provider.messageController.text,
                           subject: provider.messageTitleController.text,
-                          phone:Provider.of<AuthProvider>(context,listen:false).saveUserData.getUserData()!.phone
-                                         
-                        ));
-
+                          phone:Provider.of<AuthProvider>(context,listen:false).saveUserData.getUserData()!.phone                             
+                        ));}
                         pop();
                         provider.clearTextFields();
                       },

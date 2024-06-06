@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/presentation/component/empty_orders.dart';
 import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:nami/presentation/modules/orders/widgets/current_order.dart';
 import 'package:provider/provider.dart';
@@ -10,14 +11,15 @@ class CurrentOrderListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<OrdersProvider>(builder: (context, provider, child) {
-      if (provider.isLoadingorders) {
-        return const Center(
-          child: CircularProgressIndicator(
-            color: AppColors.kRed,
-          ),
-        );
-      } else {
-        return Expanded(
+     return provider.isLoadingorders 
+            ? const Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.kRed,
+                ),
+              )
+            : provider.myOrders!.data!.isEmpty
+                ? const EmptyOrders()
+                : Expanded(
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             itemBuilder: (BuildContext context, int index) => Padding(
@@ -30,7 +32,7 @@ class CurrentOrderListView extends StatelessWidget {
             itemCount: provider.myOrders!.data!.length,
           ),
         );
-      }
-    });
+    }  
+  );
   }
 }

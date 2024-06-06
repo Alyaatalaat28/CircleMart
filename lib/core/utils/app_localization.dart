@@ -4,7 +4,7 @@ import 'package:nami/presentation/modules/auth/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 
-class   AppLocalization {
+class AppLocalization {
   static changeApplang(BuildContext context) {
     if (Provider.of<AuthProvider>(context,listen:false).saveUserData.getLang() == 'ar') {
       EasyLocalization.of(context)!.setLocale(const Locale('en', 'US'));

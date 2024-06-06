@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/data/model/response/body/login_body.dart';
 import 'package:nami/presentation/component/buttons/custom_text_button.dart';
 import 'package:nami/presentation/modules/auth/auth_provider.dart';
@@ -19,7 +21,7 @@ class _EnterState extends State<Enter> {
       builder: (context, provider, child) => CustomTextButton(
           width: double.infinity,
           height: 53,
-          text: 'دخول',
+          text: tr(LocaleKeys.login),
           radius: 12,
           onPressed: () {
             if (provider.loginPhoneFormKey.currentState!.validate()) {

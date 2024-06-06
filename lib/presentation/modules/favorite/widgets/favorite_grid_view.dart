@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/component/product_item.dart';
 import 'package:nami/presentation/component/shimmer.dart';
@@ -67,7 +69,7 @@ class _FavoriteGridViewState extends State<FavoriteGridView> {
               children: [
                 Gap(260.h),
                 Text(
-                  'المفضلة فارغه',
+                 tr(LocaleKeys.emptyFavorite ),
                   style: AppStyles.regular16(context, AppColors.kGray),
                 ),
               ],

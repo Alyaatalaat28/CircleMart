@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'package:nami/presentation/modules/invoice/widgets/confirm_order.dart';
@@ -18,14 +20,17 @@ class PaymentAndDelivery extends StatelessWidget {
     return Consumer<SharedPref>(
       builder: (context, provider, child) => SafeArea(
           child: Scaffold(
-              appBar: AppBar(automaticallyImplyLeading: false, actions: const [
-                ProductsAppBar(text: 'الدفع والتوصيل'),
+              appBar: AppBar(
+                automaticallyImplyLeading: false,
+              actions:[
+                ProductsAppBar(text:tr(LocaleKeys.paymentDelivery)),
               ]),
               body: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
-                  child: Column(children: [
+                  child: Column(
+                    children: [
                     const OrderItemsListView(),
                     Gap(12.h),
                     const Address(),

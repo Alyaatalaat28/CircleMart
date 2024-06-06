@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/presentation/component/appbars/products_app_bar.dart';
 import 'package:nami/presentation/modules/home/bottom_nav_bar.dart';
@@ -16,7 +18,7 @@ class OrdersView extends StatelessWidget {
           automaticallyImplyLeading: false,
           actions: [
             ProductsAppBar(
-              text: 'طلباتي',
+              text:tr(LocaleKeys.myOrders ),
               onTap: () {
                 isFromHome
                     ? pushAndRemoveUntil(const BottomNavBar())

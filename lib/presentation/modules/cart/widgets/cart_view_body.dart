@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/presentation/modules/cart/widgets/cart_empty.dart';
@@ -29,7 +31,7 @@ class CartViewBody extends StatelessWidget {
                   },
                   child: Center(
                     child: Text(
-                      'اطلب الأن',
+                      tr(LocaleKeys.orderNow),
                       style: AppStyles.regular14(context, AppColors.kWhite),
                     ),
                   ),

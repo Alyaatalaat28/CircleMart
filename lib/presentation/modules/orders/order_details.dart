@@ -1,11 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/data/model/body/my_orders/my_orders.dart';
+import 'package:nami/presentation/modules/orders/widgets/custom_stepper.dart';
 import 'package:nami/presentation/modules/orders/widgets/edit_and_cancel_buttons.dart';
 import 'package:nami/presentation/modules/orders/widgets/products_order.dart';
-import 'package:nami/presentation/modules/orders/widgets/custom_stepper.dart';
-
 import '../../component/appbars/products_app_bar.dart';
 import 'widgets/details_container.dart';
 import 'widgets/shopping_bag.dart';
@@ -21,9 +22,9 @@ class OrderDetails extends StatelessWidget {
           appBar: AppBar(
               surfaceTintColor: Colors.transparent,
               automaticallyImplyLeading: false,
-              actions: const [
+              actions:  [
                 ProductsAppBar(
-                  text: 'تفاصيل الطلب',
+                  text: tr(LocaleKeys.orderDetails),
                 ),
               ]),
           body: SingleChildScrollView(

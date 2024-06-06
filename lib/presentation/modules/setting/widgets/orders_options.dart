@@ -12,7 +12,6 @@ import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:nami/presentation/modules/orders/orders_view.dart';
 import 'package:nami/presentation/modules/points/points_view.dart';
 import 'package:provider/provider.dart';
-
 import 'orders_item.dart';
 
 class OrdersOptions extends StatelessWidget {
@@ -20,7 +19,8 @@ class OrdersOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Consumer<AuthProvider>(
+        builder: (context, provider, child) => SizedBox(
         height: 121.h,
         width: double.infinity,
         child: Container(
@@ -31,8 +31,7 @@ class OrdersOptions extends StatelessWidget {
               ),
             ),
             child: Center(
-              child: Consumer<AuthProvider>(
-                builder: (context, provider, child) => Row(
+              child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       OrdersItem(

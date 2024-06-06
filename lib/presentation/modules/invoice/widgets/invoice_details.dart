@@ -1,8 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/presentation/component/custom_list_tile.dart';
+import 'package:nami/presentation/modules/map/location_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:nami/presentation/modules/orders/orders_provider.dart';
 
@@ -22,27 +25,27 @@ class InvoiceDetails extends StatelessWidget {
             )),
         child: Column(
           children: [
-            const CustomOrderListTile(
+             CustomOrderListTile(
               trailing: false,
               image: Assets.branch,
-              title: 'الفرع',
+              title:tr(LocaleKeys.branch),
               subTitle: 'شارع الحرية',
             ),
-            const CustomOrderListTile(
+             CustomOrderListTile(
               image: Assets.location,
-              title: 'عنوان التوصيل',
-              subTitle: 'شارع الحرية - الجيزة',
+              title:tr(LocaleKeys.deliveryAddress),
+              subTitle: context.read<LocationProvider>().locationName,
               trailing: false,
             ),
             CustomOrderListTile(
               image: Assets.payment,
-              title: 'طريقة الدفع',
+              title:tr(LocaleKeys.paymentMethod),
               subTitle: provider.paymentController.text,
               trailing: false,
             ),
             CustomOrderListTile(
               image: Assets.note,
-              title: 'ملاحظات',
+              title:tr(LocaleKeys.notes),
               subTitle: provider.noteController.text,
               trailing: false,
             ),

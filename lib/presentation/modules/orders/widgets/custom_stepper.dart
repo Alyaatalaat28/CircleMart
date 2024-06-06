@@ -9,25 +9,22 @@ class CustomStepper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<OrdersProvider>(
-      builder: (context, provider, child) => Directionality(
-        textDirection: TextDirection.rtl,
-        child: SliderTheme(
-          data: SliderTheme.of(context).copyWith(
-            thumbShape: const RoundSliderThumbShape(
-              enabledThumbRadius: 0.0,
-            ),
-            trackHeight: 8,
+      builder: (context, provider, child) => SliderTheme(
+        data: SliderTheme.of(context).copyWith(
+          thumbShape: const RoundSliderThumbShape(
+            enabledThumbRadius: 0.0,
           ),
-          child: Slider(
-              value: provider.activeStep,
-              min: 0,
-              max: 6,
-              activeColor: AppColors.kRed,
-              inactiveColor: AppColors.kLightGray,
-              onChanged: (value) {
-                provider.activeStep != value;
-              }),
+          trackHeight: 8,
         ),
+        child: Slider(
+            value: provider.activeStep,
+            min: 0,
+            max: 6,
+            activeColor: AppColors.kRed,
+            inactiveColor: AppColors.kLightGray,
+            onChanged: (value) {
+              provider.activeStep != value;
+            }),
       ),
     );
   }

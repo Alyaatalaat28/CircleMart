@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -6,6 +7,7 @@ import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
 import 'package:gif/gif.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/presentation/modules/points/points_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -45,9 +47,11 @@ class _MyPointsState extends State<MyPoints>
         ),
         Column(
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+             children: [
               Text(
-                'نقاطي',
+                tr(LocaleKeys.myPoints ),
                 style: AppStyles.semiBold16(context)
                     .copyWith(color: AppColors.kGray),
               ),

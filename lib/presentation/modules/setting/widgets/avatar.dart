@@ -20,7 +20,7 @@ class Avatar extends StatelessWidget {
           const Gap(12),
           Text(provider.saveUserData.getUserToken() != ''?
           '${provider.saveUserData.getUserData()!.firstName} ${provider.saveUserData.getUserData()!.lastName}':
-          'User Name', 
+          '', 
           style: AppStyles.semiBold18(context))
         ]),
       ),

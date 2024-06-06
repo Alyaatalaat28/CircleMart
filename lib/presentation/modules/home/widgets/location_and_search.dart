@@ -15,7 +15,8 @@ class LocationAndSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(builder: (context, provider, child) {
-      return Row(children: [
+      return Row(
+        children: [
         const Location(),
         Gap(10.w),
         SearchField(

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:gif/gif.dart';
@@ -5,9 +6,11 @@ import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/app_styles.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/core/routing/app_route.dart';
 import 'package:nami/data/dataSource/local/shared_pref.dart';
 import 'package:nami/data/model/response/body/store_order.dart';
+import 'package:nami/presentation/modules/map/location_provider.dart';
 import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:nami/presentation/modules/orders/orders_view.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +42,7 @@ class _DoneDialogState extends State<DoneDialog>
   Widget build(BuildContext context) {
     return Consumer<OrdersProvider>(
       builder: (context, provider, child) => CustomTextButton(
-          text: 'ارسال الطلب',
+          text:tr(LocaleKeys.sendOrder),
           width: double.infinity,
           height: 50,
           radius: 12,
@@ -47,9 +50,9 @@ class _DoneDialogState extends State<DoneDialog>
             List<Detail> detail = details(context);
             provider
                 .storOrder(StoreOrder(
-              address: "شارع الحريه",
-              latitude: 30.599618,
-              longitude: 30.966453,
+              address:Provider.of<LocationProvider>(context,listen:false).locationName,
+              latitude:Provider.of<LocationProvider>(context,listen:false).currentLocation.latitude,
+              longitude:Provider.of<LocationProvider>(context,listen:false).currentLocation.longitude,
               isPoints: provider.pointsCheck,
               pointsCount: provider.orderCost!.data!.totalPoints,
               pointsValue: provider.orderCost!.data!.points,
@@ -113,7 +116,7 @@ class _DoneDialogState extends State<DoneDialog>
                     autostart: Autostart.once,
                   ),
                   Gap(24.h),
-                  Text('تم ارسال الطلب بنجاح',
+                  Text( tr(LocaleKeys.requestSentSuccessfully),
                       textAlign: TextAlign.center,
                       style: AppStyles.regular16(context, AppColors.kGray)),
                 ],

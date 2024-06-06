@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 import 'package:nami/presentation/component/inputs/custom_text_field.dart';
 import 'package:nami/presentation/modules/orders/orders_provider.dart';
 import 'package:provider/provider.dart';
@@ -33,7 +35,7 @@ class Notes extends StatelessWidget {
             Expanded(
               child: CustomTextField(
                 controller: provider.noteController,
-                label: 'ملاحظات',
+                label:tr(LocaleKeys.notes),
                 keyboardType: TextInputType.text,
               ),
             ),

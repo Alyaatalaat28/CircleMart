@@ -16,7 +16,8 @@ class OrdersViewBody extends StatelessWidget {
         builder: (BuildContext context, provider, child) {
       return Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Column(children: [
+        child: Column(
+          children: [
           const OrdersStatusButtonsRow(),
           Gap(24.h),
           provider.showCurrentOrders

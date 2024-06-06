@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:nami/core/extensions/num_extension.dart';
 import 'package:nami/core/resources/assets.dart';
 import 'package:nami/core/resources/colors.dart';
+import 'package:nami/core/resources/locale_keys.g.dart';
 
 import 'custom_button.dart';
 
@@ -15,18 +17,18 @@ class EditAndCancelButtons extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Row(
         children: [
-          const CustomOrderButton(
+           CustomOrderButton(
             borderColor: AppColors.kRed,
             textColor: AppColors.kRed,
             image: Assets.edit,
-            text: 'تعديل',
+            text: tr(LocaleKeys.modify),
           ),
           Gap(8.w),
-          const CustomOrderButton(
+           CustomOrderButton(
             borderColor: AppColors.kBlack,
             textColor: AppColors.kBlack,
             image: Assets.cancel,
-            text: 'الغاء',
+            text: tr(LocaleKeys.cancel),
           ),
         ],
       ),
