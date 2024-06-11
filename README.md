@@ -28,6 +28,7 @@
 ## Why CircleMart? 🌟
 CircleMart provides a comprehensive and enjoyable shopping experience with features designed to meet your everyday needs. Whether you're browsing, buying, or managing your account, CircleMart makes it simple and convenient.
 
-
+App Demo 📹
+Check out this demo video to see CircleMart in action!
 https://github.com/Alyaatalaat28/CircleMart/assets/78979377/bfcf05ab-97ca-4561-8654-a8f5ae149882
 
