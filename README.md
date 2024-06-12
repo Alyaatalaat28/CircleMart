@@ -40,28 +40,18 @@ https://github.com/Alyaatalaat28/CircleMart/assets/78979377/bfcf05ab-97ca-4561-8
 ![PhotoGrid_1718182523829](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/bf395b19-de7f-4b00-bcb3-2bdb6bc668e9)
 
 ## Home 
-![PhotoGrid_1718182577517](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/99f68112-510e-4803-94ac-eb7c82dd3496)
 ![PhotoGrid_1718189344544](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/8c8cf679-0bd1-4d02-b4de-23c63a7d21b2)
-![PhotoGrid_1718189331901](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/de884942-34d4-4aaa-8988-0346406273ed)
 ![PhotoGrid_1718182610588](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/6b075665-bf73-467b-87d4-cd55f438ff17)
 
 ## Products 
 ![PhotoGrid_1718182647091](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/d719b15f-94c5-4723-9883-998dc8eb4d1d)
-![PhotoGrid_1718182702808](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/e38f5dd7-80b4-45e8-942b-2606f161b66a)
-![PhotoGrid_1718189356512](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/e75adc72-ef63-4f74-b6cb-0bc470932eb9)
-![PhotoGrid_1718189368021](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/e2cdf73c-c2a8-4f2c-b566-90b21fc01cdd)
+![PhotoGrid_1718189368021](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/57c77abf-781c-415f-817d-3c2aa3a61077)
 
 ## Product Details 
 ![PhotoGrid_1718182951964](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/56aaee61-64b0-4bdf-a9fb-f982437ffe78)
-![PhotoGrid_1718182725780](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/954981a8-0164-44a3-b6dd-d7fcf54bcc57)
-![PhotoGrid_1718189488771](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/f870f98d-acca-434e-8a71-d6fbe2a376d6)
-![PhotoGrid_1718189469922](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/88327950-a96a-4415-8f21-a0931d570156)
-
 ## Categories 
 ![PhotoGrid_1718183114808](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/7adac83f-6c68-4f7e-9308-2cecd65bc6f5)
 ![PhotoGrid_1718183155856](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/85a1ee70-4302-4e6e-9106-da5636d56938) 
-![PhotoGrid_1718183136942](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/15d075a9-13f2-4108-9c93-3ac13de05f86)
-
 
 ## Cart
 ![PhotoGrid_1718183097260](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/7040b09d-4e8e-4b67-b144-b64d4bdc5200)
