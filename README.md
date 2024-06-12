@@ -42,14 +42,20 @@ https://github.com/Alyaatalaat28/CircleMart/assets/78979377/bfcf05ab-97ca-4561-8
 ## Home 
 ![PhotoGrid_1718182577517](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/99f68112-510e-4803-94ac-eb7c82dd3496)
 ![PhotoGrid_1718182610588](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/5e943c4b-b4fa-4848-a780-236a817a2b25)
+![PhotoGrid_1718189344544](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/8c8cf679-0bd1-4d02-b4de-23c63a7d21b2)
+![PhotoGrid_1718189331901](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/de884942-34d4-4aaa-8988-0346406273ed)
 
 ## Products 
 ![PhotoGrid_1718182647091](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/d719b15f-94c5-4723-9883-998dc8eb4d1d)
 ![PhotoGrid_1718182702808](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/e38f5dd7-80b4-45e8-942b-2606f161b66a)
+![PhotoGrid_1718189356512](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/e75adc72-ef63-4f74-b6cb-0bc470932eb9)
+![PhotoGrid_1718189368021](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/e2cdf73c-c2a8-4f2c-b566-90b21fc01cdd)
 
 ## Product Details 
 ![PhotoGrid_1718182951964](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/56aaee61-64b0-4bdf-a9fb-f982437ffe78)
 ![PhotoGrid_1718182725780](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/954981a8-0164-44a3-b6dd-d7fcf54bcc57)
+![PhotoGrid_1718189488771](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/f870f98d-acca-434e-8a71-d6fbe2a376d6)
+![PhotoGrid_1718189469922](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/88327950-a96a-4415-8f21-a0931d570156)
 
 ## Categories 
 ![PhotoGrid_1718183114808](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/7adac83f-6c68-4f7e-9308-2cecd65bc6f5)
