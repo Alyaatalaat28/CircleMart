@@ -55,7 +55,6 @@ https://github.com/Alyaatalaat28/CircleMart/assets/78979377/bfcf05ab-97ca-4561-8
 
 ## Cart
 ![PhotoGrid_1718183097260](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/7040b09d-4e8e-4b67-b144-b64d4bdc5200)
-![PhotoGrid_1718183179640](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/edbc02b0-aa54-4ce2-9bd7-5a7ceb867adb)
 
 ## Payment and Delivery 
 ![PhotoGrid_1718184566625](https://github.com/Alyaatalaat28/CircleMart/assets/78979377/35aa9be1-33ea-40ed-93bb-a16cc2c4958c)
